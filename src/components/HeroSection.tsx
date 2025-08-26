@@ -1,18 +1,20 @@
 import { SwissButton } from "./SwissButton";
 import { Badge } from "@/components/ui/badge";
 import { Play, TrendingUp, Users, Award } from "lucide-react";
-import heroBackground from "@/assets/swiss-hero-bg.jpg";
+import Spline from '@splinetool/react-spline';
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-      />
+      {/* Spline 3D Background */}
+      <div className="absolute inset-0">
+        <Spline 
+          scene="https://prod.spline.design/Lk8uiZLM1eGxPlqQYUpJkjZz/scene.splinecode" 
+          className="w-full h-full object-cover"
+        />
+      </div>
       {/* Background Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-swiss-navy via-swiss-navy-dark to-swiss-navy opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-swiss-navy/40 via-swiss-navy-dark/60 to-swiss-navy/50" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(34,197,94,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(251,191,36,0.05),transparent_50%)]" />
       
