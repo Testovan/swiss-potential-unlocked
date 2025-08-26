@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { SwissButton } from "./SwissButton";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -40,6 +41,7 @@ const questions = [
 ];
 
 export const AssessmentSection = () => {
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [totalScore, setTotalScore] = useState(0);
@@ -102,7 +104,11 @@ export const AssessmentSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <SwissButton variant="success" size="lg">
+              <SwissButton 
+                variant="success" 
+                size="lg"
+                onClick={() => navigate(`/analysis?score=${totalScore}`)}
+              >
                 <Target className="w-5 h-5" />
                 Detaillierte Analyse erhalten
               </SwissButton>
