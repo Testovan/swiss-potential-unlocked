@@ -57,11 +57,11 @@ export const HeroSection = () => {
         </div>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16 animate-bounce-in">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16 animate-fade-in">
           <SwissButton 
             variant="success" 
             size="xl"
-            className="min-w-[280px] shadow-2xl"
+            className="min-w-[280px] shadow-2xl animate-pulse-gentle-primary"
           >
             <TrendingUp className="w-5 h-5" />
             Check your Swiss Potential Now
@@ -70,7 +70,7 @@ export const HeroSection = () => {
           <SwissButton 
             variant="glass" 
             size="lg"
-            className="min-w-[200px]"
+            className="min-w-[200px] animate-pulse-gentle"
           >
             <Play className="w-5 h-5" />
             SRF Beitrag ansehen
