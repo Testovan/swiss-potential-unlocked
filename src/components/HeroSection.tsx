@@ -61,7 +61,8 @@ export const HeroSection = () => {
           <SwissButton 
             variant="success" 
             size="xl"
-            className="min-w-[280px] shadow-2xl animate-pulse-gentle-primary"
+            className="min-w-[280px] shadow-2xl"
+            data-cta="primary"
           >
             <TrendingUp className="w-5 h-5" />
             Check your Swiss Potential Now
@@ -70,7 +71,8 @@ export const HeroSection = () => {
           <SwissButton 
             variant="glass" 
             size="lg"
-            className="min-w-[200px] animate-pulse-gentle"
+            className="min-w-[200px]"
+            data-cta="secondary"
           >
             <Play className="w-5 h-5" />
             SRF Beitrag ansehen
