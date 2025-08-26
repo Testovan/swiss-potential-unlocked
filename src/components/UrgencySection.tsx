@@ -230,9 +230,9 @@ export const UrgencySection = () => {
             </p>
             
             <SwissButton 
-              variant="premium" 
+              variant="burgundy" 
               size="xl" 
-              className="mb-4 bg-gradient-to-r from-success-green to-success-green-light hover:from-success-green-light hover:to-success-green shadow-success animate-pulse-gentle"
+              className="mb-4 bg-gradient-to-r from-alpine-green to-alpine-green-light hover:from-alpine-green-light hover:to-alpine-green shadow-success animate-pulse-gentle"
             >
               <Zap className="w-5 h-5" />
               JETZT kostenlose Beratung sichern

@@ -25,29 +25,33 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				
-				// Clean Modern Color Palette
-				'primary-navy': 'hsl(var(--primary-navy))',
-				'clean-white': 'hsl(var(--clean-white))',
+				// Swiss Heritage Luxury Color Palette
+				'charcoal-black': 'hsl(var(--charcoal-black))',
+				'off-white': 'hsl(var(--off-white))',
+				'alpine-green': {
+					DEFAULT: 'hsl(var(--alpine-green))',
+					light: 'hsl(var(--alpine-green-light))'
+				},
+				'silver-gray': {
+					DEFAULT: 'hsl(var(--silver-gray))',
+					dark: 'hsl(var(--silver-gray-dark))'
+				},
+				'burgundy': {
+					DEFAULT: 'hsl(var(--burgundy))',
+					dark: 'hsl(var(--burgundy-dark))'
+				},
+				
+				// Core SwissPats Brand Colors (Heritage Luxury Updated)
+				'swiss-navy': {
+					DEFAULT: 'hsl(var(--swiss-navy))',
+					light: 'hsl(var(--swiss-navy-light))',
+					dark: 'hsl(var(--swiss-navy-dark))'
+				},
 				'success-green': {
 					DEFAULT: 'hsl(var(--success-green))',
 					light: 'hsl(var(--success-green-light))'
 				},
-				'neutral-gray': {
-					DEFAULT: 'hsl(var(--neutral-gray))',
-					dark: 'hsl(var(--neutral-gray-dark))'
-				},
-				'accent-blue': {
-					DEFAULT: 'hsl(var(--accent-blue))',
-					dark: 'hsl(var(--accent-blue-dark))'
-				},
-				
-				// Core Brand Colors (Clean Modern Updated)
-				'primary-blue': {
-					DEFAULT: 'hsl(var(--primary-blue))',
-					light: 'hsl(var(--primary-blue-light))',
-					dark: 'hsl(var(--primary-blue-dark))'
-				},
-				'premium-accent': 'hsl(var(--premium-accent))',
+				'premium-gold': 'hsl(var(--premium-gold))',
 				'warning-amber': 'hsl(var(--warning-amber))',
 				'info-blue': 'hsl(var(--info-blue))',
 				
@@ -86,17 +90,17 @@ export default {
 				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
 			},
 			backgroundImage: {
-				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-swiss': 'var(--gradient-swiss)',
 				'gradient-success': 'var(--gradient-success)',
 				'gradient-premium': 'var(--gradient-premium)',
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-clean': 'var(--gradient-clean)'
+				'gradient-luxury': 'var(--gradient-luxury)'
 			},
 			boxShadow: {
-				'primary': 'var(--shadow-primary)',
+				'swiss': 'var(--shadow-swiss)',
 				'success': 'var(--shadow-success)',
 				'premium': 'var(--shadow-premium)',
-				'clean': 'var(--shadow-clean)',
+				'luxury': 'var(--shadow-luxury)',
 				'soft': 'var(--shadow-soft)'
 			},
 			transitionTimingFunction: {

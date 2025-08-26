@@ -96,7 +96,7 @@ export const QuickAssessment = () => {
                 Ausgezeichnete Ausgangslage für die Schweiz!
               </p>
               
-              <SwissButton variant="premium" size="lg" className="mb-4">
+              <SwissButton variant="burgundy" size="lg" className="mb-4">
                 <Target className="w-5 h-5" />
                 Vollständige Analyse starten
               </SwissButton>

@@ -229,7 +229,7 @@ export const SocialProofSection = () => {
               ))}
             </div>
             
-            <SwissButton variant="premium" size="sm" className="w-full">
+            <SwissButton variant="burgundy" size="sm" className="w-full">
               <Play className="w-4 h-4" />
               Reportage ansehen
             </SwissButton>
@@ -246,7 +246,7 @@ export const SocialProofSection = () => {
             </p>
           </div>
           
-          <SwissButton variant="premium" size="xl" className="mb-4">
+          <SwissButton variant="burgundy" size="xl" className="mb-4">
             <TrendingUp className="w-5 h-5" />
             Meine Schweiz-Analyse starten
           </SwissButton>
