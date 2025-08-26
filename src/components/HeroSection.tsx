@@ -1,13 +1,13 @@
 import { SwissButton } from "./SwissButton";
 import { Badge } from "@/components/ui/badge";
 import { Play, TrendingUp, Users, Award } from "lucide-react";
-import { SwissAnimatedBackground } from "./SwissAnimatedBackground";
+import { SplineBackground } from "./SplineBackground";
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Animated Background */}
-      <SwissAnimatedBackground />
+      {/* Spline Background */}
+      <SplineBackground />
       {/* Background Overlays */}
       <div className="absolute inset-0 bg-gradient-to-br from-swiss-navy/40 via-swiss-navy-dark/60 to-swiss-navy/50" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(34,197,94,0.1),transparent_50%)]" />
