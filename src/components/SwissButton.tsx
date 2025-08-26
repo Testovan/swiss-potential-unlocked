@@ -8,29 +8,23 @@ const swissButtonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary Burgundy CTA button - Heritage Luxury
-        burgundy: "bg-burgundy text-off-white shadow-luxury hover:bg-burgundy-dark hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 font-bold",
+        // Primary Blue CTA button - Clean Modern
+        primary: "bg-primary-blue text-clean-white shadow-primary hover:bg-primary-blue-dark hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 font-bold",
         
-        // Charcoal Black primary button
-        swiss: "bg-charcoal-black text-off-white shadow-swiss hover:bg-swiss-navy-light hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
+        // Success Green button
+        success: "bg-success-green text-clean-white shadow-success hover:bg-success-green-light hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
         
-        // Alpine Green success button
-        success: "bg-alpine-green text-off-white shadow-success hover:bg-alpine-green-light hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
+        // Premium Purple variant
+        premium: "bg-gradient-premium text-clean-white shadow-premium hover:shadow-lg hover:scale-105 active:scale-95 font-bold transition-all duration-300",
         
-        // Premium Burgundy variant (same as burgundy but different styling)
-        premium: "bg-gradient-luxury text-off-white shadow-luxury hover:shadow-xl hover:scale-105 active:scale-95 font-bold transition-all duration-300",
+        // Clean outline button
+        outline: "border-2 border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-clean-white transition-all duration-300",
         
-        // Glass morphism button - now with off-white text
-        glass: "bg-off-white/10 backdrop-blur-sm border border-off-white/20 text-off-white hover:bg-off-white/20 hover:border-off-white/30 transition-all duration-300",
+        // Light secondary button
+        secondary: "bg-neutral-gray text-primary-navy shadow-soft hover:shadow-clean hover:bg-neutral-gray-dark transition-all duration-300",
         
-        // Outlined Heritage button
-        outline: "border-2 border-silver-gray text-charcoal-black hover:bg-silver-gray hover:text-charcoal-black transition-all duration-300",
-        
-        // Silver Gray secondary button
-        secondary: "bg-silver-gray text-charcoal-black shadow-soft hover:shadow-md hover:bg-silver-gray-dark transition-all duration-300",
-        
-        // Ghost button with Heritage colors
-        ghost: "text-charcoal-black hover:bg-silver-gray/50 transition-colors duration-200",
+        // Ghost button with clean colors
+        ghost: "text-primary-navy hover:bg-neutral-gray/50 transition-colors duration-200",
         
         // Destructive button
         destructive: "bg-destructive text-destructive-foreground shadow-md hover:bg-destructive/90 hover:shadow-lg transition-all duration-300",
@@ -44,7 +38,7 @@ const swissButtonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "swiss",
+      variant: "primary",
       size: "default",
     },
   }

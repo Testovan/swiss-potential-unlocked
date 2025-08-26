@@ -105,7 +105,7 @@ export const AssessmentSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <SwissButton 
-                variant="burgundy" 
+                variant="premium" 
                 size="lg"
                 onClick={() => navigate(`/analysis?score=${totalScore}`)}
               >

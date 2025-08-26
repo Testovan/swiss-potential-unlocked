@@ -152,7 +152,7 @@ export const FAQSection = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <SwissButton variant="burgundy" size="xl">
+            <SwissButton variant="premium" size="xl">
               <Phone className="w-5 h-5" />
               Kostenlose Beratung buchen
             </SwissButton>
