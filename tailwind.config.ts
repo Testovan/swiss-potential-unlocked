@@ -25,7 +25,23 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				
-				// Core SwissPats Brand Colors
+				// Swiss Heritage Luxury Color Palette
+				'charcoal-black': 'hsl(var(--charcoal-black))',
+				'off-white': 'hsl(var(--off-white))',
+				'alpine-green': {
+					DEFAULT: 'hsl(var(--alpine-green))',
+					light: 'hsl(var(--alpine-green-light))'
+				},
+				'silver-gray': {
+					DEFAULT: 'hsl(var(--silver-gray))',
+					dark: 'hsl(var(--silver-gray-dark))'
+				},
+				'burgundy': {
+					DEFAULT: 'hsl(var(--burgundy))',
+					dark: 'hsl(var(--burgundy-dark))'
+				},
+				
+				// Core SwissPats Brand Colors (Heritage Luxury Updated)
 				'swiss-navy': {
 					DEFAULT: 'hsl(var(--swiss-navy))',
 					light: 'hsl(var(--swiss-navy-light))',
@@ -77,12 +93,14 @@ export default {
 				'gradient-swiss': 'var(--gradient-swiss)',
 				'gradient-success': 'var(--gradient-success)',
 				'gradient-premium': 'var(--gradient-premium)',
-				'gradient-hero': 'var(--gradient-hero)'
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-luxury': 'var(--gradient-luxury)'
 			},
 			boxShadow: {
 				'swiss': 'var(--shadow-swiss)',
 				'success': 'var(--shadow-success)',
 				'premium': 'var(--shadow-premium)',
+				'luxury': 'var(--shadow-luxury)',
 				'soft': 'var(--shadow-soft)'
 			},
 			transitionTimingFunction: {

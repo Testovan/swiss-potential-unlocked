@@ -71,33 +71,33 @@ export const AssessmentSection = () => {
 
   if (showResult) {
     return (
-      <section className="py-20 bg-gradient-to-br from-background to-muted">
+      <section className="py-20 bg-gradient-to-br from-off-white to-silver-gray/30">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <div className="animate-bounce-in">
               <div className="relative mx-auto w-32 h-32 mb-8">
-                <div className="absolute inset-0 rounded-full bg-gradient-success animate-pulse-glow" />
-                <div className="absolute inset-2 rounded-full bg-white flex items-center justify-center">
-                  <span className="text-4xl font-black text-swiss-navy">{totalScore}</span>
+                <div className="absolute inset-0 rounded-full bg-alpine-green animate-pulse-glow" />
+                <div className="absolute inset-2 rounded-full bg-off-white flex items-center justify-center">
+                  <span className="text-4xl font-black text-charcoal-black">{totalScore}</span>
                 </div>
               </div>
               
-              <h2 className="text-4xl font-black text-swiss-navy mb-4">
+              <h2 className="text-4xl font-black text-charcoal-black mb-4">
                 Herzlichen Glückwunsch! 🎉
               </h2>
               
-              <p className="text-xl text-muted-foreground mb-6">
-                Deine Erfolgsquote: <span className="font-bold text-success-green">{successRate}%</span>
+              <p className="text-xl text-charcoal-black/70 mb-6">
+                Deine Erfolgsquote: <span className="font-bold text-alpine-green">{successRate}%</span>
               </p>
               
-              <div className="bg-gradient-to-r from-success-green/10 to-premium-gold/10 rounded-2xl p-6 mb-8 border border-success-green/20">
+              <div className="bg-gradient-to-r from-alpine-green/10 to-burgundy/10 rounded-2xl p-6 mb-8 border border-alpine-green/20">
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <Trophy className="w-6 h-6 text-premium-gold" />
-                  <Badge variant="secondary" className="bg-premium-gold/20 text-premium-gold border-premium-gold/30">
+                  <Trophy className="w-6 h-6 text-burgundy" />
+                  <Badge variant="secondary" className="bg-burgundy/20 text-burgundy border-burgundy/30">
                     High Potential
                   </Badge>
                 </div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-charcoal-black/70">
                   Du gehörst zu den <strong>Top 16% der Teilnehmer</strong> und hast ausgezeichnete Chancen auf eine erfolgreiche Schweiz-Karriere!
                 </p>
               </div>
@@ -105,7 +105,7 @@ export const AssessmentSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <SwissButton 
-                variant="success" 
+                variant="burgundy" 
                 size="lg"
                 onClick={() => navigate(`/analysis?score=${totalScore}`)}
               >
@@ -123,38 +123,38 @@ export const AssessmentSection = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background to-muted">
+    <section className="py-20 bg-gradient-to-br from-off-white to-silver-gray/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black text-swiss-navy mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-charcoal-black mb-4">
             Dein Schweizer Potenzial 
-            <span className="text-success-green"> in 60 Sekunden</span>
+            <span className="text-alpine-green"> in 60 Sekunden</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-charcoal-black/70 max-w-2xl mx-auto">
             Finde heraus, wie viel mehr du in der Schweiz verdienen könntest
           </p>
         </div>
 
         {/* Progress Bar */}
         <div className="max-w-md mx-auto mb-8">
-          <div className="flex justify-between text-sm text-muted-foreground mb-2">
+          <div className="flex justify-between text-sm text-charcoal-black/70 mb-2">
             <span>Fortschritt</span>
             <span>{Math.round(progress)}%</span>
           </div>
-          <Progress value={progress} className="h-3 bg-muted" />
+          <Progress value={progress} className="h-3 bg-silver-gray" />
         </div>
 
         {/* Question Card */}
         <div className="max-w-2xl mx-auto">
-          <Card className="p-8 shadow-swiss border-0 bg-white/80 backdrop-blur-sm animate-scale-in">
+          <Card className="p-8 shadow-luxury border-0 bg-off-white/80 backdrop-blur-sm animate-scale-in">
             <div className="text-center mb-8">
               <div className="flex items-center justify-center gap-2 mb-4">
-                <Zap className="w-6 h-6 text-success-green" />
-                <Badge variant="secondary" className="bg-success-green/10 text-success-green border-success-green/20">
+                <Zap className="w-6 h-6 text-alpine-green" />
+                <Badge variant="secondary" className="bg-alpine-green/10 text-alpine-green border-alpine-green/20">
                   Frage {currentQuestion + 1} von {questions.length}
                 </Badge>
               </div>
-              <h3 className="text-2xl font-bold text-swiss-navy mb-2">
+              <h3 className="text-2xl font-bold text-charcoal-black mb-2">
                 {questions[currentQuestion].title}
               </h3>
             </div>
@@ -164,20 +164,20 @@ export const AssessmentSection = () => {
                 <button
                   key={index}
                   onClick={() => handleAnswer(option.points)}
-                  className="group p-4 rounded-xl border-2 border-muted hover:border-success-green bg-white hover:bg-success-green/5 transition-all duration-300 transform hover:scale-105 hover:shadow-soft text-left"
+                  className="group p-4 rounded-xl border-2 border-silver-gray hover:border-alpine-green bg-off-white hover:bg-alpine-green/5 transition-all duration-300 transform hover:scale-105 hover:shadow-soft text-left"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{option.icon}</span>
-                      <span className="font-semibold text-foreground group-hover:text-success-green transition-colors">
+                      <span className="font-semibold text-charcoal-black group-hover:text-alpine-green transition-colors">
                         {option.label}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Badge variant="outline" className="bg-success-green/10 text-success-green border-success-green/20">
+                      <Badge variant="outline" className="bg-alpine-green/10 text-alpine-green border-alpine-green/20">
                         +{option.points} Punkte
                       </Badge>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-success-green transition-colors" />
+                      <ArrowRight className="w-4 h-4 text-charcoal-black/50 group-hover:text-alpine-green transition-colors" />
                     </div>
                   </div>
                 </button>
@@ -186,14 +186,14 @@ export const AssessmentSection = () => {
 
             {/* Live Score */}
             {totalScore > 0 && (
-              <div className="mt-6 p-4 bg-gradient-to-r from-success-green/10 to-premium-gold/10 rounded-xl border border-success-green/20 animate-fade-in">
+              <div className="mt-6 p-4 bg-gradient-to-r from-alpine-green/10 to-burgundy/10 rounded-xl border border-alpine-green/20 animate-fade-in">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-muted-foreground">
+                  <span className="text-sm font-medium text-charcoal-black/70">
                     Aktueller Score:
                   </span>
                   <div className="flex items-center gap-2">
-                    <Star className="w-4 h-4 text-premium-gold" />
-                    <span className="font-bold text-success-green">{totalScore} Punkte</span>
+                    <Star className="w-4 h-4 text-burgundy" />
+                    <span className="font-bold text-alpine-green">{totalScore} Punkte</span>
                   </div>
                 </div>
               </div>

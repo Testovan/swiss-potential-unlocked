@@ -8,26 +8,29 @@ const swissButtonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary Swiss Navy button
-        swiss: "bg-gradient-swiss text-primary-foreground shadow-swiss hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
+        // Primary Burgundy CTA button - Heritage Luxury
+        burgundy: "bg-burgundy text-off-white shadow-luxury hover:bg-burgundy-dark hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 font-bold",
         
-        // Success Green CTA button
-        success: "bg-gradient-success text-accent-foreground shadow-success hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse-glow",
+        // Charcoal Black primary button
+        swiss: "bg-charcoal-black text-off-white shadow-swiss hover:bg-swiss-navy-light hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
         
-        // Premium Gold button
-        premium: "bg-gradient-premium text-foreground shadow-premium hover:shadow-lg hover:scale-105 active:scale-95 font-bold",
+        // Alpine Green success button
+        success: "bg-alpine-green text-off-white shadow-success hover:bg-alpine-green-light hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
         
-        // Glass morphism button
-        glass: "bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300",
+        // Premium Burgundy variant (same as burgundy but different styling)
+        premium: "bg-gradient-luxury text-off-white shadow-luxury hover:shadow-xl hover:scale-105 active:scale-95 font-bold transition-all duration-300",
         
-        // Outlined Swiss button
-        outline: "border-2 border-swiss-navy text-swiss-navy hover:bg-swiss-navy hover:text-white transition-all duration-300",
+        // Glass morphism button - now with off-white text
+        glass: "bg-off-white/10 backdrop-blur-sm border border-off-white/20 text-off-white hover:bg-off-white/20 hover:border-off-white/30 transition-all duration-300",
         
-        // Subtle secondary button
-        secondary: "bg-secondary text-secondary-foreground shadow-soft hover:shadow-md hover:bg-secondary/80 transition-all duration-300",
+        // Outlined Heritage button
+        outline: "border-2 border-silver-gray text-charcoal-black hover:bg-silver-gray hover:text-charcoal-black transition-all duration-300",
         
-        // Ghost button
-        ghost: "text-swiss-navy hover:bg-swiss-navy/10 transition-colors duration-200",
+        // Silver Gray secondary button
+        secondary: "bg-silver-gray text-charcoal-black shadow-soft hover:shadow-md hover:bg-silver-gray-dark transition-all duration-300",
+        
+        // Ghost button with Heritage colors
+        ghost: "text-charcoal-black hover:bg-silver-gray/50 transition-colors duration-200",
         
         // Destructive button
         destructive: "bg-destructive text-destructive-foreground shadow-md hover:bg-destructive/90 hover:shadow-lg transition-all duration-300",

@@ -2,58 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* SwissPats Design System - Swiss Banking Level Quality
+/* SwissPats Design System - Swiss Heritage Luxury
 All colors MUST be HSL for proper theming.
 */
 
 @layer base {
   :root {
-    /* Core Brand Colors */
-    --swiss-navy: 211 52% 23%;           /* #1B365D - Primary brand color */
-    --swiss-navy-light: 211 52% 35%;     /* Lighter variation */
-    --swiss-navy-dark: 211 52% 15%;      /* Darker variation */
-    --success-green: 142 71% 45%;        /* #22C55E - Success/CTA color */
-    --success-green-light: 142 71% 55%;  /* Lighter green */
-    --premium-gold: 43 96% 56%;          /* Gold accent for premium elements */
-    --warning-amber: 38 92% 50%;         /* Warning states */
-    --info-blue: 217 91% 60%;            /* Information states */
+    /* Swiss Heritage Luxury Color Palette */
+    --charcoal-black: 0 0% 11%;             /* #1C1C1C - Primary dark */
+    --off-white: 43 50% 98%;                /* #FDFCF9 - Clean light */
+    --alpine-green: 123 43% 33%;            /* #2E7D32 - Success/Progress */
+    --alpine-green-light: 123 43% 43%;      /* Lighter variation */
+    --silver-gray: 210 14% 83%;             /* #CED4DA - Subtle elements */
+    --silver-gray-dark: 210 14% 73%;        /* Darker variation */
+    --burgundy: 345 100% 25%;               /* #800020 - CTA/Highlights */
+    --burgundy-dark: 345 100% 17%;          /* #5A0015 - Hover state */
     
-    /* Neutral Palette */
-    --background: 0 0% 100%;             /* Pure white */
-    --foreground: 211 52% 15%;           /* Dark swiss navy for text */
-    --muted: 210 40% 96%;                /* Very light background */
-    --muted-foreground: 215 16% 47%;     /* Muted text */
-    --border: 214 32% 91%;               /* Subtle borders */
-    --input: 214 32% 91%;                /* Input backgrounds */
-    --ring: 211 52% 23%;                 /* Focus rings - swiss navy */
+    /* Core Brand Colors - Updated to Heritage Luxury */
+    --swiss-navy: 0 0% 11%;                 /* Charcoal Black */
+    --swiss-navy-light: 0 0% 15%;           /* Slightly lighter charcoal */
+    --swiss-navy-dark: 0 0% 8%;             /* Deeper charcoal */
+    --success-green: 123 43% 33%;           /* Alpine Green */
+    --success-green-light: 123 43% 43%;     /* Lighter alpine */
+    --premium-gold: 345 100% 25%;           /* Burgundy as premium accent */
+    --warning-amber: 38 92% 50%;            /* Keep for warnings */
+    --info-blue: 217 91% 60%;               /* Keep for info states */
+    
+    /* Neutral Palette - Heritage Luxury */
+    --background: 43 50% 98%;               /* Off-White */
+    --foreground: 0 0% 11%;                 /* Charcoal Black for text */
+    --muted: 210 14% 90%;                   /* Light silver gray */
+    --muted-foreground: 0 0% 25%;           /* Dark charcoal for muted text */
+    --border: 210 14% 83%;                  /* Silver Gray */
+    --input: 210 14% 83%;                   /* Silver Gray for inputs */
+    --ring: 345 100% 25%;                   /* Burgundy for focus rings */
     
     /* Component Colors */
-    --card: 0 0% 100%;
-    --card-foreground: 211 52% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 211 52% 15%;
+    --card: 43 50% 98%;                     /* Off-White */
+    --card-foreground: 0 0% 11%;            /* Charcoal Black */
+    --popover: 43 50% 98%;                  /* Off-White */
+    --popover-foreground: 0 0% 11%;         /* Charcoal Black */
     
-    /* Semantic Colors */
-    --primary: 211 52% 23%;              /* Swiss Navy */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 211 52% 15%;
-    --accent: 142 71% 45%;               /* Success Green */
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    /* Semantic Colors - Heritage Luxury */
+    --primary: 0 0% 11%;                    /* Charcoal Black */
+    --primary-foreground: 43 50% 98%;       /* Off-White */
+    --secondary: 210 14% 83%;               /* Silver Gray */
+    --secondary-foreground: 0 0% 11%;       /* Charcoal Black */
+    --accent: 123 43% 33%;                  /* Alpine Green */
+    --accent-foreground: 43 50% 98%;        /* Off-White */
+    --destructive: 0 84% 60%;               /* Keep red for destructive */
+    --destructive-foreground: 43 50% 98%;   /* Off-White */
     
-    /* Gradients */
-    --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-navy)), hsl(var(--swiss-navy-light)));
-    --gradient-success: linear-gradient(135deg, hsl(var(--success-green)), hsl(var(--success-green-light)));
-    --gradient-premium: linear-gradient(135deg, hsl(var(--premium-gold)), hsl(43 96% 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--swiss-navy)) 0%, hsl(var(--swiss-navy-dark)) 100%);
+    /* Heritage Luxury Gradients */
+    --gradient-swiss: linear-gradient(135deg, hsl(var(--charcoal-black)), hsl(var(--swiss-navy-light)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--alpine-green)), hsl(var(--alpine-green-light)));
+    --gradient-premium: linear-gradient(135deg, hsl(var(--burgundy)), hsl(var(--burgundy-dark)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--swiss-navy-dark)) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--burgundy)) 100%);
     
-    /* Shadows */
-    --shadow-swiss: 0 10px 30px -10px hsl(var(--swiss-navy) / 0.3);
-    --shadow-success: 0 10px 25px -8px hsl(var(--success-green) / 0.4);
-    --shadow-premium: 0 20px 40px -15px hsl(var(--premium-gold) / 0.3);
-    --shadow-soft: 0 4px 20px -4px hsl(211 52% 23% / 0.1);
+    /* Heritage Luxury Shadows */
+    --shadow-swiss: 0 10px 30px -10px hsl(var(--charcoal-black) / 0.3);
+    --shadow-success: 0 10px 25px -8px hsl(var(--alpine-green) / 0.4);
+    --shadow-premium: 0 20px 40px -15px hsl(var(--burgundy) / 0.3);
+    --shadow-luxury: 0 25px 50px -12px hsl(var(--charcoal-black) / 0.4);
+    --shadow-soft: 0 4px 20px -4px hsl(var(--charcoal-black) / 0.1);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -64,25 +76,25 @@ All colors MUST be HSL for proper theming.
   }
 
   .dark {
-    --background: 211 52% 8%;
-    --foreground: 0 0% 98%;
-    --card: 211 52% 10%;
-    --card-foreground: 0 0% 98%;
-    --popover: 211 52% 10%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 211 52% 15%;
-    --secondary: 211 52% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 211 52% 15%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 142 71% 45%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 211 52% 15%;
-    --input: 211 52% 15%;
-    --ring: 142 71% 45%;
+    --background: 0 0% 8%;                  /* Deeper charcoal for dark mode */
+    --foreground: 43 50% 98%;               /* Off-White */
+    --card: 0 0% 11%;                       /* Charcoal Black */
+    --card-foreground: 43 50% 98%;          /* Off-White */
+    --popover: 0 0% 11%;                    /* Charcoal Black */
+    --popover-foreground: 43 50% 98%;       /* Off-White */
+    --primary: 43 50% 98%;                  /* Off-White in dark mode */
+    --primary-foreground: 0 0% 11%;         /* Charcoal Black */
+    --secondary: 0 0% 15%;                  /* Lighter charcoal */
+    --secondary-foreground: 43 50% 98%;     /* Off-White */
+    --muted: 0 0% 15%;                      /* Lighter charcoal */
+    --muted-foreground: 210 14% 83%;        /* Silver Gray */
+    --accent: 123 43% 33%;                  /* Alpine Green */
+    --accent-foreground: 43 50% 98%;        /* Off-White */
+    --destructive: 0 63% 31%;               /* Darker red */
+    --destructive-foreground: 43 50% 98%;   /* Off-White */
+    --border: 0 0% 15%;                     /* Lighter charcoal */
+    --input: 0 0% 15%;                      /* Lighter charcoal */
+    --ring: 345 100% 25%;                   /* Burgundy */
   }
 }
 
@@ -97,13 +109,17 @@ All colors MUST be HSL for proper theming.
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
   
-  /* Custom utility classes */
+  /* Custom utility classes - Heritage Luxury */
   .text-gradient-swiss {
-    @apply bg-gradient-to-r from-swiss-navy to-swiss-navy-light bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-charcoal-black to-silver-gray-dark bg-clip-text text-transparent;
   }
   
   .text-gradient-success {
-    @apply bg-gradient-to-r from-success-green to-success-green-light bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-alpine-green to-alpine-green-light bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-luxury {
+    @apply bg-gradient-to-r from-burgundy to-burgundy-dark bg-clip-text text-transparent;
   }
   
   .shadow-swiss {
@@ -116,6 +132,10 @@ All colors MUST be HSL for proper theming.
   
   .shadow-premium {
     box-shadow: var(--shadow-premium);
+  }
+  
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
   }
   
   /* Animation classes */
