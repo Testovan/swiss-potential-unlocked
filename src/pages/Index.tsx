@@ -1,11 +1,23 @@
 import { HeroSection } from "@/components/HeroSection";
 import { AssessmentSection } from "@/components/AssessmentSection";
+import { QuickAssessment } from "@/components/QuickAssessment";
+import { SocialProofSection } from "@/components/SocialProofSection";
+import { DIYvsProComparison } from "@/components/DIYvsProComparison";
+import { UrgencySection } from "@/components/UrgencySection";
+import { FAQSection } from "@/components/FAQSection";
+import { TrustBadgesSection } from "@/components/TrustBadgesSection";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
       <HeroSection />
+      <QuickAssessment />
       <AssessmentSection />
+      <SocialProofSection />
+      <DIYvsProComparison />
+      <UrgencySection />
+      <FAQSection />
+      <TrustBadgesSection />
     </main>
   );
 };
