@@ -50,7 +50,7 @@ const SplineBackgroundAnimation = () => {
           className="absolute inset-0"
         >
           <iframe 
-            src="https://my.spline.design/particleshand-H6LznNnSRGdQTySQe2C5AHLe/"
+            src="https://my.spline.design/sphereofparticles-mltCekHouAIpWsT2xbRqfBRo/"
             frameBorder="0"
             loading="lazy"
             allow="autoplay; fullscreen; xr-spatial-tracking"
