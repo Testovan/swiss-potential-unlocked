@@ -96,7 +96,16 @@ export const QuickAssessment = () => {
                 Ausgezeichnete Ausgangslage für die Schweiz!
               </p>
               
-              <SwissButton variant="burgundy" size="lg" className="mb-4">
+              <SwissButton 
+                variant="burgundy" 
+                size="lg" 
+                className="mb-4"
+                onClick={() => {
+                  document.getElementById('assessment-section')?.scrollIntoView({ 
+                    behavior: 'smooth' 
+                  });
+                }}
+              >
                 <Target className="w-5 h-5" />
                 Vollständige Analyse starten
               </SwissButton>
@@ -112,7 +121,7 @@ export const QuickAssessment = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-off-white to-silver-gray/20">
+    <section id="quick-assessment" className="py-20 bg-gradient-to-br from-off-white to-silver-gray/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4 bg-alpine-green/10 text-alpine-green border-alpine-green/20">

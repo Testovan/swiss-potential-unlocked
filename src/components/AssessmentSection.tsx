@@ -112,7 +112,15 @@ export const AssessmentSection = () => {
                 <Target className="w-5 h-5" />
                 Detaillierte Analyse erhalten
               </SwissButton>
-              <SwissButton variant="outline" size="lg">
+              <SwissButton 
+                variant="outline" 
+                size="lg"
+                onClick={() => {
+                  document.getElementById('calendly-booking')?.scrollIntoView({ 
+                    behavior: 'smooth' 
+                  });
+                }}
+              >
                 Kostenlose Beratung buchen
               </SwissButton>
             </div>
@@ -123,7 +131,7 @@ export const AssessmentSection = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-off-white to-silver-gray/30">
+    <section id="assessment-section" className="py-20 bg-gradient-to-br from-off-white to-silver-gray/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-charcoal-black mb-4">

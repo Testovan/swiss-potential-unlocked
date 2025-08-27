@@ -177,6 +177,11 @@ export const HeroSection = () => {
               size="xl"
               className="min-w-[280px] shadow-2xl relative z-10"
               data-cta="primary"
+              onClick={() => {
+                document.getElementById('quick-assessment')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
             >
               Check your Swiss Potential
             </SwissButton>
@@ -187,11 +192,12 @@ export const HeroSection = () => {
               className="min-w-[200px] relative z-10"
               data-cta="secondary"
               onClick={() => {
-                window.gtag?.('event', 'whatsapp_click', { source: 'hero' });
-                window.open('https://wa.me/41791234567', '_blank');
+                document.getElementById('calendly-booking')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
               }}
             >
-              WhatsApp starten
+              Kostenlose Beratung
             </SwissButton>
           </motion.div>
 
