@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Index from "./pages/Index";
 import Analysis from "./pages/Analysis";
 import DetailedAnalysis from "./pages/DetailedAnalysis";
+import UeberUns from "./pages/UeberUns";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/analysis" element={<Analysis />} />
             <Route path="/detailed-analysis" element={<DetailedAnalysis />} />
+            <Route path="/ueber-uns" element={<UeberUns />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

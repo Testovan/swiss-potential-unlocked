@@ -7,7 +7,7 @@ const Header = () => {
 
   const navigationItems = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
+    { name: 'Über uns', href: '/ueber-uns' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Integrations', href: '/integrations' },
     { name: 'Blog', href: '/blog' }
