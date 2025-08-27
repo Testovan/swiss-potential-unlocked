@@ -85,11 +85,11 @@ export const UrgencySection = () => {
 
         <div className="max-w-4xl mx-auto">
           {/* Live Money Counter */}
-          <Card className="p-8 mb-8 bg-gradient-to-r from-red-500/20 to-burgundy/30 border-2 border-red-400/50 backdrop-blur-sm">
+          <Card className="p-8 mb-8 bg-gradient-to-r from-off-white/20 to-off-white/30 border-2 border-off-white/50 backdrop-blur-sm">
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-4">
-                <TrendingDown className="w-6 h-6 text-red-400 animate-bounce" />
-                <Badge variant="secondary" className="bg-red-500/20 text-red-300 border-red-400/50">
+                <TrendingDown className="w-6 h-6 text-off-white animate-bounce" />
+                <Badge variant="secondary" className="bg-off-white/20 text-off-white border-off-white/50">
                   Live Counter
                 </Badge>
               </div>
@@ -98,7 +98,7 @@ export const UrgencySection = () => {
                 Du verpasst jeden Tag:
               </h3>
               
-              <div className="text-6xl md:text-7xl font-black mb-4 text-red-400 animate-pulse-gentle">
+              <div className="text-6xl md:text-7xl font-black mb-4 text-off-white animate-pulse-gentle">
                 €{dailyLoss}
               </div>
               
@@ -108,19 +108,19 @@ export const UrgencySection = () => {
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div className="bg-off-white/10 rounded-lg p-3">
-                  <div className="text-xl font-bold text-red-400">€{(dailyLoss * 7).toLocaleString()}</div>
+                  <div className="text-xl font-bold text-off-white">€{(dailyLoss * 7).toLocaleString()}</div>
                   <div className="text-sm text-off-white/70">pro Woche</div>
                 </div>
                 <div className="bg-off-white/10 rounded-lg p-3">
-                  <div className="text-xl font-bold text-red-400">€{(dailyLoss * 30).toLocaleString()}</div>
+                  <div className="text-xl font-bold text-off-white">€{(dailyLoss * 30).toLocaleString()}</div>
                   <div className="text-sm text-off-white/70">pro Monat</div>
                 </div>
                 <div className="bg-off-white/10 rounded-lg p-3">
-                  <div className="text-xl font-bold text-red-400">€{(dailyLoss * 90).toLocaleString()}</div>
+                  <div className="text-xl font-bold text-off-white">€{(dailyLoss * 90).toLocaleString()}</div>
                   <div className="text-sm text-off-white/70">pro Quartal</div>
                 </div>
                 <div className="bg-off-white/10 rounded-lg p-3">
-                  <div className="text-xl font-bold text-red-400">€{(dailyLoss * 365).toLocaleString()}</div>
+                  <div className="text-xl font-bold text-off-white">€{(dailyLoss * 365).toLocaleString()}</div>
                   <div className="text-sm text-off-white/70">pro Jahr</div>
                 </div>
               </div>
