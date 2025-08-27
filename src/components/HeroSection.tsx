@@ -2,12 +2,17 @@ import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { SwissButton } from "./SwissButton";
 
-// Spline Animation Component with lazy loading - moved outside to prevent dispatcher issues
-const SplineAnimation = () => {
+// Spline Background Animation Component - Background layer with masking
+const SplineBackgroundAnimation = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -25,20 +30,48 @@ const SplineAnimation = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Fallback for reduced motion - static gradient background
+  if (prefersReducedMotion) {
+    return (
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-30" />
+    );
+  }
+
   return (
-    <div ref={containerRef} className="w-full h-full">
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden">
       {isVisible ? (
-        <iframe 
-          src="https://my.spline.design/particleshand-H6LznNnSRGdQTySQe2C5AHLe/" 
-          className="w-full h-full rounded-xl shadow-2xl overflow-hidden border border-border/20"
-          loading="lazy"
-          title="Spline 3D Animation"
-        />
-      ) : (
-        <div className="w-full h-full rounded-xl bg-muted/10 animate-pulse flex items-center justify-center">
-          <div className="text-muted-foreground/60">Loading animation...</div>
-        </div>
-      )}
+        <motion.div
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: 0.6, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <iframe 
+            src="https://my.spline.design/particleshand-H6LznNnSRGdQTySQe2C5AHLe/" 
+            className="absolute inset-0 w-full h-full border-0 pointer-events-none"
+            style={{
+              opacity: window.innerWidth <= 640 ? 0.35 : window.innerWidth <= 1024 ? 0.5 : 0.6,
+              filter: window.innerWidth <= 640 
+                ? 'blur(12px) saturate(1.05) brightness(1.05)' 
+                : 'blur(8px) saturate(1.05) brightness(1.05)',
+              maskImage: window.innerWidth >= 1024 
+                ? 'linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 65%)'
+                : undefined,
+              WebkitMaskImage: window.innerWidth >= 1024 
+                ? 'linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 65%)'
+                : undefined
+            }}
+            loading="lazy"
+            title="Spline 3D Background Animation"
+          />
+          
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-l 
+                         from-transparent via-background/30 to-background/85
+                         lg:from-transparent lg:via-background/55 lg:to-background/85
+                         pointer-events-none z-[1]" />
+        </motion.div>
+      ) : null}
     </div>
   );
 };
@@ -96,13 +129,16 @@ function Stat({
 export const HeroSection = () => {
   return (
     <section className="relative overflow-hidden min-h-screen bg-background text-foreground">
-      {/* Starfield background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_45%)] opacity-40" />
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
+      {/* Spline Background Animation - Full Hero Background */}
+      <SplineBackgroundAnimation />
       
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Starfield background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_45%)] opacity-40 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90 z-0" />
+      
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left: Content */}
-        <div className="relative z-10 order-2 lg:order-1">
+        <div className="relative order-2 lg:order-1">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,7 +171,7 @@ export const HeroSection = () => {
             <SwissButton 
               variant="burgundy" 
               size="xl"
-              className="min-w-[280px] shadow-2xl"
+              className="min-w-[280px] shadow-2xl relative z-10"
               data-cta="primary"
             >
               Check your Swiss Potential
@@ -144,7 +180,7 @@ export const HeroSection = () => {
             <SwissButton 
               variant="outline" 
               size="lg"
-              className="min-w-[200px]"
+              className="min-w-[200px] relative z-10"
               data-cta="secondary"
             >
               Kostenlose Beratung
@@ -159,21 +195,8 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right: Spline Animation Area */}
-        <div className="relative h-[500px] w-full lg:h-full lg:w-1/2 order-1 lg:order-2">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 1.2 }}
-            className="absolute inset-0"
-          >
-            {/* Spline 3D Animation */}
-            <SplineAnimation />
-          </motion.div>
-          
-          {/* Subtle glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 via-transparent to-transparent pointer-events-none" />
-        </div>
+        {/* Right: Empty space for background animation visibility */}
+        <div className="relative order-1 lg:order-2 min-h-[400px] lg:min-h-[600px]" />
       </div>
     </section>
   );
