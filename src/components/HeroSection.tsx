@@ -43,7 +43,7 @@ const SplineBackgroundAnimation = () => {
         <motion.div
           initial={{ opacity: 0, scale: 1.02 }}
           animate={{ 
-            opacity: window.innerWidth <= 640 ? 0.32 : window.innerWidth <= 1024 ? 0.45 : 0.55,
+            opacity: window.innerWidth <= 640 ? 0.25 : window.innerWidth <= 1024 ? 0.45 : 0.55,
             scale: 1 
           }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
@@ -60,7 +60,7 @@ const SplineBackgroundAnimation = () => {
               height: '100%',
               objectFit: 'cover',
               filter: window.innerWidth <= 640 
-                ? 'blur(12px) saturate(1.05) brightness(1.05)' 
+                ? 'blur(14px) saturate(1.02) brightness(1.02)' 
                 : 'blur(10px) saturate(1.05) brightness(1.05)',
               clipPath: window.innerWidth >= 1024 ? 'inset(0 0 0 50%)' : undefined,
             }}
@@ -142,7 +142,7 @@ export const HeroSection = () => {
       
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left: Content */}
-        <div className="relative order-2 lg:order-1">
+        <div className="relative z-10 order-2 lg:order-1">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -200,7 +200,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Right: Empty space for background animation visibility */}
-        <div className="relative order-1 lg:order-2 min-h-[400px] lg:min-h-[600px]" />
+        <div className="relative z-10 order-1 lg:order-2 min-h-[400px] lg:min-h-[600px]" />
       </div>
     </section>
   );
