@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { SplineBackground } from "./SplineBackground";
+import { SwissSpaceAnimation } from "./SwissSpaceAnimation";
 import { SwissButton } from "./SwissButton";
 
 // Count-up hook for animating numbers
@@ -127,18 +127,12 @@ export const HeroSection = () => {
             transition={{ delay: 0.4, duration: 1.2 }}
             className="absolute inset-0"
           >
-            {/* Integrated Spline Background with planet rotation */}
-            <div className="absolute inset-0 transform-gpu">
-              <SplineBackground />
-              {/* Additional planet overlay with slow rotation */}
-              <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 h-[400px] w-[400px] lg:h-[500px] lg:w-[500px] 
-                              rounded-full bg-gradient-to-br from-primary/20 via-primary/10 to-transparent 
-                              shadow-[0_0_120px_rgba(var(--primary-rgb),0.3)] animate-spin-slow opacity-60" />
-            </div>
+            {/* New Swiss Space Animation */}
+            <SwissSpaceAnimation />
           </motion.div>
           
           {/* Subtle glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 via-transparent to-transparent pointer-events-none" />
         </div>
       </div>
     </section>
