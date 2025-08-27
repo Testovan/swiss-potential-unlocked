@@ -1,98 +1,144 @@
-import { SwissButton } from "./SwissButton";
-import { Badge } from "@/components/ui/badge";
-import { Play, TrendingUp, Users, Award } from "lucide-react";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { SplineBackground } from "./SplineBackground";
+import { SwissButton } from "./SwissButton";
+
+// Count-up hook for animating numbers
+function useCountUp(target: number, duration = 1400) {
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    let raf: number;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setVal(target * eased);
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target, duration]);
+  return val;
+}
+
+// Stat component with count-up animation
+function Stat({
+  label,
+  value,
+  format = "int",
+  delay = 0,
+}: {
+  label: string;
+  value: number;
+  format?: "int" | "percent" | "chf";
+  delay?: number;
+}) {
+  const v = useCountUp(value, 1400);
+  let display = "";
+  if (format === "percent") display = `${Math.round(v)}%`;
+  else if (format === "chf") display = `CHF ${Intl.NumberFormat("de-CH").format(Math.round(v))}`;
+  else display = Intl.NumberFormat("de-CH").format(Math.round(v));
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6 + delay, duration: 0.8 }}
+      className="flex flex-col gap-2"
+    >
+      <span className="text-xs tracking-widest uppercase text-muted-foreground/80">{label}</span>
+      <span className="text-2xl sm:text-3xl lg:text-4xl font-light text-foreground">{display}</span>
+      <span className="h-px w-12 bg-border/60" />
+    </motion.div>
+  );
+}
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Spline Background */}
-      <SplineBackground />
-      {/* Background Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-br from-charcoal-black/40 via-charcoal-black/60 to-charcoal-black/50" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,hsl(var(--alpine-green)/0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(var(--burgundy)/0.05),transparent_50%)]" />
+    <section className="relative overflow-hidden min-h-screen bg-background text-foreground">
+      {/* Starfield background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_45%)] opacity-40" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90" />
       
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-20 pb-16">
-        {/* SRF Badge */}
-        <div className="flex justify-center mb-8 animate-fade-in">
-          <Badge 
-            variant="secondary" 
-            className="bg-off-white/10 backdrop-blur-sm border border-off-white/20 text-off-white px-6 py-2 text-sm font-medium shadow-soft"
+      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Left: Content */}
+        <div className="relative z-10 order-2 lg:order-1">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl sm:text-6xl lg:text-7xl leading-[0.95] font-light mb-6"
           >
-            <Award className="w-4 h-4 mr-2 text-burgundy" />
-            SRF – Schweizer Fernsehen dokumentierte unseren Erfolg
-          </Badge>
-        </div>
-
-        {/* Main Headline */}
-        <div className="text-center max-w-4xl mx-auto mb-12 animate-slide-up">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-off-white mb-6 leading-tight">
-            <span className="block text-3xl md:text-4xl font-semibold text-alpine-green mb-2">
-              847 Deutsche haben bereits
+            Secure the future<br />
+            <span className="text-gradient-luxury bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+              with SwissPats
             </span>
-            <span className="text-gradient-luxury bg-gradient-to-r from-burgundy to-burgundy-dark bg-clip-text text-transparent">
-              CHF 67'400
-            </span>
-            <span className="block">mehr verdient</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-off-white/90 mb-8 font-light max-w-2xl mx-auto leading-relaxed">
-            Professionelle Schweiz-Beratung für deutsche Fachkräfte. 
-            Vom ersten Gespräch bis zum ersten Gehalt in der Schweiz.
-          </p>
-        </div>
+          </motion.h1>
 
-        {/* Stats Row */}
-        <div className="flex justify-center items-center gap-8 mb-12 animate-scale-in">
-          <div className="flex items-center gap-2 text-off-white/80">
-            <Users className="w-5 h-5 text-alpine-green" />
-            <span className="text-sm font-medium">847+ Erfolgreiche Kunden</span>
-          </div>
-          <div className="flex items-center gap-2 text-off-white/80">
-            <TrendingUp className="w-5 h-5 text-alpine-green" />
-            <span className="text-sm font-medium">Ø CHF 67'400 Mehr-Verdienst</span>
-          </div>
-        </div>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16 animate-fade-in">
-          <SwissButton 
-            variant="burgundy" 
-            size="xl"
-            className="min-w-[280px] shadow-2xl"
-            data-cta="primary"
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.8 }}
+            className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed"
           >
-            <TrendingUp className="w-5 h-5" />
-            Check your Swiss Potential Now
-          </SwissButton>
-          
-          <SwissButton 
-            variant="glass" 
-            size="lg"
-            className="min-w-[200px]"
-            data-cta="secondary"
+            Premium-Beratung für die berufliche Integration in der Schweiz – fokussiert auf
+            höhere Gehälter, kürzere Time-to-Job und eine sichere Relocation.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="mt-10 flex flex-col sm:flex-row items-start gap-4"
           >
-            <Play className="w-5 h-5" />
-            SRF Beitrag ansehen
-          </SwissButton>
+            <SwissButton 
+              variant="burgundy" 
+              size="xl"
+              className="min-w-[280px] shadow-2xl"
+              data-cta="primary"
+            >
+              Check your Swiss Potential
+            </SwissButton>
+            
+            <SwissButton 
+              variant="outline" 
+              size="lg"
+              className="min-w-[200px]"
+              data-cta="secondary"
+            >
+              Kostenlose Beratung
+            </SwissButton>
+          </motion.div>
+
+          {/* Stats: SwissPats specific numbers */}
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl">
+            <Stat label="Erfolgsquote" value={94} format="percent" delay={0} />
+            <Stat label="Ø Gehaltsplus" value={67400} format="chf" delay={0.2} />
+            <Stat label="Begleitete Relocations" value={847} format="int" delay={0.4} />
+          </div>
         </div>
 
-        {/* Video Container */}
-        <div className="max-w-4xl mx-auto animate-slide-up">
-          <div className="relative group">
-            <div className="absolute -inset-1 bg-gradient-luxury rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
-            <div className="relative bg-off-white/5 backdrop-blur-sm border border-off-white/10 rounded-xl overflow-hidden shadow-2xl group-hover:shadow-luxury transition-all duration-500 transform group-hover:scale-[1.02]">
-              <div className="aspect-video bg-gradient-to-br from-charcoal-black to-swiss-navy-dark flex items-center justify-center">
-                <div className="text-center text-off-white">
-                  <Play className="w-16 h-16 mx-auto mb-4 text-alpine-green drop-shadow-lg" />
-                  <p className="text-lg font-semibold mb-2">SRF Beitrag</p>
-                  <p className="text-sm text-off-white/70">Wie SwissPats Deutschen beim Umzug hilft</p>
-                </div>
-              </div>
+        {/* Right: 3D Animation Area */}
+        <div className="relative min-h-[420px] lg:min-h-[600px] order-1 lg:order-2">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 1.2 }}
+            className="absolute inset-0"
+          >
+            {/* Integrated Spline Background with planet rotation */}
+            <div className="absolute inset-0 transform-gpu">
+              <SplineBackground />
+              {/* Additional planet overlay with slow rotation */}
+              <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 h-[400px] w-[400px] lg:h-[500px] lg:w-[500px] 
+                              rounded-full bg-gradient-to-br from-primary/20 via-primary/10 to-transparent 
+                              shadow-[0_0_120px_rgba(var(--primary-rgb),0.3)] animate-spin-slow opacity-60" />
             </div>
-          </div>
+          </motion.div>
+          
+          {/* Subtle glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-l from-primary/5 via-transparent to-transparent" />
         </div>
       </div>
     </section>
