@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { SwissButton } from "./SwissButton";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -84,6 +85,7 @@ const useCountUp = (end: number, duration = 2000) => {
 };
 
 export const CombinedAssessment = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   
@@ -142,6 +144,15 @@ export const CombinedAssessment = () => {
   };
 
   const readinessLevel = getReadinessLevel(swissReadinessPercentage);
+
+  const handleDetailedAnalysis = () => {
+    const params = new URLSearchParams({
+      quiz: quizScore.toString(),
+      financial: financialBenefit.toString(),
+      readiness: Math.round(swissReadinessPercentage).toString()
+    });
+    navigate(`/detailed-analysis?${params}`);
+  };
 
   // Animated counters for results
   const animatedQuizScore = useCountUp(quizScore, 1500);
@@ -436,7 +447,7 @@ export const CombinedAssessment = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <SwissButton variant="burgundy" size="xl">
+                <SwissButton variant="burgundy" size="xl" onClick={handleDetailedAnalysis}>
                   <Target className="w-5 h-5" />
                   Detaillierte Analyse anfordern
                 </SwissButton>
