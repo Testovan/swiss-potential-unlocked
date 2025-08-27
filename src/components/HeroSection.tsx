@@ -186,8 +186,12 @@ export const HeroSection = () => {
               size="lg"
               className="min-w-[200px] relative z-10"
               data-cta="secondary"
+              onClick={() => {
+                window.gtag?.('event', 'whatsapp_click', { source: 'hero' });
+                window.open('https://wa.me/41791234567', '_blank');
+              }}
             >
-              Kostenlose Beratung
+              WhatsApp starten
             </SwissButton>
           </motion.div>
 
