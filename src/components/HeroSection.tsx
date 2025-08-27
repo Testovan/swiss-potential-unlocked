@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { SwissButton } from "./SwissButton";
 
-// Spline Animation Component with lazy loading
-function SplineAnimation() {
+// Spline Animation Component with lazy loading - moved outside to prevent dispatcher issues
+const SplineAnimation = () => {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -41,7 +41,7 @@ function SplineAnimation() {
       )}
     </div>
   );
-}
+};
 
 // Count-up hook for animating numbers
 function useCountUp(target: number, duration = 1400) {
