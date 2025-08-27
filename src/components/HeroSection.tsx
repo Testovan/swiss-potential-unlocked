@@ -38,40 +38,44 @@ const SplineBackgroundAnimation = () => {
   }
 
   return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden">
-      {isVisible ? (
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden z-0">
+      {isVisible && (
         <motion.div
           initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 0.6, scale: 1 }}
+          animate={{ 
+            opacity: window.innerWidth <= 640 ? 0.32 : window.innerWidth <= 1024 ? 0.45 : 0.55,
+            scale: 1 
+          }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           <iframe 
-            src="https://my.spline.design/particleshand-H6LznNnSRGdQTySQe2C5AHLe/" 
-            className="absolute inset-0 w-full h-full border-0 pointer-events-none"
+            src="https://my.spline.design/particleshand-H6LznNnSRGdQTySQe2C5AHLe/"
+            frameBorder="0"
+            loading="lazy"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            className="absolute inset-0 w-full h-full pointer-events-none"
             style={{
-              opacity: window.innerWidth <= 640 ? 0.35 : window.innerWidth <= 1024 ? 0.5 : 0.6,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
               filter: window.innerWidth <= 640 
                 ? 'blur(12px) saturate(1.05) brightness(1.05)' 
-                : 'blur(8px) saturate(1.05) brightness(1.05)',
-              maskImage: window.innerWidth >= 1024 
-                ? 'linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 65%)'
-                : undefined,
-              WebkitMaskImage: window.innerWidth >= 1024 
-                ? 'linear-gradient(to left, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 65%)'
-                : undefined
+                : 'blur(10px) saturate(1.05) brightness(1.05)',
+              clipPath: window.innerWidth >= 1024 ? 'inset(0 0 0 50%)' : undefined,
             }}
-            loading="lazy"
             title="Spline 3D Background Animation"
           />
           
           {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-l 
-                         from-transparent via-background/30 to-background/85
-                         lg:from-transparent lg:via-background/55 lg:to-background/85
-                         pointer-events-none z-[1]" />
+          <div 
+            className="absolute inset-0 pointer-events-none z-[0.5]"
+            style={{
+              background: 'linear-gradient(to left, rgba(28,28,28,0) 40%, rgba(28,28,28,0.45) 62%, rgba(28,28,28,0.85) 78%)'
+            }}
+          />
         </motion.div>
-      ) : null}
+      )}
     </div>
   );
 };
