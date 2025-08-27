@@ -1,7 +1,47 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { SwissSpaceAnimation } from "./SwissSpaceAnimation";
+import { useEffect, useState, useRef } from "react";
 import { SwissButton } from "./SwissButton";
+
+// Spline Animation Component with lazy loading
+function SplineAnimation() {
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="w-full h-full">
+      {isVisible ? (
+        <iframe 
+          src="https://my.spline.design/particleshand-H6LznNnSRGdQTySQe2C5AHLe/" 
+          className="w-full h-full rounded-xl shadow-2xl overflow-hidden border border-border/20"
+          loading="lazy"
+          title="Spline 3D Animation"
+        />
+      ) : (
+        <div className="w-full h-full rounded-xl bg-muted/10 animate-pulse flex items-center justify-center">
+          <div className="text-muted-foreground/60">Loading animation...</div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 // Count-up hook for animating numbers
 function useCountUp(target: number, duration = 1400) {
@@ -119,16 +159,16 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right: 3D Animation Area */}
-        <div className="relative min-h-[420px] lg:min-h-[600px] order-1 lg:order-2">
+        {/* Right: Spline Animation Area */}
+        <div className="relative h-[500px] w-full lg:h-full lg:w-1/2 order-1 lg:order-2">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 1.2 }}
+            transition={{ delay: 0.2, duration: 1.2 }}
             className="absolute inset-0"
           >
-            {/* New Swiss Space Animation */}
-            <SwissSpaceAnimation />
+            {/* Spline 3D Animation */}
+            <SplineAnimation />
           </motion.div>
           
           {/* Subtle glow effect */}
