@@ -132,62 +132,117 @@ function Stat({
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-background overflow-hidden">
-      {/* Dark background with network pattern */}
-      <div className="absolute inset-0 bg-gray-900">
-        {/* Network pattern overlay */}
-        <div className="absolute inset-0 opacity-30">
-          <svg
-            className="w-full h-full"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <pattern
-                id="network"
-                patternUnits="userSpaceOnUse"
-                width="20"
-                height="20"
-              >
-                <circle cx="10" cy="10" r="1" fill="white" opacity="0.3" />
-                <line x1="10" y1="10" x2="30" y2="10" stroke="white" strokeWidth="0.5" opacity="0.2" />
-                <line x1="10" y1="10" x2="10" y2="30" stroke="white" strokeWidth="0.5" opacity="0.2" />
-                <line x1="10" y1="10" x2="30" y2="30" stroke="white" strokeWidth="0.5" opacity="0.1" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#network)" />
-          </svg>
-        </div>
-      </div>
+    <section 
+      id="hero" 
+      className="hero-r5s0ej4-section" 
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
+        overflow: 'hidden',
+        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+      }}
+    >
+      {/* Network Pattern Background */}
+      <div 
+        className="hero-r5s0ej4-network-bg"
+        style={{
+          position: 'absolute',
+          inset: '0',
+          backgroundImage: `
+            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+            linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.02) 50%, transparent 70%)
+          `,
+          opacity: 0.4
+        }}
+      />
       
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center min-h-[80vh]">
+      {/* Dot Pattern Overlay */}
+      <div 
+        className="hero-r5s0ej4-dots"
+        style={{
+          position: 'absolute',
+          inset: '0',
+          backgroundImage: 'radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px)',
+          backgroundSize: '20px 20px',
+          opacity: 0.2
+        }}
+      />
+      
+      <div 
+        className="hero-r5s0ej4-container"
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 24px',
+          display: 'flex',
+          alignItems: 'center',
+          minHeight: '100vh'
+        }}
+      >
+        <div 
+          className="hero-r5s0ej4-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: '48px',
+            alignItems: 'center',
+            width: '100%'
+          }}
+        >
           
-          {/* Left: Hero Content */}
-          <div className="lg:col-span-8 text-white">
-            {/* Small badge */}
+          {/* Main Content */}
+          <div className="hero-r5s0ej4-content">
+            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-block mb-8"
+              style={{ marginBottom: '32px' }}
             >
-              <span className="px-4 py-2 rounded-full text-xs uppercase tracking-wider bg-white/10 text-white/80 border border-white/20">
+              <span 
+                className="hero-r5s0ej4-badge"
+                style={{
+                  display: 'inline-block',
+                  padding: '8px 16px',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '20px',
+                  fontSize: '11px',
+                  fontWeight: '500',
+                  letterSpacing: '1px',
+                  textTransform: 'uppercase',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  backdropFilter: 'blur(10px)'
+                }}
+              >
                 WILLKOMMEN IN DER SCHWEIZ
               </span>
             </motion.div>
 
-            {/* Main heading */}
+            {/* Main Heading */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="mb-8"
+              style={{ marginBottom: '24px' }}
             >
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <div className="mb-2">Relocate.</div>
-                <div className="mb-2">Integrate.</div>
-                <div className="text-white/90">Succeed.</div>
+              <h1 
+                className="hero-r5s0ej4-heading"
+                style={{
+                  fontSize: 'clamp(48px, 8vw, 80px)',
+                  fontWeight: '700',
+                  lineHeight: '1.1',
+                  color: '#ffffff',
+                  margin: '0'
+                }}
+              >
+                <div style={{ marginBottom: '8px' }}>Relocate.</div>
+                <div style={{ marginBottom: '8px' }}>Integrate.</div>
+                <div style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Succeed.</div>
               </h1>
             </motion.div>
 
@@ -196,7 +251,15 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-lg lg:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed"
+              className="hero-r5s0ej4-description"
+              style={{
+                fontSize: '18px',
+                lineHeight: '1.6',
+                color: 'rgba(255, 255, 255, 0.7)',
+                maxWidth: '480px',
+                marginBottom: '40px',
+                margin: '0 0 40px 0'
+              }}
             >
               Professionelle Beratung für Fachkräfte, die erfolgreich in die Schweiz relocaten möchten. 
               Höhere Gehälter, kürzere Time-to-Job und sichere Integration.
@@ -207,7 +270,12 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="hero-r5s0ej4-buttons"
+              style={{
+                display: 'flex',
+                gap: '16px',
+                flexWrap: 'wrap'
+              }}
             >
               <button
                 onClick={() => {
@@ -215,10 +283,33 @@ export const HeroSection = () => {
                     behavior: 'smooth' 
                   });
                 }}
-                className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center gap-2"
+                className="hero-r5s0ej4-btn-primary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '14px 28px',
+                  background: '#ffffff',
+                  color: '#1a1a1a',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#f5f5f5';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = '#ffffff';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
               >
                 Jetzt Starten
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
@@ -229,37 +320,119 @@ export const HeroSection = () => {
                     behavior: 'smooth' 
                   });
                 }}
-                className="px-8 py-4 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors duration-200"
+                className="hero-r5s0ej4-btn-secondary"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '14px 28px',
+                  background: 'transparent',
+                  color: '#ffffff',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '8px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                }}
               >
                 Kostenlose Beratung
               </button>
             </motion.div>
           </div>
 
-          {/* Right: Stats Card */}
-          <div className="lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
+          {/* Stats Card - Positioned absolutely on larger screens */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="hero-r5s0ej4-stats-card"
+            style={{
+              position: 'absolute',
+              bottom: '80px',
+              right: '80px',
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              borderRadius: '16px',
+              padding: '32px',
+              textAlign: 'center',
+              minWidth: '200px'
+            }}
+          >
+            <div 
+              style={{
+                fontSize: '12px',
+                fontWeight: '500',
+                letterSpacing: '1px',
+                textTransform: 'uppercase',
+                color: 'rgba(255, 255, 255, 0.6)',
+                marginBottom: '12px'
+              }}
             >
-              <div className="text-center">
-                <div className="text-sm text-white/60 uppercase tracking-wider mb-4">
-                  Erfolgreiche Relocations
-                </div>
-                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
-                  <Stat label="" value={847} format="int" delay={0} />
-                </div>
-                <div className="text-white/80 text-sm">
-                  Zufriedene Kunden seit 2019
-                </div>
-              </div>
-            </motion.div>
-          </div>
+              Erfolgreiche Relocations
+            </div>
+            <div 
+              style={{
+                fontSize: '36px',
+                fontWeight: '700',
+                color: '#ffffff',
+                marginBottom: '8px',
+                lineHeight: '1'
+              }}
+            >
+              <Stat label="" value={847} format="int" delay={0} />
+            </div>
+            <div 
+              style={{
+                fontSize: '14px',
+                color: 'rgba(255, 255, 255, 0.7)',
+                lineHeight: '1.4'
+              }}
+            >
+              Zufriedene Kunden seit 2019
+            </div>
+          </motion.div>
 
         </div>
       </div>
+
+      {/* Responsive styles */}
+      <style>{`
+        @media (max-width: 1024px) {
+          .hero-r5s0ej4-stats-card {
+            position: static !important;
+            bottom: auto !important;
+            right: auto !important;
+            margin-top: 48px;
+          }
+          .hero-r5s0ej4-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        
+        @media (max-width: 640px) {
+          .hero-r5s0ej4-buttons {
+            flex-direction: column !important;
+          }
+          .hero-r5s0ej4-btn-primary,
+          .hero-r5s0ej4-btn-secondary {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+          .hero-r5s0ej4-container {
+            padding: 0 16px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
