@@ -132,85 +132,113 @@ function Stat({
 
 export const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden min-h-screen bg-background text-foreground">
-      {/* Spline Background Animation - Full Hero Background */}
-      <SplineBackgroundAnimation />
+    <section className="relative min-h-screen bg-background">
+      {/* Clean minimal background - no heavy animations */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/40" />
       
-      {/* Starfield background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_45%)] opacity-40 z-0" />
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90 z-0" />
-      
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left: Content */}
-        <div className="relative z-10 order-2 lg:order-1">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl sm:text-6xl lg:text-7xl leading-[0.95] font-light mb-6"
-          >
-            Secure the future<br />
-            <span className="text-gradient-luxury bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-              with SwissPats
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.8 }}
-            className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed"
-          >
-            Premium-Beratung für die berufliche Integration in der Schweiz – fokussiert auf
-            höhere Gehälter, kürzere Time-to-Job und eine sichere Relocation.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="mt-10 flex flex-col sm:flex-row items-start gap-4"
-          >
-            <SwissButton 
-              variant="burgundy" 
-              size="xl"
-              className="min-w-[280px] shadow-2xl relative z-10"
-              data-cta="primary"
-              onClick={() => {
-                document.getElementById('quick-assessment')?.scrollIntoView({ 
-                  behavior: 'smooth' 
-                });
-              }}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-40">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          
+          {/* Left: Bold Typography - Studio Meridian Style */}
+          <div className="lg:col-span-7">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="studio-heading text-8xl sm:text-9xl lg:text-[12rem] leading-none text-foreground mb-8"
             >
-              Check your Swiss Potential
-            </SwissButton>
-            
-            <SwissButton 
-              variant="outline" 
-              size="lg"
-              className="min-w-[200px] relative z-10"
-              data-cta="secondary"
-              onClick={() => {
-                document.getElementById('calendly-booking')?.scrollIntoView({ 
-                  behavior: 'smooth' 
-                });
-              }}
-            >
-              Kostenlose Beratung
-            </SwissButton>
-          </motion.div>
+              SwissPats
+            </motion.h1>
 
-          {/* Stats: SwissPats specific numbers */}
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl">
-            <Stat label="Erfolgsquote" value={94} format="percent" delay={0} />
-            <Stat label="Ø Gehaltsplus" value={67400} format="chf" delay={0.2} />
-            <Stat label="Begleitete Relocations" value={847} format="int" delay={0.4} />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="space-y-8"
+            >
+              <h2 className="studio-subheading text-2xl lg:text-3xl text-foreground max-w-2xl">
+                Premium-Beratung für die berufliche Integration in der Schweiz
+              </h2>
+
+              <p className="studio-body text-lg text-muted-foreground max-w-xl">
+                Fokussiert auf höhere Gehälter, kürzere Time-to-Job und eine sichere Relocation.
+              </p>
+
+              {/* CTA Buttons - Clean Style */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <SwissButton 
+                  variant="burgundy" 
+                  size="xl"
+                  className="min-w-[280px] rounded-xl"
+                  data-cta="primary"
+                  onClick={() => {
+                    document.getElementById('quick-assessment')?.scrollIntoView({ 
+                      behavior: 'smooth' 
+                    });
+                  }}
+                >
+                  Check your Swiss Potential
+                </SwissButton>
+                
+                <SwissButton 
+                  variant="outline" 
+                  size="lg"
+                  className="min-w-[200px] rounded-xl"
+                  data-cta="secondary"
+                  onClick={() => {
+                    document.getElementById('calendly-booking')?.scrollIntoView({ 
+                      behavior: 'smooth' 
+                    });
+                  }}
+                >
+                  Kostenlose Beratung
+                </SwissButton>
+              </div>
+            </motion.div>
           </div>
-        </div>
 
-        {/* Right: Empty space for background animation visibility */}
-        <div className="relative z-10 order-1 lg:order-2 min-h-[400px] lg:min-h-[600px]" />
+          {/* Right: Stats Cards - Clean Minimal Style */}
+          <div className="lg:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="grid grid-cols-1 gap-6"
+            >
+              {/* Location Card */}
+              <div className="studio-stat-card">
+                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Standort</div>
+                <div className="text-lg font-semibold text-foreground">Zürich, Schweiz</div>
+                <div className="text-sm text-muted-foreground">Global tätig</div>
+              </div>
+
+              {/* Success Rate */}
+              <div className="studio-stat-card">
+                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Erfolgsquote</div>
+                <div className="text-3xl font-bold text-accent">
+                  <Stat label="" value={94} format="percent" delay={0} />
+                </div>
+              </div>
+
+              {/* Salary Increase */}
+              <div className="studio-stat-card">
+                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Ø Gehaltsplus</div>
+                <div className="text-2xl font-bold text-foreground">
+                  <Stat label="" value={67400} format="chf" delay={0.2} />
+                </div>
+              </div>
+
+              {/* Experience */}
+              <div className="studio-stat-card">
+                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Relocations</div>
+                <div className="text-2xl font-bold text-foreground">
+                  <Stat label="" value={847} format="int" delay={0.4} />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

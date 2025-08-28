@@ -77,22 +77,22 @@ export const QuickAssessment = () => {
 
   if (showResult) {
     return (
-      <section className="py-20 bg-gradient-to-br from-off-white to-silver-gray/20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="animate-scale-in">
-              <div className="relative mx-auto w-24 h-24 mb-6">
-                <div className="absolute inset-0 rounded-full bg-alpine-green animate-pulse-gentle" />
-                <div className="absolute inset-2 rounded-full bg-off-white flex items-center justify-center">
-                  <span className="text-2xl font-black text-charcoal-black">{totalScore}</span>
+            <div className="studio-card">
+              <div className="relative mx-auto w-24 h-24 mb-8">
+                <div className="absolute inset-0 rounded-full bg-accent" />
+                <div className="absolute inset-2 rounded-full bg-background flex items-center justify-center">
+                  <span className="studio-heading text-2xl text-foreground">{totalScore}</span>
                 </div>
               </div>
               
-              <h3 className="text-2xl font-black text-charcoal-black mb-3">
-                Dein Quick-Score: {successRate}% 🎯
+              <h3 className="studio-heading text-3xl text-foreground mb-4">
+                Score: {successRate}%
               </h3>
               
-              <p className="text-lg text-charcoal-black/70 mb-6">
+              <p className="studio-body text-lg text-muted-foreground mb-8">
                 Ausgezeichnete Ausgangslage für die Schweiz!
               </p>
               
@@ -110,7 +110,7 @@ export const QuickAssessment = () => {
                 Vollständige Analyse starten
               </SwissButton>
               
-              <p className="text-sm text-charcoal-black/60">
+              <p className="text-sm text-muted-foreground">
                 Kostenlose Detailanalyse in nur 3 Minuten
               </p>
             </div>
@@ -121,29 +121,28 @@ export const QuickAssessment = () => {
   }
 
   return (
-    <section id="quick-assessment" className="py-20 bg-gradient-to-br from-off-white to-silver-gray/20">
+    <section id="quick-assessment" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4 bg-alpine-green/10 text-alpine-green border-alpine-green/20">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center px-4 py-2 mb-6 text-sm font-medium text-muted-foreground bg-muted/50 rounded-full border border-border">
             <Zap className="w-4 h-4 mr-2" />
             Quick Check - 30 Sekunden
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-black text-charcoal-black mb-4">
-            Wie gut sind deine 
-            <span className="text-alpine-green"> Schweiz-Chancen?</span>
+          </div>
+          <h2 className="studio-heading text-4xl md:text-6xl text-foreground mb-6">
+            Schweiz-Chancen Check
           </h2>
-          <p className="text-xl text-charcoal-black/70 max-w-2xl mx-auto">
+          <p className="studio-body text-xl text-muted-foreground max-w-2xl mx-auto">
             3 schnelle Fragen für deinen ersten Eindruck
           </p>
         </div>
 
         {/* Progress */}
-        <div className="max-w-md mx-auto mb-8">
-          <div className="flex justify-between text-sm text-charcoal-black/70 mb-2">
+        <div className="max-w-md mx-auto mb-12">
+          <div className="flex justify-between text-sm text-muted-foreground mb-2">
             <span>Quick Check</span>
             <span>{Math.round(progress)}%</span>
           </div>
-          <Progress value={progress} className="h-2 bg-silver-gray/50" />
+          <Progress value={progress} className="h-2 bg-muted" />
         </div>
 
         {/* Cards */}
@@ -154,23 +153,23 @@ export const QuickAssessment = () => {
             const isDisabled = index > currentCard && Object.keys(answers).length < index;
             
             return (
-              <Card 
+              <div
                 key={question.id}
-                className={`p-6 border-2 transition-all duration-300 ${
+                className={`studio-card transition-all duration-300 ${
                   isActive 
-                    ? 'border-alpine-green bg-alpine-green/5 shadow-success' 
+                    ? 'border-accent bg-accent/5 shadow-md' 
                     : isCompleted 
-                      ? 'border-burgundy/30 bg-burgundy/5' 
-                      : 'border-silver-gray bg-off-white/50'
-                } ${isDisabled ? 'opacity-50' : 'hover:shadow-soft cursor-pointer'}`}
+                      ? 'border-foreground/20 bg-muted/30' 
+                      : 'border-border bg-card'
+                } ${isDisabled ? 'opacity-50' : 'hover:shadow-md cursor-pointer'}`}
               >
                 <div className="text-center mb-4">
                   <div className={`inline-flex p-3 rounded-xl mb-3 ${
-                    isCompleted ? 'bg-burgundy/20 text-burgundy' : 'bg-alpine-green/20 text-alpine-green'
+                    isCompleted ? 'bg-foreground/10 text-foreground' : 'bg-accent/10 text-accent'
                   }`}>
                     {question.icon}
                   </div>
-                  <h3 className="font-bold text-charcoal-black mb-2">{question.title}</h3>
+                  <h3 className="studio-subheading text-lg text-foreground mb-2">{question.title}</h3>
                 </div>
 
                 <div className="space-y-2">
@@ -179,10 +178,10 @@ export const QuickAssessment = () => {
                       key={optionIndex}
                       onClick={() => handleAnswer(question.id, option.score)}
                       disabled={isDisabled}
-                      className={`w-full p-3 text-left rounded-lg border transition-all ${
+                      className={`w-full p-3 text-left rounded-lg border transition-all studio-body ${
                         answers[question.id] === option.score
-                          ? 'bg-burgundy/10 border-burgundy text-burgundy font-semibold'
-                          : 'bg-off-white border-silver-gray hover:border-alpine-green hover:bg-alpine-green/5'
+                          ? 'bg-foreground/5 border-foreground text-foreground font-semibold'
+                          : 'bg-background border-border hover:border-accent hover:bg-accent/5'
                       } ${isDisabled ? 'cursor-not-allowed' : 'hover:transform hover:scale-105'}`}
                     >
                       <div className="flex justify-between items-center">
@@ -192,7 +191,7 @@ export const QuickAssessment = () => {
                     </button>
                   ))}
                 </div>
-              </Card>
+              </div>
             );
           })}
         </div>
