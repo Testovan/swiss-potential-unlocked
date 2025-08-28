@@ -132,107 +132,127 @@ function Stat({
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-background">
-      {/* Clean minimal background - no heavy animations */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/40" />
+    <section className="relative min-h-screen bg-background overflow-hidden">
+      {/* Dark background with network pattern */}
+      <div className="absolute inset-0 bg-gray-900">
+        {/* Network pattern overlay */}
+        <div className="absolute inset-0 opacity-30">
+          <svg
+            className="w-full h-full"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <pattern
+                id="network"
+                patternUnits="userSpaceOnUse"
+                width="20"
+                height="20"
+              >
+                <circle cx="10" cy="10" r="1" fill="white" opacity="0.3" />
+                <line x1="10" y1="10" x2="30" y2="10" stroke="white" strokeWidth="0.5" opacity="0.2" />
+                <line x1="10" y1="10" x2="10" y2="30" stroke="white" strokeWidth="0.5" opacity="0.2" />
+                <line x1="10" y1="10" x2="30" y2="30" stroke="white" strokeWidth="0.5" opacity="0.1" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#network)" />
+          </svg>
+        </div>
+      </div>
       
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:py-40">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center min-h-[80vh]">
           
-          {/* Left: Bold Typography - Studio Meridian Style */}
-          <div className="lg:col-span-7">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="studio-heading text-8xl sm:text-9xl lg:text-[12rem] leading-none text-foreground mb-8"
-            >
-              SwissPats
-            </motion.h1>
-
+          {/* Left: Hero Content */}
+          <div className="lg:col-span-8 text-white">
+            {/* Small badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block mb-8"
+            >
+              <span className="px-4 py-2 rounded-full text-xs uppercase tracking-wider bg-white/10 text-white/80 border border-white/20">
+                WILLKOMMEN IN DER SCHWEIZ
+              </span>
+            </motion.div>
+
+            {/* Main heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="space-y-8"
+              className="mb-8"
             >
-              <h2 className="studio-subheading text-2xl lg:text-3xl text-foreground max-w-2xl">
-                Premium-Beratung für die berufliche Integration in der Schweiz
-              </h2>
-
-              <p className="studio-body text-lg text-muted-foreground max-w-xl">
-                Fokussiert auf höhere Gehälter, kürzere Time-to-Job und eine sichere Relocation.
-              </p>
-
-              {/* CTA Buttons - Clean Style */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <SwissButton 
-                  variant="burgundy" 
-                  size="xl"
-                  className="min-w-[280px] rounded-xl"
-                  data-cta="primary"
-                  onClick={() => {
-                    document.getElementById('quick-assessment')?.scrollIntoView({ 
-                      behavior: 'smooth' 
-                    });
-                  }}
-                >
-                  Check your Swiss Potential
-                </SwissButton>
-                
-                <SwissButton 
-                  variant="outline" 
-                  size="lg"
-                  className="min-w-[200px] rounded-xl"
-                  data-cta="secondary"
-                  onClick={() => {
-                    document.getElementById('calendly-booking')?.scrollIntoView({ 
-                      behavior: 'smooth' 
-                    });
-                  }}
-                >
-                  Kostenlose Beratung
-                </SwissButton>
-              </div>
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                <div className="mb-2">Relocate.</div>
+                <div className="mb-2">Integrate.</div>
+                <div className="text-white/90">Succeed.</div>
+              </h1>
             </motion.div>
-          </div>
 
-          {/* Right: Stats Cards - Clean Minimal Style */}
-          <div className="lg:col-span-5">
-            <motion.div
+            {/* Description */}
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="grid grid-cols-1 gap-6"
+              className="text-lg lg:text-xl text-white/80 max-w-2xl mb-10 leading-relaxed"
             >
-              {/* Location Card */}
-              <div className="studio-stat-card">
-                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Standort</div>
-                <div className="text-lg font-semibold text-foreground">Zürich, Schweiz</div>
-                <div className="text-sm text-muted-foreground">Global tätig</div>
-              </div>
+              Professionelle Beratung für Fachkräfte, die erfolgreich in die Schweiz relocaten möchten. 
+              Höhere Gehälter, kürzere Time-to-Job und sichere Integration.
+            </motion.p>
 
-              {/* Success Rate */}
-              <div className="studio-stat-card">
-                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Erfolgsquote</div>
-                <div className="text-3xl font-bold text-accent">
-                  <Stat label="" value={94} format="percent" delay={0} />
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <button
+                onClick={() => {
+                  document.getElementById('assessment-section')?.scrollIntoView({ 
+                    behavior: 'smooth' 
+                  });
+                }}
+                className="px-8 py-4 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center gap-2"
+              >
+                Jetzt Starten
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              
+              <button
+                onClick={() => {
+                  document.getElementById('calendly-booking')?.scrollIntoView({ 
+                    behavior: 'smooth' 
+                  });
+                }}
+                className="px-8 py-4 border border-white/30 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors duration-200"
+              >
+                Kostenlose Beratung
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Right: Stats Card */}
+          <div className="lg:col-span-4">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
+            >
+              <div className="text-center">
+                <div className="text-sm text-white/60 uppercase tracking-wider mb-4">
+                  Erfolgreiche Relocations
                 </div>
-              </div>
-
-              {/* Salary Increase */}
-              <div className="studio-stat-card">
-                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Ø Gehaltsplus</div>
-                <div className="text-2xl font-bold text-foreground">
-                  <Stat label="" value={67400} format="chf" delay={0.2} />
+                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
+                  <Stat label="" value={847} format="int" delay={0} />
                 </div>
-              </div>
-
-              {/* Experience */}
-              <div className="studio-stat-card">
-                <div className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Relocations</div>
-                <div className="text-2xl font-bold text-foreground">
-                  <Stat label="" value={847} format="int" delay={0.4} />
+                <div className="text-white/80 text-sm">
+                  Zufriedene Kunden seit 2019
                 </div>
               </div>
             </motion.div>
