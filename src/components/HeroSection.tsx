@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { SwissButton } from "./SwissButton";
+import { FadeInUp, FadeInSide, ScaleIn, StaggerContainer } from "./animations/ScrollAnimations";
+import { HoverScale, RippleButton } from "./animations/MicroInteractions";
 
 // Spline Background Animation Component - Background layer with masking
 const SplineBackgroundAnimation = () => {
@@ -136,81 +138,129 @@ export const HeroSection = () => {
       {/* Spline Background Animation - Full Hero Background */}
       <SplineBackgroundAnimation />
       
-      {/* Starfield background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_45%)] opacity-40 z-0" />
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90 z-0" />
+      {/* Enhanced starfield background with subtle movement */}
+      <motion.div 
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_45%)] opacity-40 z-0"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%"],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "linear"
+        }}
+      />
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90 z-0"
+        animate={{
+          opacity: [0.9, 1, 0.9],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
       
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left: Content */}
         <div className="relative z-10 order-2 lg:order-1">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl sm:text-6xl lg:text-7xl leading-[0.95] font-light mb-6"
-          >
-            Secure the future<br />
-            <span className="text-gradient-luxury bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-              with SwissPats
-            </span>
-          </motion.h1>
+          <StaggerContainer>
+            <FadeInUp delay={0.2}>
+              <motion.h1
+                className="text-5xl sm:text-6xl lg:text-7xl leading-[0.95] font-light mb-6"
+                animate={{
+                  textShadow: [
+                    "0 0 0px rgba(239, 68, 68, 0)",
+                    "0 0 20px rgba(239, 68, 68, 0.1)",
+                    "0 0 0px rgba(239, 68, 68, 0)"
+                  ]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                Secure the future<br />
+                <span className="text-gradient-luxury bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                  with SwissPats
+                </span>
+              </motion.h1>
+            </FadeInUp>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.8 }}
-            className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed"
-          >
-            Premium-Beratung für die berufliche Integration in der Schweiz – fokussiert auf
-            höhere Gehälter, kürzere Time-to-Job und eine sichere Relocation.
-          </motion.p>
+            <FadeInUp delay={0.4}>
+              <motion.p
+                className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed"
+              >
+                Premium-Beratung für die berufliche Integration in der Schweiz – fokussiert auf
+                höhere Gehälter, kürzere Time-to-Job und eine sichere Relocation.
+              </motion.p>
+            </FadeInUp>
 
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="mt-10 flex flex-col sm:flex-row items-start gap-4"
-          >
-            <SwissButton 
-              variant="burgundy" 
-              size="xl"
-              className="min-w-[280px] shadow-2xl relative z-10"
-              data-cta="primary"
-              onClick={() => {
-                document.getElementById('quick-assessment')?.scrollIntoView({ 
-                  behavior: 'smooth' 
-                });
-              }}
-            >
-              Check your Swiss Potential
-            </SwissButton>
-            
-            <SwissButton 
-              variant="outline" 
-              size="lg"
-              className="min-w-[200px] relative z-10"
-              data-cta="secondary"
-              onClick={() => {
-                document.getElementById('calendly-booking')?.scrollIntoView({ 
-                  behavior: 'smooth' 
-                });
-              }}
-            >
-              Kostenlose Beratung
-            </SwissButton>
-          </motion.div>
+            {/* CTA Buttons */}
+            <FadeInUp delay={0.6}>
+              <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
+                <HoverScale>
+                  <RippleButton>
+                    <SwissButton 
+                      variant="burgundy" 
+                      size="xl"
+                      className="min-w-[280px] shadow-2xl relative z-10 transition-all duration-300"
+                      data-cta="primary"
+                      onClick={() => {
+                        document.getElementById('quick-assessment')?.scrollIntoView({ 
+                          behavior: 'smooth' 
+                        });
+                      }}
+                    >
+                      Check your Swiss Potential
+                    </SwissButton>
+                  </RippleButton>
+                </HoverScale>
+                
+                <HoverScale>
+                  <SwissButton 
+                    variant="outline" 
+                    size="lg"
+                    className="min-w-[200px] relative z-10 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                    data-cta="secondary"
+                    onClick={() => {
+                      document.getElementById('calendly-booking')?.scrollIntoView({ 
+                        behavior: 'smooth' 
+                      });
+                    }}
+                  >
+                    Kostenlose Beratung
+                  </SwissButton>
+                </HoverScale>
+              </div>
+            </FadeInUp>
 
-          {/* Stats: SwissPats specific numbers */}
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl">
-            <Stat label="Erfolgsquote" value={94} format="percent" delay={0} />
-            <Stat label="Ø Gehaltsplus" value={67400} format="chf" delay={0.2} />
-            <Stat label="Begleitete Relocations" value={847} format="int" delay={0.4} />
-          </div>
+            {/* Stats: SwissPats specific numbers */}
+            <FadeInUp delay={0.8}>
+              <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl">
+                <Stat label="Erfolgsquote" value={94} format="percent" delay={0} />
+                <Stat label="Ø Gehaltsplus" value={67400} format="chf" delay={0.2} />
+                <Stat label="Begleitete Relocations" value={847} format="int" delay={0.4} />
+              </div>
+            </FadeInUp>
+          </StaggerContainer>
         </div>
 
-        {/* Right: Empty space for background animation visibility */}
-        <div className="relative z-10 order-1 lg:order-2 min-h-[400px] lg:min-h-[600px]" />
+        {/* Right: Empty space for background animation visibility with subtle parallax */}
+        <motion.div 
+          className="relative z-10 order-1 lg:order-2 min-h-[400px] lg:min-h-[600px]"
+          animate={{
+            y: [0, -10, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
       </div>
     </section>
   );

@@ -9,21 +9,56 @@ import { CombinedAssessment } from "@/components/CombinedAssessment";
 import { UrgencySection } from "@/components/UrgencySection";
 import { FAQSection } from "@/components/FAQSection";
 import { TrustBadgesSection } from "@/components/TrustBadgesSection";
+import { FloatingOrbs } from "@/components/animations/FloatingOrbs";
+import { FadeInUp } from "@/components/animations/ScrollAnimations";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
+      {/* Floating Orbs Background */}
+      <FloatingOrbs />
+      
       <HeroSection />
-      <VideoPlaceholder />
-      <CalendlyBookingSection />
-      <QuickAssessment />
-      <AssessmentSection />
-      <SocialProofSection />
-      <DIYvsProComparison />
-      <CombinedAssessment />
-      <UrgencySection />
-      <FAQSection />
-      <TrustBadgesSection />
+      
+      <FadeInUp>
+        <VideoPlaceholder />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <CalendlyBookingSection />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <QuickAssessment />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <AssessmentSection />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <SocialProofSection />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <DIYvsProComparison />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <CombinedAssessment />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <UrgencySection />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <FAQSection />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <TrustBadgesSection />
+      </FadeInUp>
     </main>
   );
 };
