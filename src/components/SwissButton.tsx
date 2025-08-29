@@ -3,40 +3,48 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-// Clean Minimal Button Variants - Studio Meridian Inspired
 const swissButtonVariants = cva(
-  "inline-flex items-center justify-center gap-3 whitespace-nowrap font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        burgundy:
-          "bg-foreground text-background hover:bg-foreground/90 shadow-sm",
-        swiss:
-          "bg-accent text-accent-foreground hover:bg-accent/90 shadow-sm",
-        success:
-          "bg-accent text-accent-foreground hover:bg-accent/90 shadow-sm",
-        premium:
-          "bg-foreground text-background hover:bg-foreground/90 shadow-sm",
-        glass:
-          "bg-background/60 text-foreground border border-border backdrop-blur-sm hover:bg-background/80",
-        outline:
-          "border border-border bg-background hover:bg-muted hover:text-foreground",
-        secondary:
-          "bg-muted text-muted-foreground hover:bg-muted/80",
-        ghost: "hover:bg-muted hover:text-foreground",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        // Primary Burgundy CTA button - Heritage Luxury
+        burgundy: "bg-burgundy text-off-white shadow-luxury hover:bg-burgundy-dark hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 font-bold",
+        
+        // Charcoal Black primary button
+        swiss: "bg-charcoal-black text-off-white shadow-swiss hover:bg-swiss-navy-light hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
+        
+        // Alpine Green success button
+        success: "bg-alpine-green text-off-white shadow-success hover:bg-alpine-green-light hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300",
+        
+        // Premium Burgundy variant (same as burgundy but different styling)
+        premium: "bg-gradient-luxury text-off-white shadow-luxury hover:shadow-xl hover:scale-105 active:scale-95 font-bold transition-all duration-300",
+        
+        // Glass morphism button - now with off-white text
+        glass: "bg-off-white/10 backdrop-blur-sm border border-off-white/20 text-off-white hover:bg-off-white/20 hover:border-off-white/30 transition-all duration-300",
+        
+        // Outlined Heritage button
+        outline: "border-2 border-silver-gray text-charcoal-black hover:bg-silver-gray hover:text-charcoal-black transition-all duration-300",
+        
+        // Silver Gray secondary button
+        secondary: "bg-silver-gray text-charcoal-black shadow-soft hover:shadow-md hover:bg-silver-gray-dark transition-all duration-300",
+        
+        // Ghost button with Heritage colors
+        ghost: "text-charcoal-black hover:bg-silver-gray/50 transition-colors duration-200",
+        
+        // Destructive button
+        destructive: "bg-destructive text-destructive-foreground shadow-md hover:bg-destructive/90 hover:shadow-lg transition-all duration-300",
       },
       size: {
-        default: "h-12 px-6 py-3 text-base rounded-lg",
-        sm: "h-10 rounded-lg px-4 text-sm",
-        lg: "h-14 rounded-xl px-8 text-lg",
-        xl: "h-16 rounded-xl px-10 text-xl font-semibold",
-        icon: "h-12 w-12 rounded-lg",
+        default: "h-12 px-6 py-3",
+        sm: "h-9 px-4 py-2 text-xs",
+        lg: "h-14 px-8 py-4 text-base font-bold",
+        xl: "h-16 px-10 py-5 text-lg font-bold",
+        icon: "h-12 w-12",
       },
     },
     defaultVariants: {
-      variant: "burgundy",
+      variant: "swiss",
       size: "default",
     },
   }

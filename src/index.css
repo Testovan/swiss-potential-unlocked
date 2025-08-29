@@ -8,72 +8,64 @@ All colors MUST be HSL for proper theming.
 
 @layer base {
   :root {
-    /* Studio Meridian Inspired - Clean Minimal */
-    --studio-dark: 0 0% 7%;                 /* #121212 - Ultra dark text */
-    --studio-light: 0 0% 98%;               /* #FAFAFA - Ultra clean background */
-    --studio-gray: 0 0% 45%;                /* #737373 - Mid gray */
-    --studio-gray-light: 0 0% 85%;          /* #D9D9D9 - Light gray */
-    --studio-border: 0 0% 90%;              /* #E5E5E5 - Subtle borders */
-    --studio-accent: 0 0% 12%;              /* #1F1F1F - Dark accent */
+    /* Swiss Heritage Luxury Color Palette */
+    --charcoal-black: 0 0% 11%;             /* #1C1C1C - Primary dark */
+    --off-white: 43 50% 98%;                /* #FDFCF9 - Clean light */
+    --alpine-green: 123 43% 33%;            /* #2E7D32 - Success/Progress */
+    --alpine-green-light: 123 43% 43%;      /* Lighter variation */
+    --silver-gray: 210 14% 83%;             /* #CED4DA - Subtle elements */
+    --silver-gray-dark: 210 14% 73%;        /* Darker variation */
+    --burgundy: 345 100% 25%;               /* #800020 - CTA/Highlights */
+    --burgundy-dark: 345 100% 17%;          /* #5A0015 - Hover state */
     
-    /* Clean Minimal Palette */
-    --charcoal-black: 0 0% 7%;              /* Ultra dark for text */
-    --off-white: 0 0% 98%;                  /* Ultra clean background */
-    --alpine-green: 142 76% 36%;            /* #16A34A - Clean success green */
-    --alpine-green-light: 142 69% 58%;      /* Lighter variation */
-    --silver-gray: 0 0% 85%;                /* Clean light gray */
-    --silver-gray-dark: 0 0% 75%;           /* Medium gray */
-    --burgundy: 0 0% 12%;                   /* Dark for CTAs */
-    --burgundy-dark: 0 0% 8%;               /* Darker variation */
-    
-    /* Core Brand Colors - Clean Minimal */
-    --swiss-navy: 0 0% 7%;                  /* Ultra dark */
-    --swiss-navy-light: 0 0% 12%;           /* Dark */
-    --swiss-navy-dark: 0 0% 5%;             /* Deeper dark */
-    --success-green: 142 76% 36%;           /* Clean success */
-    --success-green-light: 142 69% 58%;     /* Light success */
-    --premium-gold: 0 0% 12%;               /* Dark accent */
+    /* Core Brand Colors - Updated to Heritage Luxury */
+    --swiss-navy: 0 0% 11%;                 /* Charcoal Black */
+    --swiss-navy-light: 0 0% 15%;           /* Slightly lighter charcoal */
+    --swiss-navy-dark: 0 0% 8%;             /* Deeper charcoal */
+    --success-green: 123 43% 33%;           /* Alpine Green */
+    --success-green-light: 123 43% 43%;     /* Lighter alpine */
+    --premium-gold: 345 100% 25%;           /* Burgundy as premium accent */
     --warning-amber: 38 92% 50%;            /* Keep for warnings */
-    --info-blue: 217 91% 60%;               /* Keep for info */
+    --info-blue: 217 91% 60%;               /* Keep for info states */
     
-    /* Neutral Palette - Clean Minimal */
-    --background: 0 0% 98%;                 /* Ultra clean background */
-    --foreground: 0 0% 7%;                  /* Ultra dark text */
-    --muted: 0 0% 95%;                      /* Very light gray */
-    --muted-foreground: 0 0% 45%;           /* Mid gray text */
-    --border: 0 0% 90%;                     /* Subtle borders */
-    --input: 0 0% 96%;                      /* Clean input background */
-    --ring: 0 0% 12%;                       /* Dark focus rings */
+    /* Neutral Palette - Heritage Luxury */
+    --background: 43 50% 98%;               /* Off-White */
+    --foreground: 0 0% 11%;                 /* Charcoal Black for text */
+    --muted: 210 14% 90%;                   /* Light silver gray */
+    --muted-foreground: 0 0% 25%;           /* Dark charcoal for muted text */
+    --border: 210 14% 83%;                  /* Silver Gray */
+    --input: 210 14% 83%;                   /* Silver Gray for inputs */
+    --ring: 345 100% 25%;                   /* Burgundy for focus rings */
     
     /* Component Colors */
-    --card: 0 0% 99%;                       /* Pure white cards */
-    --card-foreground: 0 0% 7%;             /* Dark text */
-    --popover: 0 0% 99%;                    /* Pure white */
-    --popover-foreground: 0 0% 7%;          /* Dark text */
+    --card: 43 50% 98%;                     /* Off-White */
+    --card-foreground: 0 0% 11%;            /* Charcoal Black */
+    --popover: 43 50% 98%;                  /* Off-White */
+    --popover-foreground: 0 0% 11%;         /* Charcoal Black */
     
-    /* Semantic Colors - Clean Minimal */
-    --primary: 0 0% 7%;                     /* Ultra dark */
-    --primary-foreground: 0 0% 98%;         /* Light text */
-    --secondary: 0 0% 95%;                  /* Light gray */
-    --secondary-foreground: 0 0% 7%;        /* Dark text */
-    --accent: 142 76% 36%;                  /* Success green */
-    --accent-foreground: 0 0% 98%;          /* Light text */
-    --destructive: 0 84% 60%;               /* Keep red */
-    --destructive-foreground: 0 0% 98%;     /* Light text */
+    /* Semantic Colors - Heritage Luxury */
+    --primary: 0 0% 11%;                    /* Charcoal Black */
+    --primary-foreground: 43 50% 98%;       /* Off-White */
+    --secondary: 210 14% 83%;               /* Silver Gray */
+    --secondary-foreground: 0 0% 11%;       /* Charcoal Black */
+    --accent: 123 43% 33%;                  /* Alpine Green */
+    --accent-foreground: 43 50% 98%;        /* Off-White */
+    --destructive: 0 84% 60%;               /* Keep red for destructive */
+    --destructive-foreground: 43 50% 98%;   /* Off-White */
     
-    /* Clean Minimal Gradients */
+    /* Heritage Luxury Gradients */
     --gradient-swiss: linear-gradient(135deg, hsl(var(--charcoal-black)), hsl(var(--swiss-navy-light)));
     --gradient-success: linear-gradient(135deg, hsl(var(--alpine-green)), hsl(var(--alpine-green-light)));
     --gradient-premium: linear-gradient(135deg, hsl(var(--burgundy)), hsl(var(--burgundy-dark)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--swiss-navy-dark)) 100%);
     --gradient-luxury: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--burgundy)) 100%);
     
-    /* Clean Minimal Shadows */
-    --shadow-swiss: 0 1px 3px 0 hsl(var(--charcoal-black) / 0.1), 0 1px 2px -1px hsl(var(--charcoal-black) / 0.1);
-    --shadow-success: 0 4px 6px -1px hsl(var(--alpine-green) / 0.1), 0 2px 4px -2px hsl(var(--alpine-green) / 0.1);
-    --shadow-premium: 0 10px 15px -3px hsl(var(--charcoal-black) / 0.1), 0 4px 6px -4px hsl(var(--charcoal-black) / 0.1);
-    --shadow-luxury: 0 20px 25px -5px hsl(var(--charcoal-black) / 0.1), 0 8px 10px -6px hsl(var(--charcoal-black) / 0.1);
-    --shadow-soft: 0 1px 2px 0 hsl(var(--charcoal-black) / 0.05);
+    /* Heritage Luxury Shadows */
+    --shadow-swiss: 0 10px 30px -10px hsl(var(--charcoal-black) / 0.3);
+    --shadow-success: 0 10px 25px -8px hsl(var(--alpine-green) / 0.4);
+    --shadow-premium: 0 20px 40px -15px hsl(var(--burgundy) / 0.3);
+    --shadow-luxury: 0 25px 50px -12px hsl(var(--charcoal-black) / 0.4);
+    --shadow-soft: 0 4px 20px -4px hsl(var(--charcoal-black) / 0.1);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -113,44 +105,8 @@ All colors MUST be HSL for proper theming.
 
   body {
     @apply bg-background text-foreground;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 400;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  /* Studio Meridian Typography - Bold Condensed */
-  .studio-heading {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    line-height: 0.9;
-    text-transform: uppercase;
-  }
-  
-  .studio-subheading {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-  }
-  
-  .studio-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1.6;
-  }
-  
-  /* Clean Minimal Cards */
-  .studio-card {
-    @apply bg-card border border-border rounded-lg p-6 shadow-sm;
-    backdrop-filter: blur(10px);
-  }
-  
-  .studio-stat-card {
-    @apply bg-muted/30 border border-border rounded-lg p-4 text-center;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
   
   /* Custom utility classes - Heritage Luxury */
