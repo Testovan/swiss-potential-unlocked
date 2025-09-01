@@ -11,6 +11,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { TrustBadgesSection } from "@/components/TrustBadgesSection";
 import { FloatingOrbs } from "@/components/animations/FloatingOrbs";
 import { FadeInUp } from "@/components/animations/ScrollAnimations";
+import SwissBenefitsSection from "@/components/SwissBenefitsSection";
 
 const Index = () => {
   return (
@@ -19,6 +20,10 @@ const Index = () => {
       <FloatingOrbs />
       
       <HeroSection />
+      
+      <FadeInUp>
+        <SwissBenefitsSection />
+      </FadeInUp>
       
       <FadeInUp>
         <VideoPlaceholder />
