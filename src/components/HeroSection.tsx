@@ -42,11 +42,11 @@ const SplineBackgroundAnimation = () => {
       duration: 1.2,
       ease: "easeInOut"
     }} className="absolute inset-0">
-          <iframe src="https://my.spline.design/particleshand-hvOmWUmsJZdKgiwsffxwncoo/" frameBorder="0" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking" className="absolute inset-0 w-full h-full pointer-events-none" style={{
+          <iframe src="https://my.spline.design/flowingribbon-nBkwkrvCCwuptQ1MlGvk5q5J/" frameBorder="0" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking" className="absolute inset-0 w-full h-full pointer-events-none" style={{
         width: '100%',
         height: '100%',
         objectFit: 'cover'
-      }} title="Spline 3D Particles Hand Animation" />
+      }} title="Spline 3D Flowing Ribbon Animation" />
           
           {/* Semi-transparent overlay for text readability */}
           <div className="absolute inset-0 pointer-events-none z-[0.5]" style={{
