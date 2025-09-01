@@ -92,7 +92,7 @@ const srfVideoChapters = [{
   duration: "5:16"
 }];
 export const SocialProofSection = () => {
-  return <section className="py-20 bg-gradient-to-br from-charcoal-black to-swiss-navy-dark text-off-white bg-gray-200">
+  return <section className="py-20 bg-gradient-to-br from-charcoal-black to-swiss-navy-dark text-off-white bg-slate-200">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
