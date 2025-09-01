@@ -28,30 +28,30 @@ All colors MUST be HSL for proper theming.
     --warning-amber: 38 92% 50%;            /* Keep for warnings */
     --info-blue: 217 91% 60%;               /* Keep for info states */
     
-    /* Neutral Palette - Heritage Luxury */
-    --background: 43 50% 98%;               /* Off-White */
+    /* Neutral Palette - Clean White */
+    --background: 0 0% 100%;                /* Pure White */
     --foreground: 0 0% 11%;                 /* Charcoal Black for text */
-    --muted: 210 14% 90%;                   /* Light silver gray */
+    --muted: 0 0% 96%;                      /* Very light gray */
     --muted-foreground: 0 0% 25%;           /* Dark charcoal for muted text */
-    --border: 210 14% 83%;                  /* Silver Gray */
-    --input: 210 14% 83%;                   /* Silver Gray for inputs */
+    --border: 0 0% 90%;                     /* Light gray borders */
+    --input: 0 0% 96%;                      /* Light gray for inputs */
     --ring: 345 100% 25%;                   /* Burgundy for focus rings */
     
     /* Component Colors */
-    --card: 43 50% 98%;                     /* Off-White */
+    --card: 0 0% 100%;                      /* Pure White */
     --card-foreground: 0 0% 11%;            /* Charcoal Black */
-    --popover: 43 50% 98%;                  /* Off-White */
+    --popover: 0 0% 100%;                   /* Pure White */
     --popover-foreground: 0 0% 11%;         /* Charcoal Black */
     
-    /* Semantic Colors - Heritage Luxury */
+    /* Semantic Colors - Clean White */
     --primary: 0 0% 11%;                    /* Charcoal Black */
-    --primary-foreground: 43 50% 98%;       /* Off-White */
-    --secondary: 210 14% 83%;               /* Silver Gray */
+    --primary-foreground: 0 0% 100%;        /* Pure White */
+    --secondary: 0 0% 94%;                  /* Light Gray */
     --secondary-foreground: 0 0% 11%;       /* Charcoal Black */
     --accent: 123 43% 33%;                  /* Alpine Green */
-    --accent-foreground: 43 50% 98%;        /* Off-White */
+    --accent-foreground: 0 0% 100%;         /* Pure White */
     --destructive: 0 84% 60%;               /* Keep red for destructive */
-    --destructive-foreground: 43 50% 98%;   /* Off-White */
+    --destructive-foreground: 0 0% 100%;    /* Pure White */
     
     /* Heritage Luxury Gradients */
     --gradient-swiss: linear-gradient(135deg, hsl(var(--charcoal-black)), hsl(var(--swiss-navy-light)));
