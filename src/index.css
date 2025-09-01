@@ -28,30 +28,30 @@ All colors MUST be HSL for proper theming.
     --warning-amber: 38 92% 50%;            /* Keep for warnings */
     --info-blue: 217 91% 60%;               /* Keep for info states */
     
-    /* Neutral Palette - Clean White */
-    --background: 0 0% 100%;                /* Pure White */
-    --foreground: 0 0% 11%;                 /* Charcoal Black for text */
-    --muted: 0 0% 96%;                      /* Very light gray */
-    --muted-foreground: 0 0% 25%;           /* Dark charcoal for muted text */
-    --border: 0 0% 90%;                     /* Light gray borders */
-    --input: 0 0% 96%;                      /* Light gray for inputs */
-    --ring: 345 100% 25%;                   /* Burgundy for focus rings */
+    /* SwissPats Clean Neuomorphic Palette */
+    --background: 43 50% 98%;               /* #FFFCF7 - Warm off-white page background */
+    --foreground: 0 0% 4%;                  /* #0A0A0A - Dark ink text */
+    --muted: 43 50% 100%;                   /* #FFFFFF - Pure white surfaces */
+    --muted-foreground: 220 13% 46%;        /* #6B7280 - Muted gray text */
+    --border: 220 13% 91%;                  /* #E5E7EB - Light gray borders */
+    --input: 0 0% 100%;                     /* #FFFFFF - White input backgrounds */
+    --ring: 220 13% 91%;                    /* #E5E7EB - Light focus rings */
     
-    /* Component Colors */
-    --card: 0 0% 100%;                      /* Pure White */
-    --card-foreground: 0 0% 11%;            /* Charcoal Black */
-    --popover: 0 0% 100%;                   /* Pure White */
-    --popover-foreground: 0 0% 11%;         /* Charcoal Black */
+    /* Component Colors - Neuomorphic */
+    --card: 0 0% 100%;                      /* #FFFFFF - Pure white cards */
+    --card-foreground: 0 0% 4%;             /* #0A0A0A - Dark text on cards */
+    --popover: 0 0% 100%;                   /* #FFFFFF - White popovers */
+    --popover-foreground: 0 0% 4%;          /* #0A0A0A - Dark text */
     
-    /* Semantic Colors - Clean White */
-    --primary: 0 0% 11%;                    /* Charcoal Black */
-    --primary-foreground: 0 0% 100%;        /* Pure White */
-    --secondary: 0 0% 94%;                  /* Light Gray */
-    --secondary-foreground: 0 0% 11%;       /* Charcoal Black */
-    --accent: 123 43% 33%;                  /* Alpine Green */
-    --accent-foreground: 0 0% 100%;         /* Pure White */
+    /* Semantic Colors - Clean Neuomorphic */
+    --primary: 0 0% 4%;                     /* #0A0A0A - Dark primary */
+    --primary-foreground: 0 0% 100%;        /* #FFFFFF - White on primary */
+    --secondary: 0 0% 100%;                 /* #FFFFFF - White secondary */
+    --secondary-foreground: 0 0% 4%;        /* #0A0A0A - Dark text on secondary */
+    --accent: 220 13% 46%;                  /* #6B7280 - Muted accent */
+    --accent-foreground: 0 0% 100%;         /* #FFFFFF - White on accent */
     --destructive: 0 84% 60%;               /* Keep red for destructive */
-    --destructive-foreground: 0 0% 100%;    /* Pure White */
+    --destructive-foreground: 0 0% 100%;    /* White on destructive */
     
     /* Heritage Luxury Gradients */
     --gradient-swiss: linear-gradient(135deg, hsl(var(--charcoal-black)), hsl(var(--swiss-navy-light)));
@@ -60,12 +60,12 @@ All colors MUST be HSL for proper theming.
     --gradient-hero: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--swiss-navy-dark)) 100%);
     --gradient-luxury: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--burgundy)) 100%);
     
-    /* Heritage Luxury Shadows */
-    --shadow-swiss: 0 10px 30px -10px hsl(var(--charcoal-black) / 0.3);
-    --shadow-success: 0 10px 25px -8px hsl(var(--alpine-green) / 0.4);
-    --shadow-premium: 0 20px 40px -15px hsl(var(--burgundy) / 0.3);
-    --shadow-luxury: 0 25px 50px -12px hsl(var(--charcoal-black) / 0.4);
-    --shadow-soft: 0 4px 20px -4px hsl(var(--charcoal-black) / 0.1);
+    /* Neuomorphic Shadows - Clean & Subtle */
+    --shadow-neumorph: 10px 10px 30px rgba(10, 10, 10, 0.08), -10px -10px 30px rgba(255, 255, 255, 0.8);
+    --shadow-inset: inset 0 2px 8px rgba(10, 10, 10, 0.06);
+    --shadow-card: 0 6px 20px rgba(10, 10, 10, 0.06);
+    --shadow-hover: 0 8px 25px rgba(10, 10, 10, 0.08);
+    --shadow-soft: 0 4px 20px -4px hsl(var(--foreground) / 0.1);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -229,6 +229,65 @@ All colors MUST be HSL for proper theming.
   
   .shadow-soft {
     box-shadow: var(--shadow-soft);
+  }
+
+  /* Neuomorphic Design Components - SwissPats Clean Style */
+  .shadow-neumorph {
+    box-shadow: var(--shadow-neumorph);
+  }
+  
+  .shadow-inset {
+    box-shadow: var(--shadow-inset);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* Card styling - Clean neuomorphic */
+  .card, .panel, .feature, .box, .tile {
+    @apply bg-card text-card-foreground border border-border rounded-[22px];
+    box-shadow: var(--shadow-card);
+    backdrop-filter: saturate(1.05) blur(4px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover, .panel:hover, .feature:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* Badge/Chip styling - Clean neuomorphic */
+  .badge-neumorph, .chip-neumorph {
+    @apply inline-flex items-center gap-2 bg-card text-foreground border border-border rounded-full px-3 py-2;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Button styling - Clean neuomorphic */
+  .button-neumorph {
+    @apply bg-card text-foreground border border-border rounded-xl px-4 py-3 leading-none;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .button-neumorph:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+    box-shadow: var(--shadow-hover);
+  }
+
+  .button-neumorph.primary {
+    @apply bg-primary text-primary-foreground border-primary;
+  }
+
+  /* Surface inset styling for gauge/orbit backgrounds */
+  .surface-inset {
+    @apply bg-card border border-border;
+    box-shadow: var(--shadow-inset);
   }
 }
 
