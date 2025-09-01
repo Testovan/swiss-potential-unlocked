@@ -42,7 +42,7 @@ const SplineBackgroundAnimation = () => {
       duration: 1.2,
       ease: "easeInOut"
     }} className="absolute inset-0">
-          <iframe src="https://my.spline.design/sphereofparticles-mltCekHouAIpWsT2xbRqfBRo/" frameBorder="0" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking" className="absolute inset-0 w-full h-full pointer-events-none" style={{
+          <iframe src="https://my.spline.design/flowingribbon-nBkwkrvCCwuptQ1MlGvk5q5J/" frameBorder="0" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking" className="absolute inset-0 w-full h-full pointer-events-none" style={{
         width: '100%',
         height: '100%',
         objectFit: 'cover',
