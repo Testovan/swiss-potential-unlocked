@@ -92,7 +92,7 @@ const srfVideoChapters = [{
   duration: "5:16"
 }];
 export const SocialProofSection = () => {
-  return <section className="py-20 bg-gradient-to-br from-charcoal-black to-swiss-navy-dark text-off-white bg-slate-200">
+  return <section className="py-20 bg-gradient-to-br from-charcoal-black to-swiss-navy-dark text-off-white bg-gray-200">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -116,7 +116,7 @@ export const SocialProofSection = () => {
                 <div className="aspect-video bg-gradient-to-br from-charcoal-black to-swiss-navy-dark rounded-lg flex items-center justify-center relative overflow-hidden">
                   <Play className="w-12 h-12 text-alpine-green opacity-80 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute top-2 left-2">
-                    <Badge variant="secondary" className="bg-burgundy/90 text-off-white border-0 text-xs">
+                    <Badge variant="secondary" className="text-off-white border-0 text-xs bg-gray-950">
                       <CheckCircle2 className="w-3 h-3 mr-1" />
                       Verifiziert
                     </Badge>
@@ -142,11 +142,11 @@ export const SocialProofSection = () => {
                 </div>
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-off-white/70">Nachher:</span>
-                  <span className="text-alpine-green font-semibold">{story.salaryAfter}</span>
+                  <span className="text-alpine-green font-semibold text-slate-50">{story.salaryAfter}</span>
                 </div>
                 <div className="flex justify-between items-center text-sm border-t border-off-white/10 pt-2">
                   <span className="text-off-white/70">Mehr-Verdienst:</span>
-                  <span className="text-burgundy font-bold">{story.increase}</span>
+                  <span className="font-bold text-green-600">{story.increase}</span>
                 </div>
               </div>
 
@@ -154,8 +154,8 @@ export const SocialProofSection = () => {
               
               <div className="flex justify-between items-center text-xs text-off-white/60">
                 <span>Dauer: {story.timeframe}</span>
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-burgundy text-burgundy" />)}
+                <div className="flex items-center gap-1 bg-transparent">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-burgundy text-burgundy bg-transparent" />)}
                 </div>
               </div>
             </Card>)}
