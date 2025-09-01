@@ -139,7 +139,7 @@ export const HeroSection = () => {
               ease: "easeInOut"
             }}>
                 Secure the future<br />
-                <span className="text-gradient-neutral bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                <span className="text-gradient-luxury bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                   with SwissPats
                 </span>
               </motion.h1>
