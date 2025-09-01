@@ -2,99 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* SwissPats Design System - Swiss Heritage Luxury
-All colors MUST be HSL for proper theming.
+/* SwissPats Clean Neuomorphic Design System
+All colors use the clean neutral palette - no green/red colors.
 */
 
 @layer base {
   :root {
-    /* Swiss Heritage Luxury Color Palette */
-    --charcoal-black: 0 0% 11%;             /* #1C1C1C - Primary dark */
-    --off-white: 43 50% 98%;                /* #FDFCF9 - Clean light */
-    --alpine-green: 123 43% 33%;            /* #2E7D32 - Success/Progress */
-    --alpine-green-light: 123 43% 43%;      /* Lighter variation */
-    --silver-gray: 210 14% 83%;             /* #CED4DA - Subtle elements */
-    --silver-gray-dark: 210 14% 73%;        /* Darker variation */
-    --burgundy: 345 100% 25%;               /* #800020 - CTA/Highlights */
-    --burgundy-dark: 345 100% 17%;          /* #5A0015 - Hover state */
+    /* SwissPats Clean Neuomorphic Palette - Complete Override */
+    --bg: 43 50% 98%;                       /* #FFFCF7 - Warm off-white page background */
+    --surface: 0 0% 100%;                   /* #FFFFFF - Pure white cards/surfaces */
+    --ink: 0 0% 4%;                         /* #0A0A0A - Dark text/icons */
+    --muted-text: 220 13% 46%;              /* #6B7280 - Secondary text */
+    --border-color: 220 13% 91%;            /* #E5E7EB - Light borders */
     
-    /* Core Brand Colors - Updated to Heritage Luxury */
-    --swiss-navy: 0 0% 11%;                 /* Charcoal Black */
-    --swiss-navy-light: 0 0% 15%;           /* Slightly lighter charcoal */
-    --swiss-navy-dark: 0 0% 8%;             /* Deeper charcoal */
-    --success-green: 123 43% 33%;           /* Alpine Green */
-    --success-green-light: 123 43% 43%;     /* Lighter alpine */
-    --premium-gold: 345 100% 25%;           /* Burgundy as premium accent */
-    --warning-amber: 38 92% 50%;            /* Keep for warnings */
-    --info-blue: 217 91% 60%;               /* Keep for info states */
-    
-    /* SwissPats Clean Neuomorphic Palette */
-    --background: 43 50% 98%;               /* #FFFCF7 - Warm off-white page background */
+    /* Tailwind CSS Variables - Mapped to SwissPats Colors */
+    --background: 43 50% 98%;               /* #FFFCF7 - Warm off-white */
     --foreground: 0 0% 4%;                  /* #0A0A0A - Dark ink text */
-    --muted: 43 50% 100%;                   /* #FFFFFF - Pure white surfaces */
+    --muted: 0 0% 100%;                     /* #FFFFFF - Pure white surfaces */
     --muted-foreground: 220 13% 46%;        /* #6B7280 - Muted gray text */
     --border: 220 13% 91%;                  /* #E5E7EB - Light gray borders */
     --input: 0 0% 100%;                     /* #FFFFFF - White input backgrounds */
     --ring: 220 13% 91%;                    /* #E5E7EB - Light focus rings */
     
-    /* Component Colors - Neuomorphic */
+    /* Component Colors - Clean White Theme */
     --card: 0 0% 100%;                      /* #FFFFFF - Pure white cards */
     --card-foreground: 0 0% 4%;             /* #0A0A0A - Dark text on cards */
     --popover: 0 0% 100%;                   /* #FFFFFF - White popovers */
     --popover-foreground: 0 0% 4%;          /* #0A0A0A - Dark text */
     
-    /* Semantic Colors - Clean Neuomorphic */
+    /* Semantic Colors - Clean Neutral Only */
     --primary: 0 0% 4%;                     /* #0A0A0A - Dark primary */
     --primary-foreground: 0 0% 100%;        /* #FFFFFF - White on primary */
     --secondary: 0 0% 100%;                 /* #FFFFFF - White secondary */
     --secondary-foreground: 0 0% 4%;        /* #0A0A0A - Dark text on secondary */
     --accent: 220 13% 46%;                  /* #6B7280 - Muted accent */
     --accent-foreground: 0 0% 100%;         /* #FFFFFF - White on accent */
-    --destructive: 0 84% 60%;               /* Keep red for destructive */
+    --destructive: 220 13% 46%;             /* #6B7280 - Neutral destructive (no red) */
     --destructive-foreground: 0 0% 100%;    /* White on destructive */
-    
-    /* Heritage Luxury Gradients */
-    --gradient-swiss: linear-gradient(135deg, hsl(var(--charcoal-black)), hsl(var(--swiss-navy-light)));
-    --gradient-success: linear-gradient(135deg, hsl(var(--alpine-green)), hsl(var(--alpine-green-light)));
-    --gradient-premium: linear-gradient(135deg, hsl(var(--burgundy)), hsl(var(--burgundy-dark)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--swiss-navy-dark)) 100%);
-    --gradient-luxury: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--burgundy)) 100%);
-    
-    /* Neuomorphic Shadows - Clean & Subtle */
+    /* SwissPats Clean Gradients - Neutral Only */
+    --gradient-neutral: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--muted-foreground)));
+    --gradient-surface: linear-gradient(135deg, hsl(var(--card)), hsl(var(--background)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--card)));
+
+    /* Clean Neuomorphic Shadows */
     --shadow-neumorph: 10px 10px 30px rgba(10, 10, 10, 0.08), -10px -10px 30px rgba(255, 255, 255, 0.8);
     --shadow-inset: inset 0 2px 8px rgba(10, 10, 10, 0.06);
     --shadow-card: 0 6px 20px rgba(10, 10, 10, 0.06);
     --shadow-hover: 0 8px 25px rgba(10, 10, 10, 0.08);
-    --shadow-soft: 0 4px 20px -4px hsl(var(--foreground) / 0.1);
-    
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    
+    --shadow-soft: 0 4px 20px rgba(10, 10, 10, 0.04);
+
     --radius: 0.5rem;
   }
 
-  .dark {
-    --background: 0 0% 8%;                  /* Deeper charcoal for dark mode */
-    --foreground: 43 50% 98%;               /* Off-White */
-    --card: 0 0% 11%;                       /* Charcoal Black */
-    --card-foreground: 43 50% 98%;          /* Off-White */
-    --popover: 0 0% 11%;                    /* Charcoal Black */
-    --popover-foreground: 43 50% 98%;       /* Off-White */
-    --primary: 43 50% 98%;                  /* Off-White in dark mode */
-    --primary-foreground: 0 0% 11%;         /* Charcoal Black */
-    --secondary: 0 0% 15%;                  /* Lighter charcoal */
-    --secondary-foreground: 43 50% 98%;     /* Off-White */
-    --muted: 0 0% 15%;                      /* Lighter charcoal */
-    --muted-foreground: 210 14% 83%;        /* Silver Gray */
-    --accent: 123 43% 33%;                  /* Alpine Green */
-    --accent-foreground: 43 50% 98%;        /* Off-White */
-    --destructive: 0 63% 31%;               /* Darker red */
-    --destructive-foreground: 43 50% 98%;   /* Off-White */
-    --border: 0 0% 15%;                     /* Lighter charcoal */
-    --input: 0 0% 15%;                      /* Lighter charcoal */
-    --ring: 345 100% 25%;                   /* Burgundy */
+  /* Light theme only - no dark mode */
+  html, body {
+    background: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -109,33 +74,206 @@ All colors MUST be HSL for proper theming.
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
   
-  /* Custom utility classes - Heritage Luxury */
-  .text-gradient-swiss {
-    @apply bg-gradient-to-r from-charcoal-black to-silver-gray-dark bg-clip-text text-transparent;
+  /* Clean Neutral Text Gradients - No Colors */
+  .text-gradient-neutral {
+    @apply bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent;
   }
   
-  .text-gradient-success {
-    @apply bg-gradient-to-r from-alpine-green to-alpine-green-light bg-clip-text text-transparent;
+  .text-gradient-subtle {
+    @apply bg-gradient-to-r from-muted-foreground to-foreground bg-clip-text text-transparent;
   }
   
-  .text-gradient-luxury {
-    @apply bg-gradient-to-r from-burgundy to-burgundy-dark bg-clip-text text-transparent;
+  /* SwissPats Global Theme Implementation */
+  
+  /* Typography - Clean and Bold */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-foreground font-extrabold tracking-tight;
   }
   
-  .shadow-swiss {
-    box-shadow: var(--shadow-swiss);
+  p, li, small, span {
+    @apply text-foreground;
   }
   
-  .shadow-success {
-    box-shadow: var(--shadow-success);
+  .muted, .subtitle, .text-secondary, [class*="subtitle"], [data-variant="muted"] {
+    @apply text-muted-foreground;
   }
   
-  .shadow-premium {
-    box-shadow: var(--shadow-premium);
+  /* Links */
+  a {
+    @apply text-foreground no-underline;
+    transition: opacity 0.2s ease;
   }
   
-  .shadow-luxury {
-    box-shadow: var(--shadow-luxury);
+  a:hover {
+    opacity: 0.85;
+  }
+  
+  /* Sections & Layout */
+  section {
+    padding: 96px 0;
+  }
+  
+  .container, [class*="container"], [data-container] {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  /* Cards / Panels / Boxes - Global Override */
+  .card, .panel, .feature, .box, .tile,
+  [class*="card"], [class*="panel"], [class*="feature"], [data-card], [role="article"] {
+    @apply bg-card border border-border rounded-[22px];
+    box-shadow: var(--shadow-card) !important;
+    backdrop-filter: saturate(1.05) blur(4px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  
+  .card:hover, .panel:hover, .feature:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Neumorph Inner Surfaces */
+  .surface-inset {
+    @apply bg-card border border-border;
+    box-shadow: var(--shadow-inset);
+  }
+  
+  /* Badges / Chips / Pills / Tags - Global Override */
+  .badge, .chip, .pill, .tag,
+  [class*="badge"], [class*="chip"], [class*="pill"], [class*="tag"], [data-badge] {
+    @apply inline-flex items-center gap-2 bg-card text-foreground border border-border rounded-full px-3 py-2;
+    box-shadow: var(--shadow-card) !important;
+  }
+  
+  .badge.muted, .chip.muted {
+    @apply text-muted-foreground;
+  }
+  
+  /* Buttons - Clean Neutral */
+  .button, .btn, button,
+  [class*="button"], [class*="btn"], [role="button"] {
+    @apply bg-card text-foreground border border-border rounded-xl px-4 py-3 leading-none;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .button:hover, .btn:hover, button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+  }
+  
+  .button.primary, .btn-primary {
+    @apply bg-primary text-primary-foreground border-primary;
+  }
+  
+  .button.primary:hover {
+    opacity: 0.9;
+  }
+  
+  /* Navigation / Header / Footer */
+  .navbar, header, [role="navigation"] {
+    @apply bg-transparent;
+    border-bottom: 1px solid transparent;
+  }
+  
+  .navbar a, header a, nav a {
+    @apply text-foreground;
+  }
+  
+  footer, [role="contentinfo"] {
+    @apply bg-background text-foreground border-t border-border;
+  }
+  
+  /* Forms */
+  input, select, textarea, .input, .select, .textarea {
+    @apply bg-card text-foreground border border-border rounded-xl px-4 py-3;
+    outline: none;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 0 4px rgba(10, 10, 10, 0.06);
+    @apply border-gray-300;
+  }
+  
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  th, td {
+    @apply border-b border-border;
+  }
+  
+  thead th {
+    @apply text-muted-foreground;
+  }
+  
+  /* Accordions */
+  details {
+    @apply border border-border rounded-2xl bg-card px-4 py-3;
+  }
+  
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  details[open] {
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* Tabs */
+  .tabs, [role="tablist"] {
+    @apply flex gap-2 border-b border-border;
+  }
+  
+  [role="tab"] {
+    @apply bg-card border border-border border-b-0 px-4 py-2;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  [role="tab"][aria-selected="true"] {
+    @apply text-foreground font-bold;
+  }
+  
+  /* Pricing Cards */
+  [class*="pricing"], .pricing-card {
+    @apply bg-card border border-border rounded-[22px];
+    box-shadow: var(--shadow-card) !important;
+  }
+  
+  /* Dividers */
+  hr, .divider {
+    border: none;
+    @apply border-t border-border;
+  }
+  
+  /* Images/Icons */
+  img, svg {
+    @apply text-foreground;
+  }
+  
+  /* Hero/Panels */
+  .hero, [data-hero] {
+    padding: 120px 0;
+  }
+  
+  /* Utility Classes */
+  .text-muted {
+    @apply text-muted-foreground;
+  }
+  
+  /* SwissPats Benefits Labels */
+  #swisspats-benefits .pill-top {
+    font-weight: 700;
+  }
+  
+  #swisspats-benefits .side-label {
+    letter-spacing: 0.2em;
+    @apply text-muted-foreground;
   }
   
   /* Animation classes */

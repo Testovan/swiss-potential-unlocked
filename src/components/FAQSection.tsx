@@ -45,37 +45,36 @@ const faqData = [{
   icon: <Users className="w-5 h-5" />
 }];
 export const FAQSection = () => {
-  return <section className="py-20 bg-gradient-to-br from-charcoal-black to-swiss-navy-dark text-off-white bg-slate-100 rounded-none">
+  return <section className="py-20 bg-background text-foreground rounded-none">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 bg-alpine-green/20 text-alpine-green border-alpine-green/30">
+          <Badge variant="secondary" className="mb-4 bg-muted text-muted-foreground border-border">
             <HelpCircle className="w-4 h-4 mr-2" />
             Häufige Fragen
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Alle wichtigen
-            <span className="text-alpine-green"> Antworten</span>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 text-foreground">
+            Alle wichtigen Antworten
           </h2>
-          <p className="text-xl text-off-white/80 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Die häufigsten Fragen unserer Kunden - ehrlich und transparent beantwortet
           </p>
         </div>
 
         {/* FAQ Accordion */}
         <div className="max-w-4xl mx-auto mb-12">
-          <Card className="bg-off-white/5 backdrop-blur-sm border border-off-white/10 p-8">
+          <Card className="bg-card backdrop-blur-sm border border-border p-8">
             <Accordion type="single" collapsible className="w-full">
-              {faqData.map(faq => <AccordionItem key={faq.id} value={faq.id} className="border-b border-off-white/20 last:border-b-0">
-                  <AccordionTrigger className="text-left hover:text-alpine-green transition-colors py-6 text-off-white hover:no-underline">
+              {faqData.map(faq => <AccordionItem key={faq.id} value={faq.id} className="border-b border-border last:border-b-0">
+                  <AccordionTrigger className="text-left hover:text-muted-foreground transition-colors py-6 text-foreground hover:no-underline">
                     <div className="flex items-center gap-3">
-                      <div className="text-alpine-green flex-shrink-0">
+                      <div className="text-muted-foreground flex-shrink-0">
                         {faq.icon}
                       </div>
                       <span className="font-semibold">{faq.question}</span>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="text-off-white/80 pb-6 pl-8">
+                  <AccordionContent className="text-muted-foreground pb-6 pl-8">
                     <p className="leading-relaxed">{faq.answer}</p>
                   </AccordionContent>
                 </AccordionItem>)}
@@ -85,22 +84,22 @@ export const FAQSection = () => {
 
         {/* Quick Stats */}
         <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-          <Card className="p-6 text-center bg-alpine-green/10 border border-alpine-green/30">
-            <CheckCircle2 className="w-8 h-8 text-alpine-green mx-auto mb-3" />
-            <div className="text-2xl font-black text-alpine-green mb-1">95%</div>
-            <div className="text-sm text-off-white/70">Erfolgsquote</div>
+          <Card className="p-6 text-center bg-card border border-border">
+            <CheckCircle2 className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
+            <div className="text-2xl font-black text-foreground mb-1">95%</div>
+            <div className="text-sm text-muted-foreground">Erfolgsquote</div>
           </Card>
           
-          <Card className="p-6 text-center bg-burgundy/10 border border-burgundy/30">
-            <Users className="w-8 h-8 text-burgundy mx-auto mb-3" />
-            <div className="text-2xl font-black text-burgundy mb-1">847+</div>
-            <div className="text-sm text-off-white/70">Zufriedene Kunden</div>
+          <Card className="p-6 text-center bg-card border border-border">
+            <Users className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
+            <div className="text-2xl font-black text-foreground mb-1">847+</div>
+            <div className="text-sm text-muted-foreground">Zufriedene Kunden</div>
           </Card>
           
-          <Card className="p-6 text-center bg-off-white/10 border border-off-white/30">
-            <Clock className="w-8 h-8 text-off-white mx-auto mb-3" />
-            <div className="text-2xl font-black text-off-white mb-1">3,2</div>
-            <div className="text-sm text-off-white/70">Monate ∅ bis Job</div>
+          <Card className="p-6 text-center bg-card border border-border">
+            <Clock className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
+            <div className="text-2xl font-black text-foreground mb-1">3,2</div>
+            <div className="text-sm text-muted-foreground">Monate ∅ bis Job</div>
           </Card>
         </div>
 
@@ -110,7 +109,7 @@ export const FAQSection = () => {
             <h3 className="text-2xl font-bold mb-4">
               Noch Fragen? Lass uns sprechen!
             </h3>
-            <p className="text-off-white/70 mb-6">
+            <p className="text-muted-foreground mb-6">
               In einem kostenlosen 15-minütigen Gespräch klären wir alle deine individuellen Fragen
             </p>
           </div>
@@ -126,7 +125,7 @@ export const FAQSection = () => {
             </SwissButton>
           </div>
           
-          <p className="text-sm text-off-white/60 mt-4">
+          <p className="text-sm text-muted-foreground mt-4">
             Keine Verkaufsgespräche • Ehrliche Einschätzung • Sofort Klarheit
           </p>
         </div>
