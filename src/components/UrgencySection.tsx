@@ -2,17 +2,7 @@ import { useState, useEffect } from "react";
 import { SwissButton } from "./SwissButton";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Clock, 
-  TrendingDown, 
-  Users, 
-  Calendar,
-  AlertTriangle,
-  Zap,
-  Euro,
-  Timer
-} from "lucide-react";
-
+import { Clock, TrendingDown, Users, Calendar, AlertTriangle, Zap, Euro, Timer } from "lucide-react";
 export const UrgencySection = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 2,
@@ -27,8 +17,12 @@ export const UrgencySection = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
-        let { days, hours, minutes, seconds } = prev;
-        
+        let {
+          days,
+          hours,
+          minutes,
+          seconds
+        } = prev;
         if (seconds > 0) {
           seconds--;
         } else if (minutes > 0) {
@@ -44,11 +38,14 @@ export const UrgencySection = () => {
           minutes = 59;
           seconds = 59;
         }
-        
-        return { days, hours, minutes, seconds };
+        return {
+          days,
+          hours,
+          minutes,
+          seconds
+        };
       });
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -57,12 +54,9 @@ export const UrgencySection = () => {
     const interval = setInterval(() => {
       setDailyLoss(prev => prev + Math.floor(Math.random() * 3) + 1);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
-
-  return (
-    <section className="py-20 bg-[#FAFAFA] text-[#111827] relative overflow-hidden animate-fade-in">
+  return <section className="py-20 bg-[#FAFAFA] text-[#111827] relative overflow-hidden animate-fade-in">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -72,7 +66,7 @@ export const UrgencySection = () => {
           </Badge>
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-[#111827]">
             Jeder Tag kostet dich 
-            <span className="text-[#16A34A]"> Geld!</span>
+            <span className="text-gray-900"> Geld!</span>
           </h2>
           <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
             Während du zögerst, verpasst du täglich bares Geld und wertvolle Chancen
@@ -182,10 +176,9 @@ export const UrgencySection = () => {
                 </div>
                 
                 <div className="bg-gray-200 rounded-full h-3 mb-4 overflow-hidden">
-                  <div 
-                    className="h-full bg-gradient-to-r from-[#B91C1C] to-[#DC2626] transition-all duration-500"
-                    style={{ width: `${((10 - spotsLeft) / 10) * 100}%` }}
-                  />
+                  <div className="h-full bg-gradient-to-r from-[#B91C1C] to-[#DC2626] transition-all duration-500" style={{
+                  width: `${(10 - spotsLeft) / 10 * 100}%`
+                }} />
                 </div>
                 
                 <p className="text-sm text-[#6B7280]">
@@ -226,20 +219,12 @@ export const UrgencySection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <SwissButton 
-                variant="swiss" 
-                size="xl" 
-                className="bg-[#16A34A] hover:bg-[#15803D] text-white shadow-lg"
-              >
+              <SwissButton variant="swiss" size="xl" className="bg-[#16A34A] hover:bg-[#15803D] text-white shadow-lg">
                 <Zap className="w-5 h-5" />
                 JETZT kostenlose Beratung sichern
               </SwissButton>
               
-              <SwissButton 
-                variant="outline" 
-                size="xl" 
-                className="border-[#800020] text-[#800020] hover:bg-[#800020] hover:text-white"
-              >
+              <SwissButton variant="outline" size="xl" className="border-[#800020] text-[#800020] hover:bg-[#800020] hover:text-white">
                 Alternative: Mehr erfahren
               </SwissButton>
             </div>
@@ -250,6 +235,5 @@ export const UrgencySection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
