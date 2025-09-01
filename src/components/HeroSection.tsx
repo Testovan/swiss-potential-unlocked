@@ -42,17 +42,15 @@ const SplineBackgroundAnimation = () => {
       duration: 1.2,
       ease: "easeInOut"
     }} className="absolute inset-0">
-          <iframe src="https://my.spline.design/flowingribbon-nBkwkrvCCwuptQ1MlGvk5q5J/" frameBorder="0" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking" className="absolute inset-0 w-full h-full pointer-events-none" style={{
+          <iframe src="https://my.spline.design/particleshand-hvOmWUmsJZdKgiwsffxwncoo/" frameBorder="0" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking" className="absolute inset-0 w-full h-full pointer-events-none" style={{
         width: '100%',
         height: '100%',
-        objectFit: 'cover',
-        filter: window.innerWidth <= 640 ? 'blur(14px) saturate(1.02) brightness(1.02)' : 'blur(10px) saturate(1.05) brightness(1.05)',
-        clipPath: window.innerWidth >= 1024 ? 'inset(0 0 0 50%)' : undefined
-      }} title="Spline 3D Background Animation" />
+        objectFit: 'cover'
+      }} title="Spline 3D Particles Hand Animation" />
           
-          {/* Gradient overlay for text readability */}
+          {/* Semi-transparent overlay for text readability */}
           <div className="absolute inset-0 pointer-events-none z-[0.5]" style={{
-        background: 'linear-gradient(to left, rgba(28,28,28,0) 40%, rgba(28,28,28,0.45) 62%, rgba(28,28,28,0.85) 78%)'
+        background: 'linear-gradient(to left, rgba(255,255,255,0) 20%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.6) 80%)'
       }} />
         </motion.div>}
     </div>;
