@@ -9,77 +9,53 @@ const SplineBackgroundAnimation = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Check for reduced motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, {
+      threshold: 0.1
+    });
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
-
     return () => observer.disconnect();
   }, []);
 
   // Fallback for reduced motion - static gradient background
   if (prefersReducedMotion) {
-    return (
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-30" />
-    );
+    return <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-30" />;
   }
-
-  return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden z-0">
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ 
-            opacity: window.innerWidth <= 640 ? 0.25 : window.innerWidth <= 1024 ? 0.45 : 0.55,
-            scale: 1 
-          }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0"
-        >
-          <iframe 
-            src="https://my.spline.design/sphereofparticles-mltCekHouAIpWsT2xbRqfBRo/"
-            frameBorder="0"
-            loading="lazy"
-            allow="autoplay; fullscreen; xr-spatial-tracking"
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              filter: window.innerWidth <= 640 
-                ? 'blur(14px) saturate(1.02) brightness(1.02)' 
-                : 'blur(10px) saturate(1.05) brightness(1.05)',
-              clipPath: window.innerWidth >= 1024 ? 'inset(0 0 0 50%)' : undefined,
-            }}
-            title="Spline 3D Background Animation"
-          />
+  return <div ref={containerRef} className="absolute inset-0 overflow-hidden z-0">
+      {isVisible && <motion.div initial={{
+      opacity: 0,
+      scale: 1.02
+    }} animate={{
+      opacity: window.innerWidth <= 640 ? 0.25 : window.innerWidth <= 1024 ? 0.45 : 0.55,
+      scale: 1
+    }} transition={{
+      duration: 1.2,
+      ease: "easeInOut"
+    }} className="absolute inset-0">
+          <iframe src="https://my.spline.design/sphereofparticles-mltCekHouAIpWsT2xbRqfBRo/" frameBorder="0" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking" className="absolute inset-0 w-full h-full pointer-events-none" style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        filter: window.innerWidth <= 640 ? 'blur(14px) saturate(1.02) brightness(1.02)' : 'blur(10px) saturate(1.05) brightness(1.05)',
+        clipPath: window.innerWidth >= 1024 ? 'inset(0 0 0 50%)' : undefined
+      }} title="Spline 3D Background Animation" />
           
           {/* Gradient overlay for text readability */}
-          <div 
-            className="absolute inset-0 pointer-events-none z-[0.5]"
-            style={{
-              background: 'linear-gradient(to left, rgba(28,28,28,0) 40%, rgba(28,28,28,0.45) 62%, rgba(28,28,28,0.85) 78%)'
-            }}
-          />
-        </motion.div>
-      )}
-    </div>
-  );
+          <div className="absolute inset-0 pointer-events-none z-[0.5]" style={{
+        background: 'linear-gradient(to left, rgba(28,28,28,0) 40%, rgba(28,28,28,0.45) 62%, rgba(28,28,28,0.85) 78%)'
+      }} />
+        </motion.div>}
+    </div>;
 };
 
 // Count-up hook for animating numbers
@@ -105,7 +81,7 @@ function Stat({
   label,
   value,
   format = "int",
-  delay = 0,
+  delay = 0
 }: {
   label: string;
   value: number;
@@ -114,75 +90,56 @@ function Stat({
 }) {
   const v = useCountUp(value, 1400);
   let display = "";
-  if (format === "percent") display = `${Math.round(v)}%`;
-  else if (format === "chf") display = `CHF ${Intl.NumberFormat("de-CH").format(Math.round(v))}`;
-  else display = Intl.NumberFormat("de-CH").format(Math.round(v));
-  
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6 + delay, duration: 0.8 }}
-      className="flex flex-col gap-2"
-    >
+  if (format === "percent") display = `${Math.round(v)}%`;else if (format === "chf") display = `CHF ${Intl.NumberFormat("de-CH").format(Math.round(v))}`;else display = Intl.NumberFormat("de-CH").format(Math.round(v));
+  return <motion.div initial={{
+    opacity: 0,
+    y: 20
+  }} animate={{
+    opacity: 1,
+    y: 0
+  }} transition={{
+    delay: 0.6 + delay,
+    duration: 0.8
+  }} className="flex flex-col gap-2">
       <span className="text-xs tracking-widest uppercase text-muted-foreground/80">{label}</span>
       <span className="text-2xl sm:text-3xl lg:text-4xl font-light text-foreground">{display}</span>
       <span className="h-px w-12 bg-border/60" />
-    </motion.div>
-  );
+    </motion.div>;
 }
-
 export const HeroSection = () => {
-  return (
-    <section className="relative overflow-hidden min-h-screen bg-background text-foreground">
+  return <section className="relative overflow-hidden min-h-screen bg-background text-foreground">
       {/* Spline Background Animation - Full Hero Background */}
       <SplineBackgroundAnimation />
       
       {/* Enhanced starfield background with subtle movement */}
-      <motion.div 
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_45%)] opacity-40 z-0"
-        animate={{
-          backgroundPosition: ["0% 0%", "100% 100%"],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "linear"
-        }}
-      />
-      <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90 z-0"
-        animate={{
-          opacity: [0.9, 1, 0.9],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
+      <motion.div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_45%)] opacity-40 z-0" animate={{
+      backgroundPosition: ["0% 0%", "100% 100%"]
+    }} transition={{
+      duration: 20,
+      repeat: Infinity,
+      repeatType: "reverse",
+      ease: "linear"
+    }} />
+      <motion.div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90 z-0" animate={{
+      opacity: [0.9, 1, 0.9]
+    }} transition={{
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }} />
       
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left: Content */}
         <div className="relative z-10 order-2 lg:order-1">
           <StaggerContainer>
             <FadeInUp delay={0.2}>
-              <motion.h1
-                className="text-5xl sm:text-6xl lg:text-7xl leading-[0.95] font-light mb-6"
-                animate={{
-                  textShadow: [
-                    "0 0 0px rgba(239, 68, 68, 0)",
-                    "0 0 20px rgba(239, 68, 68, 0.1)",
-                    "0 0 0px rgba(239, 68, 68, 0)"
-                  ]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
+              <motion.h1 className="text-5xl sm:text-6xl lg:text-7xl leading-[0.95] font-light mb-6" animate={{
+              textShadow: ["0 0 0px rgba(239, 68, 68, 0)", "0 0 20px rgba(239, 68, 68, 0.1)", "0 0 0px rgba(239, 68, 68, 0)"]
+            }} transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}>
                 Secure the future<br />
                 <span className="text-gradient-luxury bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                   with SwissPats
@@ -191,9 +148,7 @@ export const HeroSection = () => {
             </FadeInUp>
 
             <FadeInUp delay={0.4}>
-              <motion.p
-                className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed"
-              >
+              <motion.p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
                 Premium-Beratung für die berufliche Integration in der Schweiz – fokussiert auf
                 höhere Gehälter, kürzere Time-to-Job und eine sichere Relocation.
               </motion.p>
@@ -204,34 +159,22 @@ export const HeroSection = () => {
               <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
                 <HoverScale>
                   <RippleButton>
-                    <SwissButton 
-                      variant="burgundy" 
-                      size="xl"
-                      className="min-w-[280px] shadow-2xl relative z-10 transition-all duration-300"
-                      data-cta="primary"
-                      onClick={() => {
-                        document.getElementById('quick-assessment')?.scrollIntoView({ 
-                          behavior: 'smooth' 
-                        });
-                      }}
-                    >
+                    <SwissButton variant="burgundy" size="xl" className="min-w-[280px] shadow-2xl relative z-10 transition-all duration-300" data-cta="primary" onClick={() => {
+                    document.getElementById('quick-assessment')?.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  }}>
                       Check your Swiss Potential
                     </SwissButton>
                   </RippleButton>
                 </HoverScale>
                 
                 <HoverScale>
-                  <SwissButton 
-                    variant="outline" 
-                    size="lg"
-                    className="min-w-[200px] relative z-10 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
-                    data-cta="secondary"
-                    onClick={() => {
-                      document.getElementById('calendly-booking')?.scrollIntoView({ 
-                        behavior: 'smooth' 
-                      });
-                    }}
-                  >
+                  <SwissButton variant="outline" size="lg" className="min-w-[200px] relative z-10 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20" data-cta="secondary" onClick={() => {
+                  document.getElementById('calendly-booking')?.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }}>
                     Kostenlose Beratung
                   </SwissButton>
                 </HoverScale>
@@ -250,18 +193,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Right: Empty space for background animation visibility with subtle parallax */}
-        <motion.div 
-          className="relative z-10 order-1 lg:order-2 min-h-[400px] lg:min-h-[600px]"
-          animate={{
-            y: [0, -10, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        
       </div>
-    </section>
-  );
+    </section>;
 };
