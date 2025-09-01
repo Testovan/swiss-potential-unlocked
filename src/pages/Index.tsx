@@ -1,7 +1,10 @@
 import { HeroSection } from "@/components/HeroSection";
 import { VideoPlaceholder } from "@/components/VideoPlaceholder";
 import { CalendlyBookingSection } from "@/components/CalendlyBookingSection";
+import { AssessmentSection } from "@/components/AssessmentSection";
+
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { DIYvsProComparison } from "@/components/DIYvsProComparison";
 import { CombinedAssessment } from "@/components/CombinedAssessment";
 import { UrgencySection } from "@/components/UrgencySection";
 import { FAQSection } from "@/components/FAQSection";
@@ -27,7 +30,15 @@ const Index = () => {
       
       
       <FadeInUp>
+        <AssessmentSection />
+      </FadeInUp>
+      
+      <FadeInUp>
         <SocialProofSection />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <DIYvsProComparison />
       </FadeInUp>
       
       <FadeInUp>
