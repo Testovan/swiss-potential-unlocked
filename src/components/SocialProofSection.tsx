@@ -68,6 +68,39 @@ const successStories = [{
   videoThumb: "/placeholder.svg",
   testimonial: "SwissPats hat mir geholfen, meine Karriere auf das nächste Level zu heben. Jetzt verdiene ich 35% mehr.",
   timeframe: "3 Monate"
+}, {
+  name: "Sebastian Frey",
+  profession: "Polier",
+  location: "Deutschland → Uznach",
+  salaryBefore: "€58.600",
+  salaryAfter: "CHF 85.000",
+  increase: "+€26.400",
+  linkedinUrl: "#",
+  videoThumb: "/placeholder.svg",
+  testimonial: "Nach 8 Monaten erfolglosem Suchen hatte ich fast aufgegeben. SwissPats hat mir in 4 Wochen zu meinen Traumjob bei W. Oertig verholfen. 45% mehr als in Deutschland!",
+  timeframe: "4 Wochen"
+}, {
+  name: "Dennis Schlömer",
+  profession: "Store Leader",
+  location: "Deutschland → Zürich",
+  salaryBefore: "€52.000",
+  salaryAfter: "CHF 78.000",
+  increase: "+€26.000",
+  linkedinUrl: "#",
+  videoThumb: "/placeholder.svg",
+  testimonial: "Dank SwissPats habe ich nicht nur meinen Job gefunden, sondern auch ohne jegliche Arbeit das Behörden-Chaos gemeistert, was ich alleine neben meinem Beruf nicht geschafft hätte. Jeden Franken wert!",
+  timeframe: "6 Wochen"
+}, {
+  name: "Siegfried Kuschill",
+  profession: "Industriemechaniker",
+  location: "Deutschland → Zürich",
+  salaryBefore: "€48.000",
+  salaryAfter: "CHF 90.000",
+  increase: "+€42.000",
+  linkedinUrl: "#",
+  videoThumb: "/placeholder.svg",
+  testimonial: "Als Familienvater mit 2 Kindern war der Umzug besonders komplex. SwissPats hat sogar meine Wohnung und meine Bewilligung organisiert! Heute verdiene ich CHF 7.500 im Monat und bereue keine Sekunde.",
+  timeframe: "3 Monate"
 }];
 const trustpilotStats = {
   rating: 4.8,
