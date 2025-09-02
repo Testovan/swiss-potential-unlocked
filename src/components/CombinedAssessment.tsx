@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Slider } from "@/components/ui/slider";
 import { Trophy, Zap, Target, ArrowRight, Briefcase, TrendingUp, Clock, Calculator, Euro, CheckCircle2, Star, Award, ChevronRight, ArrowLeft } from "lucide-react";
+
 const quizQuestions = [{
   id: 1,
   title: "Deine Branche?",
@@ -78,6 +79,7 @@ const useCountUp = (end: number, duration = 2000) => {
   }, [end, duration]);
   return count;
 };
+
 export const CombinedAssessment = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
@@ -167,113 +169,263 @@ export const CombinedAssessment = () => {
   const animatedQuizScore = useCountUp(quizScore, 1500);
   const animatedFinancialBenefit = useCountUp(Math.abs(financialBenefit), 2000);
   const animatedTotalScore = useCountUp(Math.round(swissReadinessPercentage), 2500);
-  return <section className="py-20 bg-gradient-to-br from-alpine-green/5 via-off-white to-burgundy/5">
-      <div className="container mx-auto px-4">
+  
+  return <section style={{ padding: '100px 0', background: '#F5F5F5' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
         {/* Header */}
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4 bg-alpine-green/10 text-alpine-green border-alpine-green/20">
-            <Star className="w-4 h-4 mr-2" />
-            Komplette Swiss-Readiness Analyse
-          </Badge>
-          <h2 className="text-4xl font-black text-charcoal-black mb-4 text-zinc-900 md:text-5xl">
-            Deine vollständige
-            <span className="text-alpine-green text-black"> Schweiz-Bewertung</span>
+        <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+          <div style={{ 
+            padding: '6px 12px', 
+            background: '#F5F5F5', 
+            boxShadow: '0px 3px 1px white inset', 
+            borderRadius: '60px', 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '8px',
+            marginBottom: '16px'
+          }}>
+            <Star style={{ width: '16px', height: '20px', color: 'rgba(0, 0, 0, 0.40)' }} />
+            <span style={{ 
+              color: 'black', 
+              fontSize: '11.44px', 
+              fontFamily: 'Inter', 
+              fontWeight: 500, 
+              lineHeight: '14.40px' 
+            }}>
+              KOMPLETTE SWISS-READINESS ANALYSE
+            </span>
+          </div>
+          <h2 style={{ 
+            fontSize: '53.16px', 
+            fontFamily: 'Inter', 
+            fontWeight: 500, 
+            lineHeight: '67.20px', 
+            color: 'black',
+            textAlign: 'center',
+            marginBottom: '16px'
+          }}>
+            Deine vollständige Schweiz-Bewertung
           </h2>
-          <p className="text-xl text-charcoal-black/70 max-w-3xl mx-auto">
+          <p style={{ 
+            fontSize: '16px', 
+            fontFamily: 'Inter', 
+            fontWeight: 400, 
+            lineHeight: '24px', 
+            color: 'black',
+            opacity: 0.8,
+            textAlign: 'center',
+            maxWidth: '500px',
+            margin: '0 auto'
+          }}>
             Persönlichkeitsprofil + Finanzanalyse = Dein komplettes Swiss-Readiness Rating
           </p>
         </div>
 
         {/* Progress Bar */}
-        <div className="max-w-2xl mx-auto mb-12">
-          <div className="flex justify-between items-center mb-4">
-            <span className={`text-sm font-medium ${currentStep >= 1 ? 'text-alpine-green' : 'text-charcoal-black/50'}`}>
+        <div style={{ maxWidth: '600px', margin: '0 auto 44px auto' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+            <span style={{ 
+              fontSize: '14px', 
+              fontWeight: 500, 
+              color: currentStep >= 1 ? 'black' : 'rgba(0, 0, 0, 0.50)' 
+            }}>
               1. Profil-Quiz
             </span>
-            <span className={`text-sm font-medium ${currentStep >= 2 ? 'text-alpine-green' : 'text-charcoal-black/50'}`}>
+            <span style={{ 
+              fontSize: '14px', 
+              fontWeight: 500, 
+              color: currentStep >= 2 ? 'black' : 'rgba(0, 0, 0, 0.50)' 
+            }}>
               2. Finanz-Kalkulator
             </span>
-            <span className={`text-sm font-medium ${currentStep >= 3 ? 'text-alpine-green' : 'text-charcoal-black/50'}`}>
+            <span style={{ 
+              fontSize: '14px', 
+              fontWeight: 500, 
+              color: currentStep >= 3 ? 'black' : 'rgba(0, 0, 0, 0.50)' 
+            }}>
               3. Gesamtbewertung
             </span>
           </div>
           <Progress value={progress} className="h-3" />
-          <div className="text-center mt-2 text-sm text-charcoal-black/60">
+          <div style={{ textAlign: 'center', marginTop: '8px', fontSize: '14px', color: 'rgba(0, 0, 0, 0.60)' }}>
             Schritt {currentStep} von 3 • {Math.round(progress)}% abgeschlossen
           </div>
         </div>
 
         {/* Step 1: Quiz */}
-        {currentStep === 1 && <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-charcoal-black mb-2">
+        {currentStep === 1 && 
+          <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <h3 style={{ 
+                fontSize: '22.12px', 
+                fontFamily: 'Inter', 
+                fontWeight: 500, 
+                lineHeight: '36px', 
+                color: 'black',
+                marginBottom: '8px'
+              }}>
                 Schritt 1: Dein Profil-Assessment
               </h3>
-              <p className="text-charcoal-black/70">
+              <p style={{ 
+                fontSize: '16px', 
+                fontFamily: 'Inter', 
+                fontWeight: 400, 
+                lineHeight: '24px', 
+                color: 'rgba(0, 0, 0, 0.70)'
+              }}>
                 Beantworte {quizQuestions.length} Fragen zu deinem beruflichen Hintergrund
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
               {quizQuestions.map((question, index) => {
-            const isActive = index === currentQuestionIndex;
-            const isCompleted = quizAnswers[question.id] !== undefined;
-            const isDisabled = index > currentQuestionIndex;
-            return <Card key={question.id} className={`p-6 border-2 transition-all duration-500 ${isActive ? 'border-alpine-green bg-alpine-green/5 shadow-success scale-105' : isCompleted ? 'border-burgundy/30 bg-burgundy/5' : 'border-silver-gray bg-off-white/50'} ${isDisabled ? 'opacity-50' : ''}`}>
-                    <div className="text-center mb-4">
-                      <div className={`inline-flex p-3 rounded-xl mb-3 transition-colors ${isCompleted ? 'bg-burgundy/20 text-burgundy' : 'bg-alpine-green/20 text-alpine-green'}`}>
-                        {question.icon}
-                      </div>
-                      <h3 className="font-bold text-charcoal-black mb-2">{question.title}</h3>
+                const isActive = index === currentQuestionIndex;
+                const isCompleted = quizAnswers[question.id] !== undefined;
+                const isDisabled = index > currentQuestionIndex;
+                return <div key={question.id} style={{ 
+                  padding: '32px', 
+                  background: '#F5F5F5', 
+                  boxShadow: '0px 3px 1px white inset',
+                  borderRadius: '16px',
+                  border: isActive ? '2px solid #2E7D32' : '2px solid transparent',
+                  transform: isActive ? 'scale(1.05)' : 'scale(1)',
+                  transition: 'all 0.5s ease',
+                  opacity: isDisabled ? 0.5 : 1
+                }}>
+                  <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+                    <div style={{ 
+                      display: 'inline-flex', 
+                      padding: '12px', 
+                      borderRadius: '12px', 
+                      marginBottom: '12px',
+                      background: isCompleted ? 'rgba(128, 0, 32, 0.20)' : 'rgba(46, 125, 50, 0.20)',
+                      color: isCompleted ? '#800020' : '#2E7D32'
+                    }}>
+                      {question.icon}
                     </div>
+                    <h3 style={{ 
+                      fontSize: '16px', 
+                      fontFamily: 'Inter', 
+                      fontWeight: 500, 
+                      color: 'black',
+                      marginBottom: '8px'
+                    }}>
+                      {question.title}
+                    </h3>
+                  </div>
 
-                    <div className="space-y-2">
-                      {question.options.map((option, optionIndex) => <button key={optionIndex} onClick={() => !isDisabled && handleQuizAnswer(question.id, option.score)} disabled={isDisabled} className={`w-full p-3 text-left rounded-lg border transition-all duration-200 ${quizAnswers[question.id] === option.score ? 'bg-burgundy/10 border-burgundy text-burgundy font-semibold' : 'bg-off-white border-silver-gray hover:border-alpine-green hover:bg-alpine-green/5'} ${isDisabled ? 'cursor-not-allowed' : 'hover:scale-105'}`}>
-                          <div className="flex justify-between items-center">
-                            <span className="text-sm">{option.label}</span>
-                            <ArrowRight className="w-4 h-4 opacity-50" />
-                          </div>
-                        </button>)}
-                    </div>
-                  </Card>;
-          })}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {question.options.map((option, optionIndex) => 
+                      <button 
+                        key={optionIndex} 
+                        onClick={() => !isDisabled && handleQuizAnswer(question.id, option.score)} 
+                        disabled={isDisabled} 
+                        style={{ 
+                          width: '100%', 
+                          padding: '12px', 
+                          textAlign: 'left', 
+                          borderRadius: '10px', 
+                          border: quizAnswers[question.id] === option.score ? '1px solid #800020' : '1px solid rgba(0, 0, 0, 0.15)',
+                          background: quizAnswers[question.id] === option.score ? 'rgba(128, 0, 32, 0.10)' : '#F5F5F5',
+                          color: quizAnswers[question.id] === option.score ? '#800020' : 'black',
+                          fontWeight: quizAnswers[question.id] === option.score ? 600 : 400,
+                          cursor: isDisabled ? 'not-allowed' : 'pointer',
+                          transition: 'all 0.2s ease',
+                          fontSize: '14px',
+                          fontFamily: 'Inter'
+                        }}
+                      >
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                          <span>{option.label}</span>
+                          <ArrowRight style={{ width: '16px', height: '16px', opacity: 0.5 }} />
+                        </div>
+                      </button>
+                    )}
+                  </div>
+                </div>;
+              })}
             </div>
 
             {/* Live Quiz Score */}
-            {quizScore > 0 && <div className="max-w-md mx-auto mt-8 p-4 bg-gradient-to-r from-alpine-green/10 to-burgundy/10 rounded-xl border border-alpine-green/20 animate-fade-in">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-charcoal-black/70">Quiz-Punkte:</span>
-                  <div className="flex items-center gap-2">
-                    <Trophy className="w-4 h-4 text-burgundy" />
-                    <span className="font-bold text-alpine-green">{quizScore} / 100</span>
+            {quizScore > 0 && 
+              <div style={{ 
+                maxWidth: '400px', 
+                margin: '32px auto 0 auto', 
+                padding: '16px', 
+                background: 'rgba(46, 125, 50, 0.10)', 
+                borderRadius: '12px',
+                border: '1px solid rgba(46, 125, 50, 0.20)'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span style={{ fontSize: '14px', fontWeight: 500, color: 'rgba(0, 0, 0, 0.70)' }}>Quiz-Punkte:</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Trophy style={{ width: '16px', height: '16px', color: '#800020' }} />
+                    <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#2E7D32' }}>{quizScore} / 100</span>
                   </div>
                 </div>
-              </div>}
-          </div>}
+              </div>
+            }
+          </div>
+        }
 
         {/* Step 2: Calculator */}
-        {currentStep === 2 && <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-charcoal-black mb-2">
+        {currentStep === 2 && 
+          <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <h3 style={{ 
+                fontSize: '22.12px', 
+                fontFamily: 'Inter', 
+                fontWeight: 500, 
+                lineHeight: '36px', 
+                color: 'black',
+                marginBottom: '8px'
+              }}>
                 Schritt 2: Finanzielle Analyse
               </h3>
-              <p className="text-charcoal-black/70">
+              <p style={{ 
+                fontSize: '16px', 
+                fontFamily: 'Inter', 
+                fontWeight: 400, 
+                lineHeight: '24px', 
+                color: 'rgba(0, 0, 0, 0.70)'
+              }}>
                 Berechne deinen finanziellen Vorteil durch professionelle Unterstützung
               </p>
             </div>
 
-            <Card className="p-8 bg-gradient-to-br from-alpine-green/5 to-burgundy/5 border border-alpine-green/20">
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div style={{ 
+              padding: '60px 40px 40px 40px', 
+              background: '#F5F5F5', 
+              boxShadow: '0px 3px 1px white inset', 
+              borderRadius: '20px'
+            }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px', marginBottom: '32px' }}>
                 {/* Current Salary */}
                 <div>
-                  <label className="block text-sm font-medium text-charcoal-black mb-3">
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '14px', 
+                    fontWeight: 500, 
+                    color: 'black',
+                    marginBottom: '12px'
+                  }}>
                     Aktuelles Gehalt (€/Jahr)
                   </label>
-                  <div className="mb-3">
+                  <div style={{ marginBottom: '12px' }}>
                     <Slider value={currentSalary} onValueChange={setCurrentSalary} max={150000} min={30000} step={5000} className="w-full" />
                   </div>
-                  <div className="text-center p-3 bg-off-white rounded-lg border">
-                    <span className="text-xl font-bold text-charcoal-black">
+                  <div style={{ 
+                    textAlign: 'center', 
+                    padding: '12px', 
+                    background: '#F5F5F5', 
+                    borderRadius: '10px',
+                    border: '1px solid rgba(0, 0, 0, 0.15)'
+                  }}>
+                    <span style={{ 
+                      fontSize: '20px', 
+                      fontWeight: 'bold', 
+                      color: 'black'
+                    }}>
                       €{currentSalary[0].toLocaleString()}
                     </span>
                   </div>
@@ -281,14 +433,30 @@ export const CombinedAssessment = () => {
 
                 {/* Target Salary */}
                 <div>
-                  <label className="block text-sm font-medium text-charcoal-black mb-3">
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '14px', 
+                    fontWeight: 500, 
+                    color: 'black',
+                    marginBottom: '12px'
+                  }}>
                     Ziel-Gehalt Schweiz (€/Jahr)
                   </label>
-                  <div className="mb-3">
+                  <div style={{ marginBottom: '12px' }}>
                     <Slider value={targetSalary} onValueChange={setTargetSalary} max={200000} min={40000} step={5000} className="w-full" />
                   </div>
-                  <div className="text-center p-3 bg-alpine-green/10 rounded-lg border border-alpine-green/30">
-                    <span className="text-xl font-bold text-alpine-green">
+                  <div style={{ 
+                    textAlign: 'center', 
+                    padding: '12px', 
+                    background: 'rgba(46, 125, 50, 0.10)', 
+                    borderRadius: '10px',
+                    border: '1px solid rgba(46, 125, 50, 0.30)'
+                  }}>
+                    <span style={{ 
+                      fontSize: '20px', 
+                      fontWeight: 'bold', 
+                      color: '#2E7D32'
+                    }}>
                       €{targetSalary[0].toLocaleString()}
                     </span>
                   </div>
@@ -296,121 +464,342 @@ export const CombinedAssessment = () => {
 
                 {/* Time to Move */}
                 <div>
-                  <label className="block text-sm font-medium text-charcoal-black mb-3">
+                  <label style={{ 
+                    display: 'block', 
+                    fontSize: '14px', 
+                    fontWeight: 500, 
+                    color: 'black',
+                    marginBottom: '12px'
+                  }}>
                     Zeit bis zum Wechsel (Monate)
                   </label>
-                  <div className="mb-3">
+                  <div style={{ marginBottom: '12px' }}>
                     <Slider value={timeToMove} onValueChange={setTimeToMove} max={24} min={2} step={1} className="w-full" />
                   </div>
-                  <div className="text-center p-3 bg-burgundy/10 rounded-lg border border-burgundy/30">
-                    <span className="text-xl font-bold text-burgundy">
+                  <div style={{ 
+                    textAlign: 'center', 
+                    padding: '12px', 
+                    background: 'rgba(128, 0, 32, 0.10)', 
+                    borderRadius: '10px',
+                    border: '1px solid rgba(128, 0, 32, 0.30)'
+                  }}>
+                    <span style={{ 
+                      fontSize: '20px', 
+                      fontWeight: 'bold', 
+                      color: '#800020'
+                    }}>
                       {timeToMove[0]} Monate
                     </span>
                   </div>
                 </div>
               </div>
 
-              <div className="text-center">
-                <SwissButton variant="burgundy" size="lg" onClick={handleCalculatorComplete} className="animate-pulse-gentle">
-                  <Calculator className="w-5 h-5" />
-                  Analyse abschließen
-                  <ChevronRight className="w-5 h-5" />
-                </SwissButton>
+              <div style={{ textAlign: 'center' }}>
+                <button 
+                  onClick={handleCalculatorComplete}
+                  style={{ 
+                    padding: '11px 24px', 
+                    background: 'black', 
+                    boxShadow: '0px 30px 30px -3.5px rgba(0, 0, 0, 0.15)', 
+                    borderRadius: '10px',
+                    border: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <Calculator style={{ width: '20px', height: '20px', color: 'white' }} />
+                  <span style={{ 
+                    color: 'white', 
+                    fontSize: '14px', 
+                    fontFamily: 'Inter', 
+                    fontWeight: 500, 
+                    lineHeight: '22.40px' 
+                  }}>
+                    Analyse abschließen
+                  </span>
+                  <ChevronRight style={{ width: '20px', height: '20px', color: 'white' }} />
+                </button>
               </div>
-            </Card>
-          </div>}
+            </div>
+          </div>
+        }
 
         {/* Step 3: Results */}
-        {currentStep === 3 && showResults && <div className="max-w-5xl mx-auto animate-fade-in">
-            <div className="text-center mb-12">
-              <div className="relative mx-auto w-32 h-32 mb-6">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-alpine-green/20 to-burgundy/20 animate-pulse-gentle" />
-                <div className="absolute inset-4 rounded-full bg-off-white border-4 border-alpine-green flex items-center justify-center">
-                  <span className="text-3xl font-black text-charcoal-black">{animatedTotalScore}%</span>
+        {currentStep === 3 && showResults && 
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+              <div style={{ 
+                position: 'relative', 
+                margin: '0 auto', 
+                width: '120px', 
+                height: '120px', 
+                marginBottom: '24px'
+              }}>
+                <div style={{ 
+                  position: 'absolute', 
+                  inset: 0, 
+                  borderRadius: '50%', 
+                  background: 'rgba(46, 125, 50, 0.20)'
+                }} />
+                <div style={{ 
+                  position: 'absolute', 
+                  inset: '16px', 
+                  borderRadius: '50%', 
+                  background: '#F5F5F5', 
+                  border: '4px solid #2E7D32',
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center'
+                }}>
+                  <span style={{ 
+                    fontSize: '32px', 
+                    fontWeight: 'bold', 
+                    color: 'black'
+                  }}>
+                    {animatedTotalScore}%
+                  </span>
                 </div>
               </div>
               
-              <h3 className="text-3xl font-black text-charcoal-black mb-3">
+              <h3 style={{ 
+                fontSize: '28px', 
+                fontFamily: 'Inter', 
+                fontWeight: 'bold', 
+                color: 'black',
+                marginBottom: '12px'
+              }}>
                 Deine Swiss-Readiness Bewertung
               </h3>
               
-              <Badge variant="secondary" className={`text-lg px-4 py-2 ${readinessLevel.bg} ${readinessLevel.color} border-0`}>
-                <Award className="w-5 h-5 mr-2" />
+              <div style={{ 
+                fontSize: '18px', 
+                padding: '8px 16px', 
+                background: readinessLevel.label === 'Exzellent' ? 'rgba(46, 125, 50, 0.20)' : 'rgba(128, 0, 32, 0.20)',
+                color: readinessLevel.label === 'Exzellent' ? '#2E7D32' : '#800020',
+                borderRadius: '20px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}>
+                <Award style={{ width: '20px', height: '20px' }} />
                 {readinessLevel.label}
-              </Badge>
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '44px' }}>
               {/* Quiz Score */}
-              <Card className="p-6 text-center bg-gradient-to-br from-alpine-green/10 to-alpine-green/5 border border-alpine-green/30">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-alpine-green/20 flex items-center justify-center">
-                  <Trophy className="w-8 h-8 text-alpine-green" />
+              <div style={{ 
+                padding: '32px', 
+                background: '#F5F5F5', 
+                boxShadow: '0px 3px 1px white inset', 
+                borderRadius: '16px',
+                textAlign: 'center',
+                border: '1px solid rgba(46, 125, 50, 0.30)'
+              }}>
+                <div style={{ 
+                  width: '64px', 
+                  height: '64px', 
+                  margin: '0 auto 16px auto', 
+                  borderRadius: '50%', 
+                  background: 'rgba(46, 125, 50, 0.20)', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center'
+                }}>
+                  <Trophy style={{ width: '32px', height: '32px', color: '#2E7D32' }} />
                 </div>
-                <h4 className="text-xl font-bold text-charcoal-black mb-2">Profil-Score</h4>
-                <div className="text-3xl font-black text-alpine-green mb-2">
+                <h4 style={{ 
+                  fontSize: '20px', 
+                  fontFamily: 'Inter', 
+                  fontWeight: 500, 
+                  color: 'black',
+                  marginBottom: '8px'
+                }}>
+                  Profil-Score
+                </h4>
+                <div style={{ 
+                  fontSize: '32px', 
+                  fontWeight: 'bold', 
+                  color: '#2E7D32',
+                  marginBottom: '8px'
+                }}>
                   {animatedQuizScore} Punkte
                 </div>
-                <p className="text-sm text-charcoal-black/70">
+                <p style={{ 
+                  fontSize: '14px', 
+                  color: 'rgba(0, 0, 0, 0.70)'
+                }}>
                   Basierend auf deinem beruflichen Profil
                 </p>
-              </Card>
+              </div>
 
               {/* Financial Benefit */}
-              <Card className="p-6 text-center bg-gradient-to-br from-burgundy/10 to-burgundy/5 border border-burgundy/30">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-burgundy/20 flex items-center justify-center">
-                  <Euro className="w-8 h-8 text-burgundy" />
+              <div style={{ 
+                padding: '32px', 
+                background: '#F5F5F5', 
+                boxShadow: '0px 3px 1px white inset', 
+                borderRadius: '16px',
+                textAlign: 'center',
+                border: '1px solid rgba(128, 0, 32, 0.30)'
+              }}>
+                <div style={{ 
+                  width: '64px', 
+                  height: '64px', 
+                  margin: '0 auto 16px auto', 
+                  borderRadius: '50%', 
+                  background: 'rgba(128, 0, 32, 0.20)', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center'
+                }}>
+                  <Euro style={{ width: '32px', height: '32px', color: '#800020' }} />
                 </div>
-                <h4 className="text-xl font-bold text-charcoal-black mb-2">Finanzieller Vorteil</h4>
-                <div className={`text-3xl font-black mb-2 ${financialBenefit >= 0 ? 'text-alpine-green' : 'text-burgundy'}`}>
+                <h4 style={{ 
+                  fontSize: '20px', 
+                  fontFamily: 'Inter', 
+                  fontWeight: 500, 
+                  color: 'black',
+                  marginBottom: '8px'
+                }}>
+                  Finanzieller Vorteil
+                </h4>
+                <div style={{ 
+                  fontSize: '32px', 
+                  fontWeight: 'bold', 
+                  color: financialBenefit >= 0 ? '#2E7D32' : '#800020',
+                  marginBottom: '8px'
+                }}>
                   {financialBenefit >= 0 ? '+' : '-'}€{animatedFinancialBenefit}
                 </div>
-                <p className="text-sm text-charcoal-black/70">
+                <p style={{ 
+                  fontSize: '14px', 
+                  color: 'rgba(0, 0, 0, 0.70)'
+                }}>
                   Durch professionelle Begleitung
                 </p>
-              </Card>
+              </div>
 
               {/* Combined Score */}
-              <Card className="p-6 text-center bg-gradient-to-br from-charcoal-black/5 to-charcoal-black/10 border border-charcoal-black/20">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-alpine-green/30 to-burgundy/30 flex items-center justify-center">
-                  <Star className="w-8 h-8 text-charcoal-black" />
+              <div style={{ 
+                padding: '32px', 
+                background: '#F5F5F5', 
+                boxShadow: '0px 3px 1px white inset', 
+                borderRadius: '16px',
+                textAlign: 'center',
+                border: '1px solid rgba(0, 0, 0, 0.20)'
+              }}>
+                <div style={{ 
+                  width: '64px', 
+                  height: '64px', 
+                  margin: '0 auto 16px auto', 
+                  borderRadius: '50%', 
+                  background: 'rgba(46, 125, 50, 0.30)', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center'
+                }}>
+                  <Star style={{ width: '32px', height: '32px', color: 'black' }} />
                 </div>
-                <h4 className="text-xl font-bold text-charcoal-black mb-2">Swiss-Readiness</h4>
-                <div className="text-3xl font-black text-charcoal-black mb-2">
+                <h4 style={{ 
+                  fontSize: '20px', 
+                  fontFamily: 'Inter', 
+                  fontWeight: 500, 
+                  color: 'black',
+                  marginBottom: '8px'
+                }}>
+                  Swiss-Readiness
+                </h4>
+                <div style={{ 
+                  fontSize: '32px', 
+                  fontWeight: 'bold', 
+                  color: 'black',
+                  marginBottom: '8px'
+                }}>
                   {animatedTotalScore}%
                 </div>
-                <p className="text-sm text-charcoal-black/70">
+                <p style={{ 
+                  fontSize: '14px', 
+                  color: 'rgba(0, 0, 0, 0.70)'
+                }}>
                   Gesamtbewertung für deine Schweiz-Pläne
                 </p>
-              </Card>
+              </div>
             </div>
 
             {/* CTA */}
-            <div className="text-center">
-              <div className="max-w-2xl mx-auto mb-8">
-                <h3 className="text-2xl font-bold text-charcoal-black mb-4">
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ maxWidth: '600px', margin: '0 auto 32px auto' }}>
+                <h3 style={{ 
+                  fontSize: '22.12px', 
+                  fontFamily: 'Inter', 
+                  fontWeight: 500, 
+                  lineHeight: '36px', 
+                  color: 'black',
+                  marginBottom: '16px'
+                }}>
                   Bereit für den nächsten Schritt?
                 </h3>
-                <p className="text-lg text-charcoal-black/70">
+                <p style={{ 
+                  fontSize: '16px', 
+                  fontFamily: 'Inter', 
+                  fontWeight: 400, 
+                  lineHeight: '24px', 
+                  color: 'rgba(0, 0, 0, 0.70)'
+                }}>
                   Mit deinem Swiss-Readiness Score von {Math.round(swissReadinessPercentage)}% hast du {swissReadinessPercentage >= 70 ? 'exzellente' : 'gute'} Voraussetzungen für eine erfolgreiche Karriere in der Schweiz.
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <SwissButton variant="burgundy" size="xl" onClick={handleDetailedAnalysis}>
-                  <Target className="w-5 h-5" />
-                  Detaillierte Analyse anfordern
-                </SwissButton>
-                <SwissButton variant="outline" size="xl">
-                  <Calculator className="w-5 h-5" />
-                  Kostenlose Beratung buchen
-                </SwissButton>
+              <div style={{ 
+                display: 'flex', 
+                gap: '16px', 
+                justifyContent: 'center', 
+                alignItems: 'center',
+                flexWrap: 'wrap'
+              }}>
+                <button 
+                  onClick={handleDetailedAnalysis}
+                  style={{ 
+                    padding: '11px 24px', 
+                    background: 'black', 
+                    boxShadow: '0px 30px 30px -3.5px rgba(0, 0, 0, 0.15)', 
+                    borderRadius: '10px',
+                    border: 'none',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <Target style={{ width: '20px', height: '20px', color: 'white' }} />
+                  <span style={{ 
+                    color: 'white', 
+                    fontSize: '14px', 
+                    fontFamily: 'Inter', 
+                    fontWeight: 500, 
+                    lineHeight: '22.40px' 
+                  }}>
+                    Detaillierte Analyse anfordern
+                  </span>
+                </button>
               </div>
-              
-              <p className="text-sm text-charcoal-black/60 mt-4">
-                Kostenlos • Unverbindlich • Individuelle Empfehlungen
+
+              <p style={{ 
+                fontSize: '14px', 
+                fontFamily: 'Inter', 
+                fontWeight: 400, 
+                lineHeight: '24px', 
+                color: 'black',
+                opacity: 0.8,
+                marginTop: '16px'
+              }}>
+                Kostenlos • Unverbindlich • Sofort verfügbar
               </p>
             </div>
-          </div>}
+          </div>
+        }
       </div>
     </section>;
 };

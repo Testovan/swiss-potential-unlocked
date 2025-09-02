@@ -45,88 +45,165 @@ const faqData = [{
   icon: <Users className="w-5 h-5" />
 }];
 export const FAQSection = () => {
-  return <section className="py-20 bg-gradient-to-br from-charcoal-black to-swiss-navy-dark text-off-white bg-slate-100 rounded-none">
-      <div className="container mx-auto px-4">
+  return <section style={{ padding: '100px 0', background: '#F5F5F5' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
         {/* Header */}
-        <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 bg-alpine-green/20 text-alpine-green border-alpine-green/30">
-            <HelpCircle className="w-4 h-4 mr-2" />
-            Häufige Fragen
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Alle wichtigen
-            <span className="text-alpine-green"> Antworten</span>
+        <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+          <div style={{ 
+            padding: '6px 12px', 
+            background: '#F5F5F5', 
+            boxShadow: '0px 3px 1px white inset', 
+            borderRadius: '60px', 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '8px',
+            marginBottom: '16px'
+          }}>
+            <HelpCircle style={{ width: '16px', height: '20px', color: 'rgba(0, 0, 0, 0.40)' }} />
+            <span style={{ 
+              color: 'black', 
+              fontSize: '11.44px', 
+              fontFamily: 'Inter', 
+              fontWeight: 500, 
+              lineHeight: '14.40px' 
+            }}>
+              HÄUFIGE FRAGEN
+            </span>
+          </div>
+          <h2 style={{ 
+            fontSize: '53.16px', 
+            fontFamily: 'Inter', 
+            fontWeight: 500, 
+            lineHeight: '67.20px', 
+            color: 'black',
+            textAlign: 'center',
+            marginBottom: '16px'
+          }}>
+            Alle wichtigen Antworten
           </h2>
-          <p className="text-xl text-off-white/80 max-w-3xl mx-auto">
+          <p style={{ 
+            fontSize: '16px', 
+            fontFamily: 'Inter', 
+            fontWeight: 400, 
+            lineHeight: '24px', 
+            color: 'black',
+            opacity: 0.8,
+            textAlign: 'center',
+            maxWidth: '500px',
+            margin: '0 auto'
+          }}>
             Die häufigsten Fragen unserer Kunden - ehrlich und transparent beantwortet
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <Card className="bg-off-white/5 backdrop-blur-sm border border-off-white/10 p-8">
+        <div style={{ maxWidth: '800px', margin: '0 auto 44px auto' }}>
+          <div style={{ 
+            padding: '60px 40px 40px 40px', 
+            background: '#F5F5F5', 
+            boxShadow: '0px 3px 1px white inset', 
+            borderRadius: '20px'
+          }}>
             <Accordion type="single" collapsible className="w-full">
-              {faqData.map(faq => <AccordionItem key={faq.id} value={faq.id} className="border-b border-off-white/20 last:border-b-0">
-                  <AccordionTrigger className="text-left hover:text-alpine-green transition-colors py-6 text-off-white hover:no-underline">
-                    <div className="flex items-center gap-3">
-                      <div className="text-alpine-green flex-shrink-0">
+              {faqData.map(faq => <AccordionItem key={faq.id} value={faq.id} style={{ 
+                borderBottom: '1px solid rgba(0, 0, 0, 0.15)', 
+                paddingBottom: '0' 
+              }}>
+                  <AccordionTrigger style={{ 
+                    textAlign: 'left',
+                    padding: '24px 0',
+                    color: 'black',
+                    fontFamily: 'Inter',
+                    fontWeight: 500,
+                    fontSize: '16px',
+                    lineHeight: '24px'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <div style={{ color: 'rgba(0, 0, 0, 0.60)', flexShrink: 0 }}>
                         {faq.icon}
                       </div>
-                      <span className="font-semibold">{faq.question}</span>
+                      <span>{faq.question}</span>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="text-off-white/80 pb-6 pl-8">
-                    <p className="leading-relaxed">{faq.answer}</p>
+                  <AccordionContent style={{ 
+                    color: 'rgba(0, 0, 0, 0.80)', 
+                    paddingBottom: '24px', 
+                    paddingLeft: '32px',
+                    fontFamily: 'Inter',
+                    fontSize: '14px',
+                    lineHeight: '22px'
+                  }}>
+                    <p style={{ lineHeight: '1.6' }}>{faq.answer}</p>
                   </AccordionContent>
                 </AccordionItem>)}
             </Accordion>
-          </Card>
+          </div>
         </div>
 
-        {/* Quick Stats */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
-          <Card className="p-6 text-center bg-alpine-green/10 border border-alpine-green/30">
-            <CheckCircle2 className="w-8 h-8 text-alpine-green mx-auto mb-3" />
-            <div className="text-2xl font-black text-alpine-green mb-1">95%</div>
-            <div className="text-sm text-off-white/70">Erfolgsquote</div>
-          </Card>
+        {/* Final CTA */}
+        <div style={{ textAlign: 'center' }}>
+          <h3 style={{ 
+            fontSize: '22.12px', 
+            fontFamily: 'Inter', 
+            fontWeight: 500, 
+            lineHeight: '36px', 
+            color: 'black',
+            marginBottom: '16px'
+          }}>
+            Noch weitere Fragen?
+          </h3>
+          <p style={{ 
+            fontSize: '16px', 
+            fontFamily: 'Inter', 
+            fontWeight: 400, 
+            lineHeight: '24px', 
+            color: 'black',
+            opacity: 0.8,
+            marginBottom: '24px'
+          }}>
+            In einem kostenlosen 15-minütigen Gespräch klären wir alle deine individuellen Fragen
+          </p>
           
-          <Card className="p-6 text-center bg-burgundy/10 border border-burgundy/30">
-            <Users className="w-8 h-8 text-burgundy mx-auto mb-3" />
-            <div className="text-2xl font-black text-burgundy mb-1">847+</div>
-            <div className="text-sm text-off-white/70">Zufriedene Kunden</div>
-          </Card>
-          
-          <Card className="p-6 text-center bg-off-white/10 border border-off-white/30">
-            <Clock className="w-8 h-8 text-off-white mx-auto mb-3" />
-            <div className="text-2xl font-black text-off-white mb-1">3,2</div>
-            <div className="text-sm text-off-white/70">Monate ∅ bis Job</div>
-          </Card>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <div className="max-w-2xl mx-auto mb-8">
-            <h3 className="text-2xl font-bold mb-4">
-              Noch Fragen? Lass uns sprechen!
-            </h3>
-            <p className="text-off-white/70 mb-6">
-              In einem kostenlosen 15-minütigen Gespräch klären wir alle deine individuellen Fragen
-            </p>
+          <div style={{ 
+            display: 'flex', 
+            gap: '16px', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            flexWrap: 'wrap'
+          }}>
+            <button style={{ 
+              padding: '11px 24px', 
+              background: 'black', 
+              boxShadow: '0px 30px 30px -3.5px rgba(0, 0, 0, 0.15)', 
+              borderRadius: '10px',
+              border: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              cursor: 'pointer'
+            }}>
+              <Phone style={{ width: '20px', height: '20px', color: 'white' }} />
+              <span style={{ 
+                color: 'white', 
+                fontSize: '14px', 
+                fontFamily: 'Inter', 
+                fontWeight: 500, 
+                lineHeight: '22.40px' 
+              }}>
+                Kostenlose Beratung buchen
+              </span>
+            </button>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <SwissButton variant="burgundy" size="xl">
-              <Phone className="w-5 h-5" />
-              Kostenlose Beratung buchen
-            </SwissButton>
-            <SwissButton variant="outline" size="xl">
-              <MessageCircle className="w-5 h-5" />
-              WhatsApp Chat starten
-            </SwissButton>
-          </div>
-          
-          <p className="text-sm text-off-white/60 mt-4">
+          <p style={{ 
+            fontSize: '14px', 
+            fontFamily: 'Inter', 
+            fontWeight: 400, 
+            lineHeight: '24px', 
+            color: 'black',
+            opacity: 0.8,
+            marginTop: '16px'
+          }}>
             Keine Verkaufsgespräche • Ehrliche Einschätzung • Sofort Klarheit
           </p>
         </div>
