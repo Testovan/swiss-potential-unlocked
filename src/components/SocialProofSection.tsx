@@ -2,6 +2,7 @@ import { SwissButton } from "./SwissButton";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Play, TrendingUp, ExternalLink, Users, Award, CheckCircle2, ArrowUpRight } from "lucide-react";
+
 const successStories = [{
   name: "Marco Weber",
   profession: "Software Engineer",
@@ -102,11 +103,13 @@ const successStories = [{
   testimonial: "Als Familienvater mit 2 Kindern war der Umzug besonders komplex. SwissPats hat sogar meine Wohnung und meine Bewilligung organisiert! Heute verdiene ich CHF 7.500 im Monat und bereue keine Sekunde.",
   timeframe: "3 Monate"
 }];
+
 const trustpilotStats = {
   rating: 4.8,
   reviews: 847,
   excellentPercentage: 89
 };
+
 const srfVideoChapters = [{
   title: "SwissPats Erfolgsgeschichte",
   time: "0:00",
@@ -124,145 +127,458 @@ const srfVideoChapters = [{
   time: "10:14",
   duration: "5:16"
 }];
+
 export const SocialProofSection = () => {
-  return <section className="py-20 bg-gradient-to-br from-charcoal-black to-swiss-navy-dark text-off-white bg-gray-200">
-      <div className="container mx-auto px-4">
+  return <section style={{ padding: '100px 0', background: '#F5F5F5' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
         {/* Header */}
-        <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4 bg-alpine-green/20 text-alpine-green border-alpine-green/30">
-            <Users className="w-4 h-4 mr-2" />
-            847+ Erfolgreiche Schweiz-Wechsel
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Echte Menschen,
-            <span className="text-alpine-green"> echte Erfolge</span>
+        <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+          <div style={{ 
+            padding: '6px 12px', 
+            background: '#F5F5F5', 
+            boxShadow: '0px 3px 1px white inset', 
+            borderRadius: '60px', 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '8px',
+            marginBottom: '16px'
+          }}>
+            <Users style={{ width: '16px', height: '20px', color: 'rgba(0, 0, 0, 0.40)' }} />
+            <span style={{ 
+              color: 'black', 
+              fontSize: '11.44px', 
+              fontFamily: 'Inter', 
+              fontWeight: 500, 
+              lineHeight: '14.40px' 
+            }}>
+              847+ ERFOLGREICHE SCHWEIZ-WECHSEL
+            </span>
+          </div>
+          <h2 style={{ 
+            fontSize: '53.16px', 
+            fontFamily: 'Inter', 
+            fontWeight: 500, 
+            lineHeight: '67.20px', 
+            color: 'black',
+            textAlign: 'center',
+            marginBottom: '16px'
+          }}>
+            Echte Menschen, echte Erfolge
           </h2>
-          <p className="text-xl text-off-white/80 max-w-3xl mx-auto">
+          <p style={{ 
+            fontSize: '16px', 
+            fontFamily: 'Inter', 
+            fontWeight: 400, 
+            lineHeight: '24px', 
+            color: 'black',
+            opacity: 0.8,
+            textAlign: 'center',
+            maxWidth: '500px',
+            margin: '0 auto'
+          }}>
             Entdecke, wie andere Deutsche mit SwissPats ihre Karriere in der Schweiz vorangebracht haben
           </p>
         </div>
 
         {/* Success Stories Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {successStories.map((story, index) => <Card key={index} className="bg-off-white/5 backdrop-blur-sm border border-off-white/10 p-6 hover:bg-off-white/10 transition-all duration-300 group">
-              <div className="relative mb-4">
-                <div className="aspect-video bg-gradient-to-br from-charcoal-black to-swiss-navy-dark rounded-lg flex items-center justify-center relative overflow-hidden">
-                  <Play className="w-12 h-12 text-alpine-green opacity-80 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute top-2 left-2">
-                    <Badge variant="secondary" className="text-off-white border-0 text-xs bg-gray-950">
-                      <CheckCircle2 className="w-3 h-3 mr-1" />
-                      Verifiziert
-                    </Badge>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+          gap: '24px', 
+          marginBottom: '44px' 
+        }}>
+          {successStories.slice(0, 6).map((story, index) => 
+            <div key={index} style={{ 
+              padding: '32px', 
+              background: '#F5F5F5', 
+              boxShadow: '0px 3px 1px white inset', 
+              borderRadius: '16px',
+              transition: 'all 0.3s ease'
+            }}>
+              <div style={{ marginBottom: '16px' }}>
+                <div style={{ 
+                  aspectRatio: '16/9',
+                  background: '#F5F5F5',
+                  boxShadow: '0px 3px 1px white inset',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  position: 'relative',
+                  marginBottom: '12px'
+                }}>
+                  <Play style={{ width: '32px', height: '32px', color: 'rgba(0, 0, 0, 0.40)' }} />
+                  <div style={{ 
+                    position: 'absolute',
+                    top: '8px',
+                    left: '8px',
+                    padding: '4px 8px',
+                    background: '#F5F5F5',
+                    boxShadow: '0px 3px 1px white inset',
+                    borderRadius: '12px',
+                    fontSize: '10px',
+                    fontFamily: 'Inter',
+                    fontWeight: 500,
+                    color: 'black',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}>
+                    <CheckCircle2 style={{ width: '10px', height: '10px' }} />
+                    Verifiziert
                   </div>
                 </div>
               </div>
               
-              <div className="mb-4">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-off-white">{story.name}</h3>
-                  <a href={story.linkedinUrl} className="text-alpine-green hover:text-alpine-green-light">
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+              <div style={{ marginBottom: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <h3 style={{ 
+                    fontSize: '16px', 
+                    fontFamily: 'Inter', 
+                    fontWeight: 500, 
+                    color: 'black'
+                  }}>
+                    {story.name}
+                  </h3>
+                  <ExternalLink style={{ width: '16px', height: '16px', color: 'rgba(0, 0, 0, 0.40)' }} />
                 </div>
-                <p className="text-sm text-off-white/70 mb-2">{story.profession}</p>
-                <p className="text-xs text-off-white/60 mb-3">{story.location}</p>
+                <p style={{ 
+                  fontSize: '14px', 
+                  fontFamily: 'Inter', 
+                  fontWeight: 400, 
+                  color: 'black',
+                  opacity: 0.7,
+                  marginBottom: '4px'
+                }}>
+                  {story.profession}
+                </p>
+                <p style={{ 
+                  fontSize: '12px', 
+                  fontFamily: 'Inter', 
+                  fontWeight: 400, 
+                  color: 'black',
+                  opacity: 0.6
+                }}>
+                  {story.location}
+                </p>
               </div>
 
-              <div className="space-y-2 mb-4">
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-off-white/70">Vorher:</span>
-                  <span className="text-off-white">{story.salaryBefore}</span>
+              <div style={{ marginBottom: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '4px' }}>
+                  <span style={{ color: 'black', opacity: 0.7 }}>Vorher:</span>
+                  <span style={{ color: 'black' }}>{story.salaryBefore}</span>
                 </div>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-off-white/70">Nachher:</span>
-                  <span className="text-alpine-green font-semibold text-slate-50">{story.salaryAfter}</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', marginBottom: '4px' }}>
+                  <span style={{ color: 'black', opacity: 0.7 }}>Nachher:</span>
+                  <span style={{ color: 'black', fontWeight: 500 }}>{story.salaryAfter}</span>
                 </div>
-                <div className="flex justify-between items-center text-sm border-t border-off-white/10 pt-2">
-                  <span className="text-off-white/70">Mehr-Verdienst:</span>
-                  <span className="font-bold text-green-600">{story.increase}</span>
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between', 
+                  fontSize: '14px',
+                  paddingTop: '8px',
+                  borderTop: '1px solid rgba(0, 0, 0, 0.1)'
+                }}>
+                  <span style={{ color: 'black', opacity: 0.7 }}>Mehr-Verdienst:</span>
+                  <span style={{ color: '#2E7D32', fontWeight: 600 }}>{story.increase}</span>
                 </div>
               </div>
 
-              <p className="text-sm text-off-white/80 mb-3 italic">"{story.testimonial}"</p>
+              <p style={{ 
+                fontSize: '14px', 
+                fontFamily: 'Inter', 
+                fontWeight: 400, 
+                lineHeight: '22px', 
+                color: 'black',
+                opacity: 0.8,
+                fontStyle: 'italic',
+                marginBottom: '12px'
+              }}>
+                "{story.testimonial}"
+              </p>
               
-              <div className="flex justify-between items-center text-xs text-off-white/60">
-                <span>Dauer: {story.timeframe}</span>
-                <div className="flex items-center gap-1 bg-transparent">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-burgundy text-burgundy bg-transparent" />)}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px' }}>
+                <span style={{ color: 'black', opacity: 0.6 }}>Dauer: {story.timeframe}</span>
+                <div style={{ display: 'flex', gap: '2px' }}>
+                  {[...Array(5)].map((_, i) => 
+                    <Star key={i} style={{ width: '12px', height: '12px', color: '#800020', fill: '#800020' }} />
+                  )}
                 </div>
               </div>
-            </Card>)}
+            </div>
+          )}
         </div>
 
         {/* Trustpilot & SRF Section */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+          gap: '24px', 
+          marginBottom: '44px' 
+        }}>
           {/* Trustpilot */}
-          <Card className="bg-off-white/5 backdrop-blur-sm border border-off-white/10 p-8">
-            <div className="text-center">
-              <div className="mb-4">
-                <img src="/placeholder.svg" alt="Trustpilot" className="h-8 mx-auto mb-4 opacity-80" />
-                <div className="flex items-center justify-center gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => <Star key={i} className={`w-6 h-6 ${i < Math.floor(trustpilotStats.rating) ? 'fill-alpine-green text-alpine-green' : 'text-off-white/30'}`} />)}
-                  <span className="ml-2 text-2xl font-bold text-off-white">{trustpilotStats.rating}</span>
-                </div>
-                <p className="text-off-white/70 mb-4">{trustpilotStats.reviews} Bewertungen</p>
+          <div style={{ 
+            padding: '32px', 
+            background: '#F5F5F5', 
+            boxShadow: '0px 3px 1px white inset', 
+            borderRadius: '16px',
+            textAlign: 'center'
+          }}>
+            <div style={{ marginBottom: '16px' }}>
+              <div style={{ 
+                height: '32px',
+                marginBottom: '16px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '16px',
+                fontFamily: 'Inter',
+                fontWeight: 500,
+                color: 'black'
+              }}>
+                Trustpilot
               </div>
-              
-              <div className="bg-alpine-green/10 rounded-lg p-4 mb-4">
-                <div className="text-3xl font-black text-alpine-green mb-1">{trustpilotStats.excellentPercentage}%</div>
-                <div className="text-sm text-off-white/70">bewerten uns als "Ausgezeichnet"</div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', marginBottom: '8px' }}>
+                {[...Array(5)].map((_, i) => 
+                  <Star key={i} style={{ 
+                    width: '20px', 
+                    height: '20px', 
+                    color: i < Math.floor(trustpilotStats.rating) ? '#2E7D32' : 'rgba(0, 0, 0, 0.3)',
+                    fill: i < Math.floor(trustpilotStats.rating) ? '#2E7D32' : 'none'
+                  }} />
+                )}
+                <span style={{ 
+                  marginLeft: '8px',
+                  fontSize: '24px',
+                  fontFamily: 'Inter',
+                  fontWeight: 600,
+                  color: 'black'
+                }}>
+                  {trustpilotStats.rating}
+                </span>
               </div>
-              
-              <SwissButton variant="outline" size="sm" className="w-full">
-                Alle Bewertungen ansehen
-              </SwissButton>
-            </div>
-          </Card>
-
-          {/* SRF Video */}
-          <Card className="bg-off-white/5 backdrop-blur-sm border border-off-white/10 p-8">
-            <div className="text-center mb-6">
-              <Badge variant="secondary" className="mb-4 bg-burgundy/20 text-burgundy border-burgundy/30">
-                <Award className="w-4 h-4 mr-2" />
-                SRF Schweizer Fernsehen
-              </Badge>
-              <h3 className="text-xl font-bold mb-2">Wie Deutsche in der Schweiz erfolgreich werden</h3>
-              <p className="text-off-white/70 text-sm">Exklusive Reportage über SwissPats</p>
-            </div>
-
-            <div className="space-y-2 mb-6">
-              {srfVideoChapters.map((chapter, index) => <div key={index} className="flex items-center justify-between p-2 bg-off-white/5 rounded hover:bg-off-white/10 cursor-pointer transition-colors">
-                  <div className="flex items-center gap-3">
-                    <Play className="w-4 h-4 text-alpine-green" />
-                    <span className="text-sm">{chapter.title}</span>
-                  </div>
-                  <div className="text-xs text-off-white/60">{chapter.duration}</div>
-                </div>)}
+              <p style={{ 
+                fontSize: '14px',
+                fontFamily: 'Inter',
+                color: 'black',
+                opacity: 0.7,
+                marginBottom: '16px'
+              }}>
+                {trustpilotStats.reviews} Bewertungen
+              </p>
             </div>
             
-            <SwissButton variant="burgundy" size="sm" className="w-full">
-              <Play className="w-4 h-4" />
-              Reportage ansehen
-            </SwissButton>
-          </Card>
+            <div style={{ 
+              background: 'rgba(46, 125, 50, 0.1)',
+              borderRadius: '12px',
+              padding: '16px',
+              marginBottom: '16px'
+            }}>
+              <div style={{ 
+                fontSize: '28px',
+                fontFamily: 'Inter',
+                fontWeight: 600,
+                color: '#2E7D32',
+                marginBottom: '4px'
+              }}>
+                {trustpilotStats.excellentPercentage}%
+              </div>
+              <div style={{ 
+                fontSize: '14px',
+                fontFamily: 'Inter',
+                color: 'black',
+                opacity: 0.7
+              }}>
+                bewerten uns als "Ausgezeichnet"
+              </div>
+            </div>
+            
+            <button style={{ 
+              width: '100%',
+              padding: '11px 24px', 
+              background: '#F5F5F5', 
+              boxShadow: '0px 3px 1px white inset', 
+              borderRadius: '10px',
+              border: 'none',
+              color: 'black', 
+              fontSize: '14px', 
+              fontFamily: 'Inter', 
+              fontWeight: 500, 
+              lineHeight: '22.40px',
+              cursor: 'pointer'
+            }}>
+              Alle Bewertungen ansehen
+            </button>
+          </div>
+
+          {/* SRF Video */}
+          <div style={{ 
+            padding: '32px', 
+            background: '#F5F5F5', 
+            boxShadow: '0px 3px 1px white inset', 
+            borderRadius: '16px'
+          }}>
+            <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+              <div style={{ 
+                padding: '6px 12px', 
+                background: 'rgba(128, 0, 32, 0.20)', 
+                borderRadius: '60px', 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '8px',
+                marginBottom: '16px'
+              }}>
+                <Award style={{ width: '16px', height: '16px', color: '#800020' }} />
+                <span style={{ 
+                  color: '#800020', 
+                  fontSize: '11.44px', 
+                  fontFamily: 'Inter', 
+                  fontWeight: 500, 
+                  lineHeight: '14.40px' 
+                }}>
+                  SRF SCHWEIZER FERNSEHEN
+                </span>
+              </div>
+              <h3 style={{ 
+                fontSize: '18px',
+                fontFamily: 'Inter',
+                fontWeight: 500,
+                color: 'black',
+                marginBottom: '8px'
+              }}>
+                Wie Deutsche in der Schweiz erfolgreich werden
+              </h3>
+              <p style={{ 
+                fontSize: '14px',
+                fontFamily: 'Inter',
+                color: 'black',
+                opacity: 0.7
+              }}>
+                Exklusive Reportage über SwissPats
+              </p>
+            </div>
+
+            <div style={{ marginBottom: '24px' }}>
+              {srfVideoChapters.map((chapter, index) => 
+                <div key={index} style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'space-between', 
+                  padding: '12px', 
+                  background: 'rgba(255, 255, 255, 0.3)',
+                  borderRadius: '8px',
+                  marginBottom: '8px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <Play style={{ width: '16px', height: '16px', color: '#2E7D32' }} />
+                    <span style={{ 
+                      fontSize: '14px',
+                      fontFamily: 'Inter',
+                      color: 'black'
+                    }}>
+                      {chapter.title}
+                    </span>
+                  </div>
+                  <div style={{ 
+                    fontSize: '12px',
+                    fontFamily: 'Inter',
+                    color: 'black',
+                    opacity: 0.6
+                  }}>
+                    {chapter.duration}
+                  </div>
+                </div>
+              )}
+            </div>
+            
+            <button style={{ 
+              width: '100%',
+              padding: '11px 24px', 
+              background: 'black', 
+              boxShadow: '0px 30px 30px -3.5px rgba(0, 0, 0, 0.15)', 
+              borderRadius: '10px',
+              border: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              cursor: 'pointer'
+            }}>
+              <Play style={{ width: '16px', height: '16px', color: 'white' }} />
+              <span style={{ 
+                color: 'white', 
+                fontSize: '14px', 
+                fontFamily: 'Inter', 
+                fontWeight: 500, 
+                lineHeight: '22.40px' 
+              }}>
+                Reportage ansehen
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center">
-          <div className="max-w-2xl mx-auto mb-8">
-            <h3 className="text-2xl font-bold mb-4">Werde auch du Teil der Erfolgsgeschichten</h3>
-            <p className="text-off-white/70 mb-6">
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ maxWidth: '600px', margin: '0 auto 32px' }}>
+            <h3 style={{ 
+              fontSize: '22.12px', 
+              fontFamily: 'Inter', 
+              fontWeight: 500, 
+              lineHeight: '36px', 
+              color: 'black',
+              marginBottom: '16px'
+            }}>
+              Werde auch du Teil der Erfolgsgeschichten
+            </h3>
+            <p style={{ 
+              fontSize: '16px', 
+              fontFamily: 'Inter', 
+              fontWeight: 400, 
+              lineHeight: '24px', 
+              color: 'black',
+              opacity: 0.7,
+              marginBottom: '24px'
+            }}>
               Über 847 Deutsche haben bereits den Sprung in die Schweiz gewagt. 
               Du könntest der nächste sein.
             </p>
           </div>
           
-          <SwissButton variant="burgundy" size="xl" className="mb-4">
-            <TrendingUp className="w-5 h-5" />
-            Meine Schweiz-Analyse starten
-          </SwissButton>
+          <button style={{ 
+            padding: '11px 24px', 
+            background: 'black', 
+            boxShadow: '0px 30px 30px -3.5px rgba(0, 0, 0, 0.15)', 
+            borderRadius: '10px',
+            border: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            cursor: 'pointer',
+            marginBottom: '16px'
+          }}>
+            <TrendingUp style={{ width: '20px', height: '20px', color: 'white' }} />
+            <span style={{ 
+              color: 'white', 
+              fontSize: '14px', 
+              fontFamily: 'Inter', 
+              fontWeight: 500, 
+              lineHeight: '22.40px' 
+            }}>
+              Meine Schweiz-Analyse starten
+            </span>
+          </button>
           
-          <p className="text-sm text-off-white/60">
+          <p style={{ 
+            fontSize: '14px', 
+            fontFamily: 'Inter', 
+            fontWeight: 400, 
+            lineHeight: '24px', 
+            color: 'black',
+            opacity: 0.6
+          }}>
             Kostenlose Erstberatung • Unverbindlich • In nur 15 Minuten
           </p>
         </div>
