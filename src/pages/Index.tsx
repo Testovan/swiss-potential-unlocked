@@ -12,6 +12,8 @@ import { TrustBadgesSection } from "@/components/TrustBadgesSection";
 import { FloatingOrbs } from "@/components/animations/FloatingOrbs";
 import { FadeInUp } from "@/components/animations/ScrollAnimations";
 import SwissBenefitsSection from "@/components/SwissBenefitsSection";
+import SpSteps from "@/components/SpSteps";
+import SpReality from "@/components/SpReality";
 
 const Index = () => {
   return (
@@ -24,6 +26,10 @@ const Index = () => {
       <FadeInUp>
         <SwissBenefitsSection />
       </FadeInUp>
+
+      <SpSteps />
+
+      <SpReality />
       
       <FadeInUp>
         <VideoPlaceholder />
