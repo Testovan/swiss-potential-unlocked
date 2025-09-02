@@ -14,6 +14,7 @@ import { FadeInUp } from "@/components/animations/ScrollAnimations";
 import SwissBenefitsSection from "@/components/SwissBenefitsSection";
 import SpSteps from "@/components/SpSteps";
 import SpReality from "@/components/SpReality";
+import { DIYvsProComparison } from "@/components/DIYvsProComparison";
 
 const Index = () => {
   return (
@@ -51,6 +52,10 @@ const Index = () => {
       
       <FadeInUp>
         <CombinedAssessment />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <DIYvsProComparison />
       </FadeInUp>
       
       <FadeInUp>
