@@ -191,9 +191,19 @@ export const SocialProofSection = () => {
             <div key={index} style={{ 
               padding: '32px', 
               background: '#F5F5F5', 
-              boxShadow: '0px 3px 1px white inset', 
-              borderRadius: '16px',
-              transition: 'all 0.3s ease'
+              boxShadow: '0px 3px 1px white inset, 0 4px 12px rgba(0,0,0,0.08)', 
+              borderRadius: '12px',
+              border: '1px solid #e0e0e0',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = '0px 3px 1px white inset, 0 6px 16px rgba(0,0,0,0.12)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = '0px 3px 1px white inset, 0 4px 12px rgba(0,0,0,0.08)';
+              e.currentTarget.style.transform = 'translateY(0)';
             }}>
               <div style={{ marginBottom: '16px' }}>
                 <div style={{ 
@@ -320,9 +330,20 @@ export const SocialProofSection = () => {
           <div style={{ 
             padding: '32px', 
             background: '#F5F5F5', 
-            boxShadow: '0px 3px 1px white inset', 
-            borderRadius: '16px',
-            textAlign: 'center'
+            boxShadow: '0px 3px 1px white inset, 0 4px 12px rgba(0,0,0,0.08)', 
+            borderRadius: '12px',
+            border: '1px solid #e0e0e0',
+            textAlign: 'center',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = '0px 3px 1px white inset, 0 6px 16px rgba(0,0,0,0.12)';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '0px 3px 1px white inset, 0 4px 12px rgba(0,0,0,0.08)';
+            e.currentTarget.style.transform = 'translateY(0)';
           }}>
             <div style={{ marginBottom: '16px' }}>
               <div style={{ 
@@ -415,8 +436,19 @@ export const SocialProofSection = () => {
           <div style={{ 
             padding: '32px', 
             background: '#F5F5F5', 
-            boxShadow: '0px 3px 1px white inset', 
-            borderRadius: '16px'
+            boxShadow: '0px 3px 1px white inset, 0 4px 12px rgba(0,0,0,0.08)', 
+            borderRadius: '12px',
+            border: '1px solid #e0e0e0',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow = '0px 3px 1px white inset, 0 6px 16px rgba(0,0,0,0.12)';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = '0px 3px 1px white inset, 0 4px 12px rgba(0,0,0,0.08)';
+            e.currentTarget.style.transform = 'translateY(0)';
           }}>
             <div style={{ textAlign: 'center', marginBottom: '24px' }}>
               <div style={{ 
