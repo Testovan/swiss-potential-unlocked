@@ -9,6 +9,9 @@ export const VideoPlaceholder = () => {
   return (
     <section className="py-16 px-4">
       <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
+          Bekannt aus dem Schweizer Fernsehen
+        </h2>
         <div
           ref={ref}
           className={`bg-white border border-gray-200 rounded-xl shadow-md transition-all duration-700 ${
