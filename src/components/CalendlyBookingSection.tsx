@@ -40,12 +40,8 @@ export const CalendlyBookingSection = () => {
         {/* Calendly Embed */}
         <div style={{
           maxWidth: '900px',
-          margin: '0 auto',
-          borderRadius: '12px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-          overflow: 'hidden',
-          backgroundColor: '#fff'
-        }}>
+          margin: '0 auto'
+        }} className="media-container">
           <iframe
             src="https://calendly.com/your-calendly-link"
             width="100%"

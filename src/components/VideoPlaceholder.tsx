@@ -14,12 +14,12 @@ export const VideoPlaceholder = () => {
         </h2>
         <div
           ref={ref}
-          className={`bg-white border border-gray-200 rounded-xl shadow-md transition-all duration-700 ${
+          className={`bg-card-bg shadow-unified outline-subtle rounded-lg border border-unified transition-all duration-700 ${
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          } hover:shadow-hover`}
         >
           <div className="p-6 md:p-6 sm:p-4">
-          <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+          <div className="aspect-video bg-section-bg rounded-lg overflow-hidden media-container">
             <iframe 
               src="https://player.vimeo.com/video/1109119687?h=0&autoplay=0&muted=1&controls=1&responsive=1"
               width="100%" 
