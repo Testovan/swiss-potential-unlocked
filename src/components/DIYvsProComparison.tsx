@@ -131,49 +131,109 @@ export const DIYvsProComparison = () => {
         marginBottom: '48px'
       }}>
           {/* DIY Card */}
-          <Card className="bg-card rounded-2xl shadow-lg overflow-hidden transition-all duration-300 ease-smooth cursor-pointer hover:shadow-xl hover:-translate-y-0.5">
-            <div className="p-8 text-center">
-              <div className="mb-6 flex justify-center">
-                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center">
-                  <X className="w-8 h-8 text-muted-foreground" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-3">
+          <Card style={{
+            background: '#FFFFFF',
+            border: '1px solid hsl(var(--border))',
+            borderRadius: '12px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+            overflow: 'hidden',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer'
+          }} onMouseEnter={e => {
+            e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.12)';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+          }} onMouseLeave={e => {
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+            e.currentTarget.style.transform = 'translateY(0)';
+          }}>
+            <div style={{
+              background: '#F8F9FA',
+              color: '#1a1a1a',
+              padding: '24px',
+              textAlign: 'center'
+            }}>
+              <X style={{
+                width: '32px',
+                height: '32px',
+                margin: '0 auto 12px',
+                color: '#6B7280'
+              }} />
+              <h3 style={{
+                fontSize: '24px',
+                fontWeight: '700',
+                marginBottom: '4px'
+              }}>
                 Do-It-Yourself
               </h3>
-              <p className="text-muted-foreground">
+              <p style={{
+                fontSize: '16px',
+                opacity: '0.7'
+              }}>
                 Alleine durchkämpfen
               </p>
             </div>
             
-            <div className="px-8 pb-8">
-              {comparisonData.map((item, index) => <div key={index} className="flex items-center py-4" style={{
-              borderBottom: index < comparisonData.length - 1 ? '1px solid hsl(var(--border))' : 'none'
+            <div style={{
+              padding: '24px'
             }}>
-                   <div className="text-muted-foreground mr-3 flex items-center">
-                     <X className="w-4 h-4" />
-                   </div>
-                   <div className="flex-1">
-                     <div className="text-sm text-muted-foreground mb-1">
-                       {item.category}
-                     </div>
-                     <div className="text-base font-semibold text-foreground">
-                       {item.diy.value}
-                     </div>
-                   </div>
-                 </div>)}
-               
-               {/* Special cost section */}
-               <div className="mt-6 p-5 rounded-lg text-center" style={{
-              background: '#F5F5F5'
-            }}>
-                 <div className="text-3xl font-bold text-foreground mb-2">€13'250</div>
-                 <div className="text-sm text-muted-foreground leading-relaxed">
-                   Entgangenes Einkommen + Stress + Fehlerkosten
-                 </div>
-               </div>
-             </div>
-           </Card>
+              {comparisonData.map((item, index) => <div key={index} style={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '16px 0',
+                borderBottom: index < comparisonData.length - 1 ? '1px solid rgba(107, 114, 128, 0.2)' : 'none'
+              }}>
+                <div style={{
+                  color: '#6B7280',
+                  marginRight: '12px',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}>
+                  <X className="w-5 h-5" />
+                </div>
+                <div style={{
+                  flex: 1
+                }}>
+                  <div style={{
+                    fontSize: '14px',
+                    color: '#666',
+                    marginBottom: '4px'
+                  }}>
+                    {item.category}
+                  </div>
+                  <div style={{
+                    fontSize: '16px',
+                    fontWeight: '600',
+                    color: '#1a1a1a'
+                  }}>
+                    {item.diy.value}
+                  </div>
+                </div>
+              </div>)}
+              
+              {/* Special cost section */}
+              <div style={{
+                marginTop: '24px',
+                padding: '20px',
+                background: '#F5F5F5',
+                borderRadius: '8px',
+                textAlign: 'center'
+              }}>
+                <div style={{
+                  fontSize: '28px',
+                  fontWeight: '700',
+                  color: '#1a1a1a',
+                  marginBottom: '8px'
+                }}>€13'250</div>
+                <div style={{
+                  fontSize: '14px',
+                  color: '#666',
+                  lineHeight: '1.4'
+                }}>
+                  Entgangenes Einkommen + Stress + Fehlerkosten
+                </div>
+              </div>
+            </div>
+          </Card>
 
           {/* Professional Card */}
           <Card style={{
