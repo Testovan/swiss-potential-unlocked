@@ -144,7 +144,5 @@ export const AssessmentSection = () => {
         </div>
       </section>;
   }
-  return <section id="assessment-section" className="py-20 bg-gradient-to-br from-off-white to-silver-gray/30">
-      
-    </section>;
+  return;
 };
