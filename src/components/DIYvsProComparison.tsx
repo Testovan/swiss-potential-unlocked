@@ -129,48 +129,45 @@ export const DIYvsProComparison = () => {
           marginBottom: '48px'
         }}>
           {/* DIY Card */}
-          <Card className="bg-muted border-destructive rounded-xl shadow-soft overflow-hidden transition-all duration-300 ease-smooth cursor-pointer hover:shadow-luxury hover:-translate-y-0.5">
-            <div className="bg-destructive text-destructive-foreground p-6 text-center">
-              <X style={{ width: '32px', height: '32px', margin: '0 auto 12px' }} />
-              <h3 style={{
-                fontSize: '24px',
-                fontWeight: '700',
-                marginBottom: '4px'
-              }}>
+          <Card className="bg-card rounded-2xl shadow-lg overflow-hidden transition-all duration-300 ease-smooth cursor-pointer hover:shadow-xl hover:-translate-y-0.5">
+            <div className="p-8 text-center">
+              <div className="mb-6 flex justify-center">
+                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center">
+                  <X className="w-8 h-8 text-muted-foreground" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-3">
                 Do-It-Yourself
               </h3>
-              <p style={{
-                fontSize: '16px',
-                opacity: '0.9'
-              }}>
+              <p className="text-muted-foreground">
                 Alleine durchkämpfen
               </p>
             </div>
             
-            <div style={{ padding: '24px' }}>
+            <div className="px-8 pb-8">
               {comparisonData.map((item, index) => (
                  <div key={index} className="flex items-center py-4" style={{
-                   borderBottom: index < comparisonData.length - 1 ? '1px solid hsl(var(--destructive) / 0.2)' : 'none'
+                   borderBottom: index < comparisonData.length - 1 ? '1px solid hsl(var(--border))' : 'none'
                  }}>
-                   <div className="text-destructive mr-3 flex items-center">
-                     {item.diy.icon}
+                   <div className="text-muted-foreground mr-3 flex items-center">
+                     <X className="w-4 h-4" />
                    </div>
                    <div className="flex-1">
                      <div className="text-sm text-muted-foreground mb-1">
                        {item.category}
                      </div>
-                     <div className="text-base font-semibold text-destructive">
+                     <div className="text-base font-semibold text-foreground">
                        {item.diy.value}
                      </div>
                    </div>
                  </div>
-              ))}
-              
+               ))}
+               
                {/* Special cost section */}
                <div className="mt-6 p-5 rounded-lg text-center" style={{
-                 background: 'hsl(var(--destructive) / 0.1)'
+                 background: '#F5F5F5'
                }}>
-                 <div className="text-3xl font-bold text-destructive mb-2">
+                 <div className="text-3xl font-bold text-foreground mb-2">
                    €11'250
                  </div>
                  <div className="text-sm text-muted-foreground leading-relaxed">
