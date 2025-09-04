@@ -129,29 +129,8 @@ export const DIYvsProComparison = () => {
           marginBottom: '48px'
         }}>
           {/* DIY Card */}
-          <Card style={{
-            background: '#FDECEC',
-            border: '1px solid #E74C3C',
-            borderRadius: '12px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-            overflow: 'hidden',
-            transition: 'all 0.3s ease',
-            cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.12)';
-            e.currentTarget.style.transform = 'translateY(-2px)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
-            e.currentTarget.style.transform = 'translateY(0)';
-          }}>
-            <div style={{
-              background: '#E74C3C',
-              color: 'white',
-              padding: '24px',
-              textAlign: 'center'
-            }}>
+          <Card className="bg-muted border-destructive rounded-xl shadow-soft overflow-hidden transition-all duration-300 ease-smooth cursor-pointer hover:shadow-luxury hover:-translate-y-0.5">
+            <div className="bg-destructive text-destructive-foreground p-6 text-center">
               <X style={{ width: '32px', height: '32px', margin: '0 auto 12px' }} />
               <h3 style={{
                 fontSize: '24px',
@@ -170,65 +149,36 @@ export const DIYvsProComparison = () => {
             
             <div style={{ padding: '24px' }}>
               {comparisonData.map((item, index) => (
-                <div key={index} style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  padding: '16px 0',
-                  borderBottom: index < comparisonData.length - 1 ? '1px solid rgba(231, 76, 60, 0.2)' : 'none'
-                }}>
-                  <div style={{ 
-                    color: '#E74C3C', 
-                    marginRight: '12px',
-                    display: 'flex',
-                    alignItems: 'center'
-                  }}>
-                    {item.diy.icon}
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{
-                      fontSize: '14px',
-                      color: '#666',
-                      marginBottom: '4px'
-                    }}>
-                      {item.category}
-                    </div>
-                    <div style={{
-                      fontSize: '16px',
-                      fontWeight: '600',
-                      color: '#E74C3C'
-                    }}>
-                      {item.diy.value}
-                    </div>
-                  </div>
-                </div>
+                 <div key={index} className="flex items-center py-4" style={{
+                   borderBottom: index < comparisonData.length - 1 ? '1px solid hsl(var(--destructive) / 0.2)' : 'none'
+                 }}>
+                   <div className="text-destructive mr-3 flex items-center">
+                     {item.diy.icon}
+                   </div>
+                   <div className="flex-1">
+                     <div className="text-sm text-muted-foreground mb-1">
+                       {item.category}
+                     </div>
+                     <div className="text-base font-semibold text-destructive">
+                       {item.diy.value}
+                     </div>
+                   </div>
+                 </div>
               ))}
               
-              {/* Special cost section */}
-              <div style={{
-                marginTop: '24px',
-                padding: '20px',
-                background: 'rgba(231, 76, 60, 0.1)',
-                borderRadius: '8px',
-                textAlign: 'center'
-              }}>
-                <div style={{
-                  fontSize: '28px',
-                  fontWeight: '700',
-                  color: '#E74C3C',
-                  marginBottom: '8px'
-                }}>
-                  €11'250
-                </div>
-                <div style={{
-                  fontSize: '14px',
-                  color: '#666',
-                  lineHeight: '1.4'
-                }}>
-                  Entgangenes Einkommen + Stress + Fehlerkosten
-                </div>
-              </div>
-            </div>
-          </Card>
+               {/* Special cost section */}
+               <div className="mt-6 p-5 rounded-lg text-center" style={{
+                 background: 'hsl(var(--destructive) / 0.1)'
+               }}>
+                 <div className="text-3xl font-bold text-destructive mb-2">
+                   €11'250
+                 </div>
+                 <div className="text-sm text-muted-foreground leading-relaxed">
+                   Entgangenes Einkommen + Stress + Fehlerkosten
+                 </div>
+               </div>
+             </div>
+           </Card>
 
           {/* Professional Card */}
           <Card style={{
