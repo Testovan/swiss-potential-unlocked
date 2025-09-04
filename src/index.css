@@ -60,24 +60,7 @@ All colors MUST be HSL for proper theming.
     --gradient-hero: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--swiss-navy-dark)) 100%);
     --gradient-luxury: linear-gradient(135deg, hsl(var(--charcoal-black)) 0%, hsl(var(--burgundy)) 100%);
     
-    /* Updated Design System - Unified Shadows & Borders */
-    --card-background: 0 0% 100%;                /* #FFFFFF */
-    --section-background: 0 0% 98%;              /* #FAFAFA */
-    --border-color: 210 14% 83%;                 /* #D1D5DB */
-    --divider-color: rgba(0, 0, 0, 0.12);
-    
-    /* Unified Shadow System */
-    --shadow-default: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.12);
-    --shadow-button: 0 1px 2px rgba(0, 0, 0, 0.10);
-    --outline-subtle: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
-    --media-border: #E5E5E5;
-    
-    /* Progress & Chart Colors */
-    --progress-border: rgba(0, 0, 0, 0.10);
-    --grid-lines: rgba(0, 0, 0, 0.12);
-    
-    /* Heritage Luxury Shadows - Enhanced */
+    /* Heritage Luxury Shadows */
     --shadow-swiss: 0 10px 30px -10px hsl(var(--charcoal-black) / 0.3);
     --shadow-success: 0 10px 25px -8px hsl(var(--alpine-green) / 0.4);
     --shadow-premium: 0 20px 40px -15px hsl(var(--burgundy) / 0.3);
@@ -89,11 +72,7 @@ All colors MUST be HSL for proper theming.
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     
-    /* Updated Radius System */
     --radius: 0.5rem;
-    --radius-lg: 1rem;      /* 16px */
-    --radius-md: 0.75rem;   /* 12px */
-    --radius-sm: 0.5rem;    /* 8px */
   }
 
   .dark {
@@ -250,49 +229,6 @@ All colors MUST be HSL for proper theming.
   
   .shadow-soft {
     box-shadow: var(--shadow-soft);
-  }
-  
-  /* Unified Shadow Classes */
-  .shadow-unified {
-    box-shadow: var(--shadow-default);
-  }
-  
-  .shadow-unified-hover {
-    box-shadow: var(--shadow-hover);
-  }
-  
-  .shadow-button {
-    box-shadow: var(--shadow-button);
-  }
-  
-  .outline-subtle {
-    box-shadow: var(--outline-subtle);
-  }
-  
-  /* Unified Border Classes */
-  .border-unified {
-    border-color: hsl(var(--border-color));
-  }
-  
-  .divide-unified > :not([hidden]) ~ :not([hidden]) {
-    border-color: var(--divider-color);
-  }
-  
-  /* Media Container Classes */
-  .media-container {
-    border: 1px solid var(--media-border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-default);
-  }
-  
-  /* Progress & Chart Styles */
-  .progress-enhanced {
-    border: 1px solid var(--progress-border);
-  }
-  
-  .grid-lines {
-    stroke: var(--grid-lines);
-    stroke-width: 1px;
   }
 }
 

@@ -55,12 +55,6 @@ export default {
 				'warning-amber': 'hsl(var(--warning-amber))',
 				'info-blue': 'hsl(var(--info-blue))',
 				
-				// Updated Design System Colors
-				'card-bg': 'hsl(var(--card-background))',
-				'section-bg': 'hsl(var(--section-background))',
-				'border-unified': 'hsl(var(--border-color))',
-				'media-border': 'var(--media-border)',
-				
 				// Semantic Colors
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -107,10 +101,7 @@ export default {
 				'success': 'var(--shadow-success)',
 				'premium': 'var(--shadow-premium)',
 				'luxury': 'var(--shadow-luxury)',
-				'soft': 'var(--shadow-soft)',
-				'default': 'var(--shadow-default)',
-				'hover': 'var(--shadow-hover)',
-				'button': 'var(--shadow-button)'
+				'soft': 'var(--shadow-soft)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -118,9 +109,9 @@ export default {
 				'elastic': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
 			},
 			borderRadius: {
-				lg: 'var(--radius-lg)',
-				md: 'var(--radius-md)',
-				sm: 'var(--radius-sm)'
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
 				'accordion-down': {
