@@ -15,12 +15,12 @@ const trustBadges = [{
   icon: <Award className="w-8 h-8" />,
   title: "Zertifizierte Berater",
   description: "Unsere Experten sind zertifizierte Karriere- und Relocation-Berater",
-  color: "burgundy"
+  color: "alpine-green"
 }, {
   icon: <FileCheck className="w-8 h-8" />,
   title: "Geprüfte Referenzen",
   description: "Alle Erfolgsgeschichten sind verifiziert und dokumentiert",
-  color: "burgundy"
+  color: "alpine-green"
 }];
 const partnerLogos = [{
   name: "SRF Schweizer Radio und Fernsehen",
