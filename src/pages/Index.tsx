@@ -36,10 +36,6 @@ const Index = () => {
         <VideoPlaceholder />
       </FadeInUp>
       
-      <FadeInUp>
-        <CalendlyBookingSection />
-      </FadeInUp>
-      
       
       <FadeInUp>
         <AssessmentSection />
@@ -64,6 +60,10 @@ const Index = () => {
       
       <FadeInUp>
         <FAQSection />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <CalendlyBookingSection />
       </FadeInUp>
       
       <FadeInUp>
