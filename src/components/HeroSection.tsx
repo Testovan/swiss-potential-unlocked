@@ -21,14 +21,45 @@ function useCountUp(target: number, duration = 1400) {
   }, [target, duration]);
   return val;
 }
+
 export const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden min-h-screen bg-background text-foreground">
-      {/* Subtle background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-muted/20" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(var(--primary),0.03)_0%,transparent_70%)]" />
+    <section className="relative overflow-hidden min-h-screen bg-background text-foreground" style={{position: 'relative', overflow: 'hidden'}}>
+      {/* Spline Background */}
+      <div 
+        className="absolute top-0 right-0 pointer-events-none"
+        style={{
+          width: '50vw',
+          height: '100%',
+          zIndex: 0
+        }}
+        aria-hidden="true"
+      >
+        <iframe 
+          src="https://my.spline.design/particleshand-2zbKEZ7u9yhhBl2BdP3HJt0Q/" 
+          frameBorder="0"
+          style={{
+            width: '100%',
+            height: '100%',
+            border: 0
+          }}
+        />
+      </div>
+
+      {/* Gradient overlay for blending */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0))',
+          zIndex: 0,
+          top: 0,
+          right: '50vw',
+          bottom: 0,
+          left: 0
+        }}
+      />
       
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-24 min-h-screen flex items-center">
+      <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-24 min-h-screen" style={{zIndex: 1}}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
           
           {/* Left Side: Content */}
@@ -52,7 +83,7 @@ export const HeroSection = () => {
               </FadeInUp>
 
               <FadeInUp delay={0.5}>
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <div className="pt-4">
                   <HoverScale>
                     <SwissButton 
                       variant="burgundy" 
@@ -67,77 +98,97 @@ export const HeroSection = () => {
                       Jetzt starten
                     </SwissButton>
                   </HoverScale>
-                </div>
-              </FadeInUp>
 
-              {/* KPI Cards under CTA Button */}
-              <FadeInUp delay={0.7}>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 max-w-2xl">
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
-                    className="bg-card/80 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-border/50 text-center"
+                  {/* KPI Cards under CTA Button */}
+                  <div 
+                    className="flex gap-6 mt-4 items-stretch"
+                    style={{
+                      display: 'flex',
+                      gap: '24px',
+                      marginTop: '16px',
+                      alignItems: 'stretch'
+                    }}
                   >
-                    <div className="text-2xl lg:text-3xl font-bold text-primary mb-1">
-                      {Math.round(useCountUp(94, 1400))}%
-                    </div>
-                    <div className="text-sm text-muted-foreground font-medium">
-                      Erfolgsquote
-                    </div>
-                  </motion.div>
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 0.8, duration: 0.6, ease: "easeOut" }}
+                      className="flex-1 text-center"
+                      style={{
+                        flex: 1,
+                        padding: '16px',
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(8px)',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                        border: '1px solid rgba(0, 0, 0, 0.1)',
+                        textAlign: 'center'
+                      }}
+                    >
+                      <div className="text-2xl lg:text-3xl font-bold text-primary mb-1">
+                        {Math.round(useCountUp(94, 1400))}%
+                      </div>
+                      <div className="text-sm text-muted-foreground font-medium">
+                        Erfolgsquote
+                      </div>
+                    </motion.div>
 
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ delay: 1.0, duration: 0.6, ease: "easeOut" }}
-                    className="bg-card/80 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-border/50 text-center"
-                  >
-                    <div className="text-2xl lg:text-3xl font-bold text-primary mb-1">
-                      {Intl.NumberFormat("de-CH").format(Math.round(useCountUp(847, 1400)))}
-                    </div>
-                    <div className="text-sm text-muted-foreground font-medium">
-                      Relocations
-                    </div>
-                  </motion.div>
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 1.0, duration: 0.6, ease: "easeOut" }}
+                      className="flex-1 text-center"
+                      style={{
+                        flex: 1,
+                        padding: '16px',
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(8px)',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                        border: '1px solid rgba(0, 0, 0, 0.1)',
+                        textAlign: 'center'
+                      }}
+                    >
+                      <div className="text-2xl lg:text-3xl font-bold text-primary mb-1">
+                        {Intl.NumberFormat("de-CH").format(Math.round(useCountUp(847, 1400)))}
+                      </div>
+                      <div className="text-sm text-muted-foreground font-medium">
+                        Relocations
+                      </div>
+                    </motion.div>
 
-                  <motion.div 
-                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ delay: 1.2, duration: 0.6, ease: "easeOut" }}
-                    className="bg-card/80 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-border/50 text-center"
-                  >
-                    <div className="text-2xl lg:text-3xl font-bold text-primary mb-1">
-                      CHF {Intl.NumberFormat("de-CH").format(Math.round(useCountUp(67400, 1400)))}
-                    </div>
-                    <div className="text-sm text-muted-foreground font-medium">
-                      Ø Gehaltsplus
-                    </div>
-                  </motion.div>
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ delay: 1.2, duration: 0.6, ease: "easeOut" }}
+                      className="flex-1 text-center"
+                      style={{
+                        flex: 1,
+                        padding: '16px',
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(8px)',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                        border: '1px solid rgba(0, 0, 0, 0.1)',
+                        textAlign: 'center'
+                      }}
+                    >
+                      <div className="text-2xl lg:text-3xl font-bold text-primary mb-1">
+                        CHF {Intl.NumberFormat("de-CH").format(Math.round(useCountUp(67400, 1400)))}
+                      </div>
+                      <div className="text-sm text-muted-foreground font-medium">
+                        Ø Gehaltsplus
+                      </div>
+                    </motion.div>
+                  </div>
                 </div>
               </FadeInUp>
             </StaggerContainer>
           </div>
 
-          {/* Right Side: Spline Animation */}
-          <div className="relative flex items-center justify-center lg:justify-end">
-            <motion.div 
-              className="relative w-full h-[500px] lg:h-[600px] rounded-lg overflow-hidden"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-            >
-              <iframe 
-                src="https://my.spline.design/particleshand-2zbKEZ7u9yhhBl2BdP3HJt0Q/" 
-                frameBorder="0" 
-                width="100%" 
-                height="100%"
-                loading="lazy"
-                allow="autoplay; fullscreen; xr-spatial-tracking"
-                className="w-full h-full"
-                title="Spline 3D Particles Hand Animation"
-              />
-            </motion.div>
+          {/* Right Side: Empty space for background animation */}
+          <div className="relative">
+            {/* This space is intentionally left for the background Spline animation */}
           </div>
         </div>
       </div>
