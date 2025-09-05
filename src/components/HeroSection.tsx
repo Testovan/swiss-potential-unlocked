@@ -74,124 +74,206 @@ function useCountUp(target: number, duration = 1400) {
   return val;
 }
 
-// Stat component with count-up animation
-function Stat({
+// Modern KPI Card component for the right side
+function KPICard({
   label,
   value,
   format = "int",
-  delay = 0
+  delay = 0,
+  position = "center"
 }: {
   label: string;
   value: number;
   format?: "int" | "percent" | "chf";
   delay?: number;
+  position?: "top" | "center" | "bottom";
 }) {
   const v = useCountUp(value, 1400);
   let display = "";
-  if (format === "percent") display = `${Math.round(v)}%`;else if (format === "chf") display = `CHF ${Intl.NumberFormat("de-CH").format(Math.round(v))}`;else display = Intl.NumberFormat("de-CH").format(Math.round(v));
-  return <motion.div initial={{
-    opacity: 0,
-    y: 20
-  }} animate={{
-    opacity: 1,
-    y: 0
-  }} transition={{
-    delay: 0.6 + delay,
-    duration: 0.8
-  }} className="flex flex-col gap-2">
-      <span className="text-xs tracking-widest uppercase text-muted-foreground/80">{label}</span>
-      <span className="text-2xl sm:text-3xl lg:text-4xl font-light text-foreground">{display}</span>
-      <span className="h-px w-12 bg-border/60" />
-    </motion.div>;
-}
-export const HeroSection = () => {
-  return <section className="relative overflow-hidden min-h-screen bg-background text-foreground">
-      {/* Spline Background Animation - Full Hero Background */}
-      <SplineBackgroundAnimation />
-      
-      {/* Enhanced starfield background with subtle movement */}
-      <motion.div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_45%)] opacity-40 z-0" animate={{
-      backgroundPosition: ["0% 0%", "100% 100%"]
-    }} transition={{
-      duration: 20,
-      repeat: Infinity,
-      repeatType: "reverse",
-      ease: "linear"
-    }} />
-      <motion.div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90 z-0" animate={{
-      opacity: [0.9, 1, 0.9]
-    }} transition={{
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }} />
-      
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left: Content */}
-        <div className="relative z-10 order-2 lg:order-1">
-          <StaggerContainer>
-            <FadeInUp delay={0.2}>
-              <motion.h1 className="text-5xl sm:text-6xl lg:text-7xl leading-[0.95] font-light mb-6" animate={{
-              textShadow: ["0 0 0px rgba(239, 68, 68, 0)", "0 0 20px rgba(239, 68, 68, 0.1)", "0 0 0px rgba(239, 68, 68, 0)"]
-            }} transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}>
-                Secure the future<br />
-                <span className="text-gradient-luxury bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  with SwissPats
-                </span>
-              </motion.h1>
-            </FadeInUp>
+  if (format === "percent") display = `${Math.round(v)}%`;
+  else if (format === "chf") display = `CHF ${Intl.NumberFormat("de-CH").format(Math.round(v))}`;
+  else display = Intl.NumberFormat("de-CH").format(Math.round(v));
 
-            <FadeInUp delay={0.4}>
-              <motion.p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
-                Premium-Beratung für die berufliche Integration in der Schweiz – fokussiert auf
-                höhere Gehälter, kürzere Time-to-Job und eine sichere Relocation.
-              </motion.p>
-            </FadeInUp>
+  const positionClass = {
+    top: "self-start",
+    center: "self-center", 
+    bottom: "self-end"
+  }[position];
 
-            {/* CTA Buttons */}
-            <FadeInUp delay={0.6}>
-              <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
-                <HoverScale>
-                  <RippleButton>
-                    <SwissButton variant="burgundy" size="xl" className="min-w-[280px] shadow-2xl relative z-10 transition-all duration-300" data-cta="primary" onClick={() => {
-                    document.getElementById('quick-assessment')?.scrollIntoView({
-                      behavior: 'smooth'
-                    });
-                  }}>
-                      Check your Swiss Potential
-                    </SwissButton>
-                  </RippleButton>
-                </HoverScale>
-                
-                <HoverScale>
-                  <SwissButton variant="outline" size="lg" className="min-w-[200px] relative z-10 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20" data-cta="secondary" onClick={() => {
-                  document.getElementById('calendly-booking')?.scrollIntoView({
-                    behavior: 'smooth'
-                  });
-                }}>
-                    Kostenlose Beratung
-                  </SwissButton>
-                </HoverScale>
-              </div>
-            </FadeInUp>
-
-            {/* Stats: SwissPats specific numbers */}
-            <FadeInUp delay={0.8}>
-              <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl">
-                <Stat label="Erfolgsquote" value={94} format="percent" delay={0} />
-                <Stat label="Ø Gehaltsplus" value={67400} format="chf" delay={0.2} />
-                <Stat label="Begleitete Relocations" value={847} format="int" delay={0.4} />
-              </div>
-            </FadeInUp>
-          </StaggerContainer>
-        </div>
-
-        {/* Right: Empty space for background animation visibility with subtle parallax */}
-        
+  return (
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ delay: 0.8 + delay, duration: 0.6, ease: "easeOut" }}
+      className={`bg-card/80 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-border/50 ${positionClass} max-w-[200px]`}
+    >
+      <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
+        {display}
       </div>
-    </section>;
+      <div className="text-sm text-muted-foreground font-medium">
+        {label}
+      </div>
+    </motion.div>
+  );
+}
+
+// Abstract globe/visual element for the right side
+const VisualElement = () => (
+  <motion.div 
+    className="relative w-80 h-80 mx-auto"
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+  >
+    {/* Main circle */}
+    <motion.div 
+      className="absolute inset-8 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30"
+      animate={{ 
+        rotate: [0, 360],
+        scale: [1, 1.05, 1]
+      }}
+      transition={{ 
+        rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+        scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+      }}
+    />
+    
+    {/* Inner elements */}
+    <motion.div 
+      className="absolute inset-16 rounded-full bg-gradient-to-tr from-secondary/30 to-secondary/10 border border-secondary/40"
+      animate={{ 
+        rotate: [360, 0],
+        opacity: [0.6, 1, 0.6]
+      }}
+      transition={{ 
+        rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+        opacity: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+      }}
+    />
+    
+    {/* Dot pattern */}
+    <div className="absolute inset-0">
+      {[...Array(12)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-primary/60 rounded-full"
+          style={{
+            top: '50%',
+            left: '50%',
+            transformOrigin: '0 0'
+          }}
+          animate={{
+            rotate: [0, 360],
+            scale: [0.5, 1, 0.5]
+          }}
+          transition={{
+            rotate: { duration: 8, repeat: Infinity, ease: "linear" },
+            scale: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: i * 0.1 }
+          }}
+          initial={{
+            transform: `rotate(${i * 30}deg) translate(120px, -4px)`
+          }}
+        />
+      ))}
+    </div>
+  </motion.div>
+);
+export const HeroSection = () => {
+  return (
+    <section className="relative overflow-hidden min-h-screen bg-background text-foreground">
+      {/* Subtle background with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-muted/20" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(var(--primary),0.03)_0%,transparent_70%)]" />
+      
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-24 min-h-screen flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
+          
+          {/* Left Side: Content */}
+          <div className="space-y-8">
+            <StaggerContainer>
+              <FadeInUp delay={0.1}>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                  Die Zukunft der beruflichen
+                  <br />
+                  <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent">
+                    Integration ist da.
+                  </span>
+                </h1>
+              </FadeInUp>
+
+              <FadeInUp delay={0.3}>
+                <p className="text-lg sm:text-xl text-muted-foreground max-w-lg leading-relaxed">
+                  Verkürzen Sie Ihre Time-to-Job auf unter 3 Monate, steigern Sie Ihr Gehalt 
+                  und sichern Sie sich einen erfolgreichen Karrierestart in der Schweiz.
+                </p>
+              </FadeInUp>
+
+              <FadeInUp delay={0.5}>
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <HoverScale>
+                    <SwissButton 
+                      variant="burgundy" 
+                      size="lg" 
+                      className="px-8 py-4 text-lg font-semibold shadow-lg"
+                      onClick={() => {
+                        document.getElementById('quick-assessment')?.scrollIntoView({
+                          behavior: 'smooth'
+                        });
+                      }}
+                    >
+                      Jetzt starten
+                    </SwissButton>
+                  </HoverScale>
+                </div>
+              </FadeInUp>
+            </StaggerContainer>
+          </div>
+
+          {/* Right Side: Visual Element with KPI Cards */}
+          <div className="relative flex items-center justify-center lg:justify-end">
+            <div className="relative">
+              {/* Central Visual Element */}
+              <VisualElement />
+              
+              {/* KPI Cards positioned around the visual element */}
+              <div className="absolute inset-0 flex flex-col justify-between">
+                {/* Top Card */}
+                <div className="flex justify-end -translate-y-4 translate-x-8">
+                  <KPICard 
+                    label="Erfolgsquote" 
+                    value={94} 
+                    format="percent" 
+                    delay={0} 
+                    position="top"
+                  />
+                </div>
+                
+                {/* Middle Card - Left */}
+                <div className="flex justify-start -translate-x-8">
+                  <KPICard 
+                    label="Relocations" 
+                    value={847} 
+                    format="int" 
+                    delay={0.2} 
+                    position="center"
+                  />
+                </div>
+                
+                {/* Bottom Card */}
+                <div className="flex justify-center translate-y-4 translate-x-4">
+                  <KPICard 
+                    label="Ø Gehaltsplus" 
+                    value={67400} 
+                    format="chf" 
+                    delay={0.4} 
+                    position="bottom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
