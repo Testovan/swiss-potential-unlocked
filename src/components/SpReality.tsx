@@ -44,14 +44,14 @@ const SpReality = () => {
           {spReality.map((reality, index) => (
             <FadeInUp key={index} delay={index * 0.1}>
               <article 
-                className="p-8 bg-white rounded-3xl relative"
+                className="p-8 bg-white rounded-3xl relative h-full"
                 style={{ 
                   boxShadow: '0px 3px 1px white inset',
                   border: '1px solid #E5E7EB'
                 }}
                 role="listitem"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col md:flex-row items-start gap-6">
                   {/* Large X Marker */}
                   <div 
                     className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold"

@@ -8,9 +8,7 @@ const Header = () => {
   const navigationItems = [
     { name: 'Home', href: '/' },
     { name: 'Über uns', href: '/ueber-uns' },
-    { name: 'Info Schweiz', href: '/info-schweiz' },
-    { name: 'Integrations', href: '/integrations' },
-    { name: 'Blog', href: '/blog' }
+    { name: 'Info Schweiz', href: '/info-schweiz' }
   ];
 
   return (

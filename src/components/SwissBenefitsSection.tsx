@@ -37,13 +37,19 @@ const SwissBenefitsSection = () => {
         </div>
 
         {/* Heading */}
-        <div className="head text-center mb-16">
+        <div className="head text-center flex flex-col mb-16 gap-4">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Warum <span className="brand text-primary">SwissPats</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Der smarte Weg für deutsche Fachkräfte in die Schweiz – einfach, klar und effizient.
           </p>
+            <div className="pill pill-cost w-[80%] md:w-[auto] self-center bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+              50% weniger Hürden
+            </div>
+            <div className="pill pill-top w-[80%] md:w-[auto] self-center bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
+              +67'400 CHF Ø-Mehrverdienst
+            </div>
         </div>
 
         {/* 3 Cards */}
@@ -65,12 +71,6 @@ const SwissBenefitsSection = () => {
 
           {/* Card 2: Bars */}
           <div className="card card-bars bg-card rounded-2xl p-8 text-center shadow-lg relative">
-            <span className="pill pill-top absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
-              +67'400 CHF Ø-Mehrverdienst
-            </span>
-            <span className="pill pill-cost absolute -top-12 right-4 bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm font-semibold">
-              50% weniger Hürden
-            </span>
             <span className="side-label absolute left-0 top-1/2 transform -translate-y-1/2 -rotate-90 text-xs text-muted-foreground font-semibold">
               MIT SWISSPATS
             </span>

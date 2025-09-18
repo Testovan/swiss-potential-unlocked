@@ -25,7 +25,7 @@ const SpSteps = () => {
                 }}
                 role="listitem"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col md:flex-row items-start gap-6">
                   {/* Large Number */}
                   <div 
                     className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold"

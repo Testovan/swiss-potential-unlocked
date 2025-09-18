@@ -364,8 +364,8 @@ export const SocialProofSection = () => {
                   <Star key={i} style={{ 
                     width: '20px', 
                     height: '20px', 
-                    color: i < Math.floor(trustpilotStats.rating) ? '#2E7D32' : 'rgba(0, 0, 0, 0.3)',
-                    fill: i < Math.floor(trustpilotStats.rating) ? '#2E7D32' : 'none'
+                    color: i < Math.ceil(trustpilotStats.rating) ? '#2E7D32' : 'rgba(0, 0, 0, 0.3)',
+                    fill: i < Math.ceil(trustpilotStats.rating) ? '#2E7D32' : 'none'
                   }} />
                 )}
                 <span style={{ 

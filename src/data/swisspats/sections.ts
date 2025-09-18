@@ -43,25 +43,25 @@ export const spSteps = [
 
 export const spReality = [
   {
-    marker: "X1",
+    marker: "1",
     title: "Absage trotz guter Qualifikation",
     description: "Deutsche Bewerbungen werden systematisch aussortiert …",
     statistic: "94% Absage ohne lokale professionelle Unterstützung"
   },
   {
-    marker: "X2", 
+    marker: "2", 
     title: "Wohnungssuche ist ein Alptraum",
     description: "Ohne Schweizer Arbeitsvertrag keine Wohnung …",
     statistic: "Durchschnittlich 8 Monate erfolgloses Suchen"
   },
   {
-    marker: "X3",
+    marker: "3",
     title: "Behörden-Chaos kostet Nerven", 
     description: "Aufenthaltsbewilligung, Versicherungen, Steuern … CHF 5'000+",
     statistic: "83% erreichen diesen Schritt erst gar nicht"
   },
   {
-    marker: "X4",
+    marker: "4",
     title: "Fehlende Zeit und Timing",
     description: "Berufstätig, parallele Jobsuche/Wohnung/Behörden …",
     statistic: "100% aller Auswanderer sind damit überfordert"

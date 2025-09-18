@@ -24,7 +24,7 @@ export const CalendlyBookingSection = () => {
             marginBottom: '16px',
             lineHeight: '1.2'
           }}>
-            Buche dein kostenloses Beratungsgespräch
+            Buche dein kostenloses Beratungs&#8203;gespräch
           </h2>
           <p style={{
             fontSize: '20px',

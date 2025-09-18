@@ -42,15 +42,16 @@ const SplineBackgroundAnimation = () => {
       duration: 1.2,
       ease: "easeInOut"
     }} className="absolute inset-0">
-          <iframe src="https://my.spline.design/flowingribbon-nBkwkrvCCwuptQ1MlGvk5q5J/" frameBorder="0" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking" className="absolute inset-0 w-full h-full pointer-events-none" style={{
+          <iframe src="https://my.spline.design/particleshand-RyUUAm3GMAYpweR4YDG7VEIO/" frameBorder="0" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking" className="absolute inset-0 w-full h-full pointer-events-none" style={{
         width: '100%',
         height: '100%',
+        left: '18%',
         objectFit: 'cover'
       }} title="Spline 3D Flowing Ribbon Animation" />
           
           {/* Semi-transparent overlay for text readability */}
           <div className="absolute inset-0 pointer-events-none z-[0.5]" style={{
-        background: 'linear-gradient(to left, rgba(255,255,255,0) 20%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.6) 80%)'
+        background: 'linear-gradient(to bottom, rgba(255,255,255,0) 20%, rgba(255,255,255,0.3) 50%, hsl(var(--background)) 95%)'
       }} />
         </motion.div>}
     </div>;
@@ -118,13 +119,14 @@ export const HeroSection = () => {
       repeatType: "reverse",
       ease: "linear"
     }} />
-      <motion.div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90 z-0" animate={{
-      opacity: [0.9, 1, 0.9]
-    }} transition={{
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }} />
+<motion.div
+  className="absolute inset-0 z-0"
+  style={{
+    background: "radial-gradient(circle at center, rgba(255,255,255,0) 60%, rgba(255,255,255,0.4) 80%, rgba(255,255,255,0.8) 100%)"
+  }}
+  animate={{ opacity: [0.9, 1, 0.9] }}
+  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+/>
       
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 sm:py-28 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left: Content */}
