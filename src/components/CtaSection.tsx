@@ -19,7 +19,7 @@ const CtaSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button 
               size="lg"
-              className="bg-foreground text-background hover:bg-foreground/90 px-8 py-4 text-lg font-semibold rounded-lg min-w-[240px]"
+              className="bg-[#7B0F13] text-white hover:bg-[#7B0F13]/90 px-8 py-4 text-lg font-semibold rounded-lg w-64 h-14"
             >
               Sichere Beratung starten
             </Button>
@@ -27,7 +27,7 @@ const CtaSection = () => {
             <Button 
               variant="outline"
               size="lg"
-              className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-4 text-lg font-semibold rounded-lg min-w-[240px]"
+              className="bg-white border-2 border-black text-black hover:bg-gray-50 px-8 py-4 text-lg font-semibold rounded-lg w-64 h-14"
             >
               Jetzt Kontakt aufnehmen
             </Button>
