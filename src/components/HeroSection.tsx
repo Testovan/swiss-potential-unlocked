@@ -155,37 +155,31 @@ export const HeroSection = () => {
             </FadeInUp>
 
             {/* CTA Buttons */}
-            <FadeInUp delay={0.6}>
-              <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
-                <SwissButton 
-                  variant="burgundy" 
-                  size="xl" 
-                  className="w-72 h-14 bg-[#7B0F13] text-white relative z-10 rounded-lg text-base font-semibold" 
-                  data-cta="primary" 
-                  onClick={() => {
-                    document.getElementById('quick-assessment')?.scrollIntoView({
-                      behavior: 'smooth'
-                    });
-                  }}
-                >
-                  Check your Swiss Potential
-                </SwissButton>
-                
-                <SwissButton 
-                  variant="outline" 
-                  size="xl" 
-                  className="w-72 h-14 bg-white border-2 border-black text-black relative z-10 rounded-lg text-base font-semibold" 
-                  data-cta="secondary" 
-                  onClick={() => {
-                    document.getElementById('calendly-booking')?.scrollIntoView({
-                      behavior: 'smooth'
-                    });
-                  }}
-                >
-                  Kostenlose Beratung
-                </SwissButton>
-              </div>
-            </FadeInUp>
+            <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
+              <button 
+                className="w-72 h-14 bg-[#7B0F13] text-white relative z-10 rounded-lg text-base font-semibold inline-flex items-center justify-center" 
+                data-cta="primary" 
+                onClick={() => {
+                  document.getElementById('quick-assessment')?.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }}
+              >
+                Check your Swiss Potential
+              </button>
+              
+              <button 
+                className="w-72 h-14 bg-white border-2 border-black text-black relative z-10 rounded-lg text-base font-semibold inline-flex items-center justify-center" 
+                data-cta="secondary" 
+                onClick={() => {
+                  document.getElementById('calendly-booking')?.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }}
+              >
+                Kostenlose Beratung
+              </button>
+            </div>
 
             {/* Stats: SwissPats specific numbers */}
             <FadeInUp delay={0.8}>
