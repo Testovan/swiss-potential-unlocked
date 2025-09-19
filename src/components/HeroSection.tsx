@@ -157,39 +157,33 @@ export const HeroSection = () => {
             {/* CTA Buttons */}
             <FadeInUp delay={0.6}>
               <div className="mt-10 flex flex-col sm:flex-row items-start gap-4">
-                <HoverScale>
-                  <RippleButton>
-                    <SwissButton 
-                      variant="burgundy" 
-                      size="xl" 
-                      className="w-72 h-14 bg-[#7B0F13] text-white hover:bg-[#7B0F13]/90 shadow-2xl relative z-10 transition-all duration-300 rounded-lg text-base font-semibold" 
-                      data-cta="primary" 
-                      onClick={() => {
-                        document.getElementById('quick-assessment')?.scrollIntoView({
-                          behavior: 'smooth'
-                        });
-                      }}
-                    >
-                      Check your Swiss Potential
-                    </SwissButton>
-                  </RippleButton>
-                </HoverScale>
+                <SwissButton 
+                  variant="burgundy" 
+                  size="xl" 
+                  className="w-72 h-14 bg-[#7B0F13] text-white relative z-10 rounded-lg text-base font-semibold" 
+                  data-cta="primary" 
+                  onClick={() => {
+                    document.getElementById('quick-assessment')?.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  }}
+                >
+                  Check your Swiss Potential
+                </SwissButton>
                 
-                <HoverScale>
-                  <SwissButton 
-                    variant="outline" 
-                    size="xl" 
-                    className="w-72 h-14 bg-white border-2 border-black text-black hover:bg-gray-50 relative z-10 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 rounded-lg text-base font-semibold" 
-                    data-cta="secondary" 
-                    onClick={() => {
-                      document.getElementById('calendly-booking')?.scrollIntoView({
-                        behavior: 'smooth'
-                      });
-                    }}
-                  >
-                    Kostenlose Beratung
-                  </SwissButton>
-                </HoverScale>
+                <SwissButton 
+                  variant="outline" 
+                  size="xl" 
+                  className="w-72 h-14 bg-white border-2 border-black text-black relative z-10 rounded-lg text-base font-semibold" 
+                  data-cta="secondary" 
+                  onClick={() => {
+                    document.getElementById('calendly-booking')?.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  }}
+                >
+                  Kostenlose Beratung
+                </SwissButton>
               </div>
             </FadeInUp>
 
