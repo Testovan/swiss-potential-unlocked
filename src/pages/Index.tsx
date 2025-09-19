@@ -16,6 +16,7 @@ import SpSteps from "@/components/SpSteps";
 import SpReality from "@/components/SpReality";
 import { DIYvsProComparison } from "@/components/DIYvsProComparison";
 import Footer from "@/components/Footer";
+import CtaSection from "@/components/CtaSection";
 
 const Index = () => {
   return (
@@ -69,6 +70,10 @@ const Index = () => {
       
       <FadeInUp>
         <TrustBadgesSection />
+      </FadeInUp>
+      
+      <FadeInUp>
+        <CtaSection />
       </FadeInUp>
       
       <FadeInUp>
