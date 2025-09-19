@@ -124,7 +124,7 @@ export const DIYvsProComparison = () => {
         </div>
 
         {/* Comparison Cards */}
-        <div class="grid grid-cols-1 md:grid-cols-2" style={{
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{
         gap: '24px',
         marginBottom: '48px'
       }}>
