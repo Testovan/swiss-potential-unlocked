@@ -74,165 +74,120 @@ const guarantees = [{
   text: "Persönlicher Ansprechpartner während des gesamten Prozesses"
 }];
 export const TrustBadgesSection = () => {
-  return <section style={{ padding: '100px 0', background: '#F5F5F5' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+  return <section style={{
+    padding: '100px 0',
+    background: '#F5F5F5'
+  }}>
+      <div style={{
+      maxWidth: '1200px',
+      margin: '0 auto',
+      padding: '0 20px'
+    }}>
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '44px' }}>
-          <div style={{ 
-            padding: '6px 12px', 
-            background: '#F5F5F5', 
-            boxShadow: '0px 3px 1px white inset', 
-            borderRadius: '60px', 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '8px',
-            marginBottom: '16px'
+        <div style={{
+        textAlign: 'center',
+        marginBottom: '44px'
+      }}>
+          <div style={{
+          padding: '6px 12px',
+          background: '#F5F5F5',
+          boxShadow: '0px 3px 1px white inset',
+          borderRadius: '60px',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '8px',
+          marginBottom: '16px'
+        }}>
+            <Shield style={{
+            width: '16px',
+            height: '20px',
+            color: 'rgba(0, 0, 0, 0.40)'
+          }} />
+            <span style={{
+            color: 'black',
+            fontSize: '11.44px',
+            fontFamily: 'Inter',
+            fontWeight: 500,
+            lineHeight: '14.40px'
           }}>
-            <Shield style={{ width: '16px', height: '20px', color: 'rgba(0, 0, 0, 0.40)' }} />
-            <span style={{ 
-              color: 'black', 
-              fontSize: '11.44px', 
-              fontFamily: 'Inter', 
-              fontWeight: 500, 
-              lineHeight: '14.40px' 
-            }}>
               SICHERHEIT & VERTRAUEN
             </span>
           </div>
-          <h2 style={{ 
-            fontSize: '53.16px', 
-            fontFamily: 'Inter', 
-            fontWeight: 500, 
-            lineHeight: '67.20px', 
-            color: 'black',
-            textAlign: 'center',
-            marginBottom: '16px'
-          }}>
+          <h2 style={{
+          fontSize: '53.16px',
+          fontFamily: 'Inter',
+          fontWeight: 500,
+          lineHeight: '67.20px',
+          color: 'black',
+          textAlign: 'center',
+          marginBottom: '16px'
+        }}>
             Deine Sicherheit ist unsere Priorität
           </h2>
-          <p style={{ 
-            fontSize: '16px', 
-            fontFamily: 'Inter', 
-            fontWeight: 400, 
-            lineHeight: '24px', 
-            color: 'black',
-            opacity: 0.8,
-            textAlign: 'center',
-            maxWidth: '500px',
-            margin: '0 auto'
-          }}>
+          <p style={{
+          fontSize: '16px',
+          fontFamily: 'Inter',
+          fontWeight: 400,
+          lineHeight: '24px',
+          color: 'black',
+          opacity: 0.8,
+          textAlign: 'center',
+          maxWidth: '500px',
+          margin: '0 auto'
+        }}>
             Höchste Standards bei Datenschutz, Sicherheit und Beratungsqualität
           </p>
         </div>
 
         {/* Trust Badges Grid */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-          gap: '24px', 
-          marginBottom: '44px' 
+        <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gap: '24px',
+        marginBottom: '44px'
+      }}>
+          {trustBadges.map((badge, index) => <div key={index} style={{
+          padding: '32px',
+          background: '#F5F5F5',
+          boxShadow: '0px 3px 1px white inset',
+          borderRadius: '16px',
+          textAlign: 'center',
+          transition: 'all 0.3s ease'
         }}>
-          {trustBadges.map((badge, index) => 
-            <div key={index} style={{ 
-              padding: '32px', 
-              background: '#F5F5F5', 
-              boxShadow: '0px 3px 1px white inset', 
-              borderRadius: '16px',
-              textAlign: 'center',
-              transition: 'all 0.3s ease'
-            }}>
-              <div style={{ 
-                padding: '16px', 
-                background: badge.color === 'alpine-green' ? 'rgba(46, 125, 50, 0.20)' : 'rgba(128, 0, 32, 0.20)', 
-                borderRadius: '12px',
-                display: 'inline-flex',
-                marginBottom: '16px',
-                color: badge.color === 'alpine-green' ? '#2E7D32' : '#800020'
-              }}>
+              <div style={{
+            padding: '16px',
+            background: badge.color === 'alpine-green' ? 'rgba(46, 125, 50, 0.20)' : 'rgba(128, 0, 32, 0.20)',
+            borderRadius: '12px',
+            display: 'inline-flex',
+            marginBottom: '16px',
+            color: badge.color === 'alpine-green' ? '#2E7D32' : '#800020'
+          }}>
                 {badge.icon}
               </div>
-              <h3 style={{ 
-                fontSize: '16px', 
-                fontFamily: 'Inter', 
-                fontWeight: 500, 
-                color: 'black',
-                marginBottom: '8px'
-              }}>
+              <h3 style={{
+            fontSize: '16px',
+            fontFamily: 'Inter',
+            fontWeight: 500,
+            color: 'black',
+            marginBottom: '8px'
+          }}>
                 {badge.title}
               </h3>
-              <p style={{ 
-                fontSize: '14px', 
-                fontFamily: 'Inter', 
-                fontWeight: 400, 
-                lineHeight: '22px', 
-                color: 'black',
-                opacity: 0.7
-              }}>
+              <p style={{
+            fontSize: '14px',
+            fontFamily: 'Inter',
+            fontWeight: 400,
+            lineHeight: '22px',
+            color: 'black',
+            opacity: 0.7
+          }}>
                 {badge.description}
               </p>
-            </div>
-          )}
+            </div>)}
         </div>
 
         {/* Final CTA */}
-        <div style={{ textAlign: 'center' }}>
-          <h3 style={{ 
-            fontSize: '22.12px', 
-            fontFamily: 'Inter', 
-            fontWeight: 500, 
-            lineHeight: '36px', 
-            color: 'black',
-            marginBottom: '16px'
-          }}>
-            Bereit für deinen sicheren Schweiz-Wechsel?
-          </h3>
-          <p style={{ 
-            fontSize: '16px', 
-            fontFamily: 'Inter', 
-            fontWeight: 400, 
-            lineHeight: '24px', 
-            color: 'black',
-            opacity: 0.8,
-            marginBottom: '24px'
-          }}>
-            Vertraue auf unsere Expertise und starte deine Schweiz-Karriere mit absoluter Sicherheit
-          </p>
-          
-          <button style={{ 
-            padding: '11px 24px', 
-            background: 'black', 
-            boxShadow: '0px 30px 30px -3.5px rgba(0, 0, 0, 0.15)', 
-            borderRadius: '10px',
-            border: 'none',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            cursor: 'pointer'
-          }}>
-            <Shield style={{ width: '20px', height: '20px', color: 'white' }} />
-            <span style={{ 
-              color: 'white', 
-              fontSize: '14px', 
-              fontFamily: 'Inter', 
-              fontWeight: 500, 
-              lineHeight: '22.40px' 
-            }}>
-              Sichere Beratung starten
-            </span>
-          </button>
-          
-          <p style={{ 
-            fontSize: '14px', 
-            fontFamily: 'Inter', 
-            fontWeight: 400, 
-            lineHeight: '24px', 
-            color: 'black',
-            opacity: 0.8,
-            marginTop: '16px'
-          }}>
-            100% DSGVO-konform • SSL-verschlüsselt • Zertifizierte Beratung
-          </p>
-        </div>
+        
       </div>
     </section>;
 };
